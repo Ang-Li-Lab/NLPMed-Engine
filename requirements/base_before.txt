@@ -1,0 +1,8 @@
+ftfy==6.2.3
+datasketch==1.6.5
+torch==2.4.1
+transformers[accelerate]==4.45.0
+
+fastapi==0.115.0
+httpx==0.27.2
+python-dotenv==1.0.1

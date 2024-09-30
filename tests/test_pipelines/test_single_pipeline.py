@@ -1,0 +1,178 @@
+import json
+from typing import Any
+
+import pytest
+
+from nlpmed_engine.data_structures.patient import Patient
+from nlpmed_engine.pipelines.single_pipeline import SinglePipeline
+
+
+@pytest.fixture
+def patient_data() -> dict:
+    # Sample patient data for testing
+    return {
+        "patient_id": "123",
+        "notes": [
+            {
+                "text": "Chief Complaint: This is the first note. It mentions DVT and other relevant medical terms.",
+            },
+            {
+                "text": "Assessment: This is the second note. It discusses PE and similar conditions in detail.",
+            },
+        ],
+    }
+
+
+@pytest.fixture
+def default_config() -> dict:
+    # Default configuration with all components enabled
+    return {
+        "encoding_fixer": {"status": "enabled"},
+        "pattern_replacer": {
+            "status": "enabled",
+            "patterns": [r"\s{4,}"],
+            "target": "\n\n",
+        },
+        "word_masker": {
+            "status": "enabled",
+            "words_to_mask": ["PE CT", "DVT ppx"],
+            "mask_char": "*",
+        },
+        "note_filter": {
+            "status": "enabled",
+            "words_to_search": ["DVT", "PE"],
+        },
+        "section_splitter": {
+            "status": "enabled",
+            "delimiter": "\n\n",
+        },
+        "section_filter": {
+            "status": "enabled",
+            "section_inc_list": ["Chief Complaint", "Assessment"],
+            "section_exc_list": ["Review of System", "System Review"],
+            "fallback": True,
+        },
+        "sentence_segmenter": {
+            "status": "enabled",
+            "model_name": "en_core_sci_lg",
+            "batch_size": 10,
+        },
+        "duplicate_checker": {
+            "status": "enabled",
+            "num_perm": 256,
+            "sim_threshold": 0.9,
+            "length_threshold": 50,
+        },
+        "sentence_filter": {
+            "status": "enabled",
+            "words_to_search": ["DVT", "PE"],
+        },
+        "sentence_expander": {
+            "status": "enabled",
+            "length_threshold": 50,
+        },
+        "joiner": {
+            "status": "enabled",
+            "sentence_delimiter": "\n",
+            "section_delimiter": "\n\n",
+        },
+        "ml_inference": {
+            "status": "enabled",
+            "device": "cpu",
+            "ml_model_path": "prajjwal1/bert-mini",
+            "ml_tokenizer_path": "prajjwal1/bert-mini",
+        },
+    }
+
+
+def test_process_single_pipeline(patient_data: dict, default_config: dict) -> None:
+    # Test the full processing of a single patient with all components enabled
+    patient = Patient.from_json(json.dumps(patient_data))
+    pipeline = SinglePipeline(config=default_config)
+    processed_patient = pipeline.process(patient)
+
+    # Assertions to ensure patient notes are processed correctly
+    assert processed_patient.patient_id == "123"
+    assert processed_patient.notes
+    assert all(note.preprocessed_text for note in processed_patient.notes)
+
+
+def test_modify_config_at_runtime_single_pipeline(
+    patient_data: dict,
+    default_config: dict,
+) -> None:
+    # Modify a component's configuration at runtime and test processing
+    patient = Patient.from_json(json.dumps(patient_data))
+    pipeline = SinglePipeline(config=default_config)
+
+    # Change config at processing time
+    process_config = {
+        "duplicate_checker": {"status": "enabled", "length_threshold": 10},
+    }
+    processed_patient = pipeline.process(patient, config=process_config)
+
+    # Assertions to verify that the modified configuration was applied
+    assert processed_patient.notes
+    for note in processed_patient.notes:
+        for section in note.sections:
+            assert all(
+                len(sentence.text) >= 10  # noqa: PLR2004
+                for sentence in section.sentences
+                if sentence.is_duplicate
+            )
+
+
+def test_exclude_component_single_pipeline(
+    patient_data: dict,
+    default_config: dict,
+) -> None:
+    # Test excluding specific components in SinglePipeline processing
+    config = default_config.copy()
+    config["duplicate_checker"]["status"] = "excluded"
+
+    patient = Patient.from_json(json.dumps(patient_data))
+    pipeline = SinglePipeline(config=config)
+    processed_patient = pipeline.process(patient)
+
+    # Assertions to ensure that excluded components did not alter processing
+    assert processed_patient.notes
+    assert pipeline.components["duplicate_checker"]["component"] is None
+
+
+def test_disabled_component_single_pipeline(
+    patient_data: dict,
+    default_config: dict,
+) -> None:
+    # Test disabling specific components during processing
+    config = default_config.copy()
+    config["sentence_filter"]["status"] = "disabled"
+
+    patient = Patient.from_json(json.dumps(patient_data))
+    pipeline = SinglePipeline(config=config)
+    processed_patient = pipeline.process(patient)
+
+    # Assertions to ensure processing without the disabled component
+    assert processed_patient.notes
+    for note in processed_patient.notes:
+        for section in note.sections:
+            assert not any(sentence.is_important for sentence in section.sentences)
+
+
+def test_component_interruption_single_pipeline(
+    patient_data: dict,
+    default_config: dict,
+) -> None:
+    # Test handling interruptions if a component returns None (early termination)
+    class MockComponent:
+        def process(self, _: Any) -> None:  # noqa: ANN401
+            return None  # Simulate an interruption
+
+    # Modify the pipeline to include a mock component that stops processing
+    pipeline = SinglePipeline(config=default_config)
+    pipeline.components["encoding_fixer"]["component"] = MockComponent()
+    patient = Patient.from_json(json.dumps(patient_data))
+    processed_patient = pipeline.process(patient)
+
+    # Assertions to check processing stops when a component returns None
+    assert processed_patient.notes
+    assert all(note.preprocessed_text is None for note in processed_patient.notes)  # Expect processing to halt
