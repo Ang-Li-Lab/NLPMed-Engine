@@ -1,5 +1,5 @@
 -r base_before.txt
 
-spacy[cuda]===3.7.6
+spacy[cuda11x]===3.7.6
 
 -r base_after.txt

@@ -1,0 +1,5 @@
+-r base_before.txt
+
+spacy[cuda12x]===3.7.6
+
+-r base_after.txt
