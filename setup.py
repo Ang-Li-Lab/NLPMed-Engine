@@ -31,7 +31,7 @@ def read_requirements(file_name: str) -> list:
             if line_stripped.startswith("-r"):
                 req_path = line_stripped.split(" ")[1]
                 if not Path(req_path).is_absolute():
-                    req_path = Path(file_name).parent / req_path
+                    req_path = str(Path(file_name).parent / req_path)
                 requirements.extend(read_requirements(req_path))
             elif line_stripped and not line_stripped.startswith("#"):
                 requirements.append(line_stripped)

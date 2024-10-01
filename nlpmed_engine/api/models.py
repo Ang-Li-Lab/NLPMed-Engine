@@ -304,6 +304,7 @@ class ConfigModel(BaseModel):
     sentence_expander: dict | None = None
     joiner: dict | None = None
     ml_inference: dict | None = None
+    debug: bool = False
 
 
 class SentenceModel(BaseModel):
@@ -377,6 +378,10 @@ class SectionModel(BaseModel):
         default_factory=list,
         description="Indices of duplicate sentences in the section",
     )
+    expanded_indices: list[int] = Field(
+        default_factory=list,
+        description="Indices of expanded sentences in the section",
+    )
     is_important: bool = Field(
         default=False,
         description="Indicates if the section is marked as important",
@@ -437,6 +442,7 @@ class TextProcessingResponseModel(BaseModel):
         preprocessed_text (str | None): The preprocessed text output.
         predicted_label (str | None): The predicted label from the model inference.
         predicted_score (float | None): The prediction score associated with the predicted label.
+        note (NoteModel | None): The note object returned in debug mode.
 
     """
 
@@ -451,4 +457,8 @@ class TextProcessingResponseModel(BaseModel):
     predicted_score: float | None = Field(
         None,
         description="The prediction score associated with the predicted label.",
+    )
+    note: NoteModel | None = Field(
+        None,
+        description="The note object returned in debug mode.",
     )

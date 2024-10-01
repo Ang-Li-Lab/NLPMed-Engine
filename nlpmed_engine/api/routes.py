@@ -34,6 +34,7 @@ from fastapi import APIRouter
 from fastapi import Depends
 from fastapi import HTTPException
 
+from nlpmed_engine.api.mappers import map_internal_to_pydantic_note_model
 from nlpmed_engine.api.mappers import map_internal_to_pydantic_patient_model
 from nlpmed_engine.api.mappers import map_pydantic_to_internal_patient
 from nlpmed_engine.api.models import ConfigModel
@@ -102,6 +103,7 @@ initial_config = {
         "ml_model_path": os.getenv("API_ML_MODEL_PATH", "prajjwal1/bert-mini"),
         "ml_tokenizer_path": os.getenv("API_ML_TOKENIZER_PATH", "prajjwal1/bert-mini"),
     },
+    "debug": False,
 }
 
 single_pipeline_instance = SinglePipeline(config=initial_config)
@@ -205,7 +207,7 @@ def process_text(
     input_data: StringInputModel,
     config: ConfigModel,
     pipeline: Annotated[SinglePipeline, Depends(get_single_pipeline)],
-) -> TextProcessingResponseModel:
+) -> TextProcessingResponseModel | NoteModel:
     """Processes a standalone text input using the specified configuration and pipeline.
 
     Args:
@@ -215,7 +217,7 @@ def process_text(
 
     Returns:
         TextProcessingResponseModel: The response containing preprocessed text, predicted label,
-        and predicted score.
+        and predicted score, with additional `NoteModel` if `debug` is True.
 
     Raises:
         HTTPException: If an error occurs during the processing of the text input.
@@ -245,8 +247,14 @@ def process_text(
         ) from e
 
     else:
-        return TextProcessingResponseModel(
+        response = TextProcessingResponseModel(
             preprocessed_text=processed_note.preprocessed_text,
             predicted_label=processed_note.predicted_label,
             predicted_score=processed_note.predicted_score,
+            note=None,
         )
+
+        if config.debug:
+            response.note = map_internal_to_pydantic_note_model(processed_note)
+
+        return response

@@ -131,6 +131,10 @@ class SectionFilter:
                 filtered_sections.append(section)
 
         if not filtered_sections and effective_fallback:
+            # Mark all sections as important
+            for section in note.sections:
+                section.is_important = True
+
             return note
 
         note.sections = filtered_sections
