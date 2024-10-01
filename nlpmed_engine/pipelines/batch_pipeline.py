@@ -14,6 +14,7 @@ def _partial_process_phase(serialized_patient: bytes, components: list) -> bytes
             processed_note = component.process(note, **params)
 
             if processed_note is None:
+                note.preprocessed_text = ""
                 break
 
     return pickle.dumps(patient, protocol=pickle.HIGHEST_PROTOCOL)

@@ -31,6 +31,7 @@ class SinglePipeline(BasePipeline):
                     processed_note = component.process(note, **params)  # type: ignore[attr-defined]
 
                     if processed_note is None:
+                        note.preprocessed_text = ""
                         break
 
         return patient
