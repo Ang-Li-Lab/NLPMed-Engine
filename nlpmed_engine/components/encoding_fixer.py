@@ -34,5 +34,5 @@ class EncodingFixer:
             Note: The processed note with encoding issues corrected.
 
         """
-        note.text = ftfy.fix_text(note.text)
+        note.text = ftfy.fix_text(note.text.strip())
         return note
