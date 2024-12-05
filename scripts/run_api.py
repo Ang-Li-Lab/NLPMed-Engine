@@ -13,6 +13,7 @@ load_dotenv(dotenv_path=project_root / ".env")
 
 host = os.getenv("API_HOST", "127.0.0.1")
 port = int(os.getenv("API_PORT", "8000"))
+workers = int(os.getenv("API_WORKERS", "1"))
 
 log_config = uvicorn.config.LOGGING_CONFIG
 log_config["formatters"]["access"]["fmt"] = (
@@ -29,6 +30,7 @@ if __name__ == "__main__":
         port=port,
         log_level="info",
         log_config=log_config,
-        workers=4,
+        workers=workers,
         reload=False,
+        worker_healthcheck_timeout=10,
     )
