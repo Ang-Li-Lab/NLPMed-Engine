@@ -30,7 +30,7 @@ def default_config() -> dict:
         "encoding_fixer": {"status": "enabled"},
         "pattern_replacer": {
             "status": "enabled",
-            "patterns": [r"\s{4,}"],
+            "pattern": r"\s{4,}",
             "target": "\n\n",
         },
         "word_masker": {
@@ -175,4 +175,4 @@ def test_component_interruption_single_pipeline(
 
     # Assertions to check processing stops when a component returns None
     assert processed_patient.notes
-    assert all(note.preprocessed_text is None for note in processed_patient.notes)  # Expect processing to halt
+    assert all(note.preprocessed_text == "" for note in processed_patient.notes)  # Expect processing to halt

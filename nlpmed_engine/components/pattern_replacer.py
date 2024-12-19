@@ -23,62 +23,61 @@ class PatternReplacer:
     standardization of note content.
 
     Attributes:
-        patterns (list[str] | None): List of regex patterns to search for in the text.
-        target (str | None): The replacement string for matched patterns.
+        pattern (str | None): Regex pattern to search for in the text.
+        target (str | None): The replacement string for matched pattern.
 
     """
 
     def __init__(
         self,
-        patterns: list[str] | None = None,
+        pattern: str | None = None,
         target: str | None = None,
     ) -> None:
-        """Initializes the PatternReplacer with specified patterns and a target replacement.
+        """Initializes the PatternReplacer with specified pattern and a target replacement.
 
         Args:
-            patterns (list[str] | None): List of regex patterns to be replaced.
-            target (str | None): The string to replace matched patterns with.
+            pattern (str | None): Regex pattern to be replaced.
+            target (str | None): The string to replace matched pattern with.
 
         """
-        self.patterns = patterns
+        self.pattern = pattern
         self.target = target
 
     @staticmethod
     @lru_cache(maxsize=16)
-    def _compile_regex(patterns: tuple[str]) -> re.Pattern:
-        """Compiles a combined regex pattern from a list of patterns.
+    def _compile_regex(pattern: tuple[str]) -> re.Pattern:
+        """Compiles the given regex pattern.
 
         Args:
-            patterns (tuple[str]): A tuple of regex patterns to compile.
+            pattern (str): A regex pattern to compile.
 
         Returns:
-            re.Pattern: A compiled regex pattern that matches any of the specified patterns.
+            re.Pattern: A compiled regex pattern.
 
         """
-        combined_pattern = "|".join(f"({pattern})" for pattern in patterns)
-        return re.compile(combined_pattern)
+        return re.compile(pattern)
 
     def process(
         self,
         note: Note,
-        patterns: list[str] | None = None,
+        pattern: str | None = None,
         target: str | None = None,
     ) -> Note:
-        """Processes a note by replacing matched patterns with the specified target string.
+        """Processes a note by replacing matched pattern with the specified target string.
 
         Args:
             note (Note): The note object containing text to be modified.
-            patterns (list[str] | None): Optional list of patterns to override the default patterns.
+            pattern (str | None): Optional pattern to override the default pattern.
             target (str | None): Optional target string to override the default replacement.
 
         Returns:
-            Note: The processed note with patterns replaced by the target string.
+            Note: The processed note with pattern replaced by the target string.
 
         """
-        effective_patterns = get_effective_param(self.patterns, patterns, required=True)
+        effective_pattern = get_effective_param(self.pattern, pattern, required=True)
         effective_target = get_effective_param(self.target, target, required=True)
 
-        regex = self._compile_regex(tuple(effective_patterns))
+        regex = self._compile_regex(effective_pattern)
 
         note.text = regex.sub(effective_target, note.text)
         return note

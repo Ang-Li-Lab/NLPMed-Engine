@@ -4,7 +4,7 @@ from nlpmed_engine.data_structures.note import Note
 
 def test_single_pattern_replacement() -> None:
     note = Note(text="This is a test pattern.")
-    replacer = PatternReplacer(patterns=["test"], target="***")
+    replacer = PatternReplacer(pattern="test", target="***")
 
     # Process the note
     processed_note = replacer.process(note)
@@ -15,7 +15,7 @@ def test_single_pattern_replacement() -> None:
 
 def test_multiple_pattern_replacement() -> None:
     note = Note(text="This is a test pattern with some text.")
-    replacer = PatternReplacer(patterns=["test", "text"], target="***")
+    replacer = PatternReplacer(pattern="test|text", target="***")
 
     # Process the note
     processed_note = replacer.process(note)
@@ -26,7 +26,7 @@ def test_multiple_pattern_replacement() -> None:
 
 def test_regex_pattern_replacement() -> None:
     note = Note(text="This is a test pattern with 1234 numbers.")
-    replacer = PatternReplacer(patterns=[r"\d+"], target="###")
+    replacer = PatternReplacer(pattern=r"\d+", target="###")
 
     # Process the note
     processed_note = replacer.process(note)
@@ -37,7 +37,7 @@ def test_regex_pattern_replacement() -> None:
 
 def test_no_pattern_match() -> None:
     note = Note(text="This text has no matching pattern.")
-    replacer = PatternReplacer(patterns=["notfound"], target="***")
+    replacer = PatternReplacer(pattern="notfound", target="***")
 
     # Process the note
     processed_note = replacer.process(note)

@@ -29,7 +29,7 @@ def default_config() -> dict:
         "encoding_fixer": {"status": "enabled"},
         "pattern_replacer": {
             "status": "enabled",
-            "patterns": [r"\s{4,}"],
+            "pattern": r"\s{4,}",
             "target": "\n\n",
         },
         "word_masker": {

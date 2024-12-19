@@ -13,7 +13,7 @@ Classes:
     EncodingFixerModel:
         Model for encoding fixer component status.
     PatternReplacerModel:
-        Model for pattern replacer component with patterns and target replacements.
+        Model for pattern replacer component with pattern and target replacements.
     WordMaskerModel:
         Model for word masker component with mask settings.
     NoteFilterModel:
@@ -82,21 +82,21 @@ class EncodingFixerModel(ComponentStatusModel):
 
 
 class PatternReplacerModel(ComponentStatusModel):
-    """Model for pattern replacer component with patterns and target replacements.
+    """Model for pattern replacer component with pattern and target replacements.
 
     Attributes:
-        patterns (list[str]): Patterns to replace in the text.
-        target (str): Target string to replace matched patterns.
+        pattern (str): Regex pattern to replace in the text.
+        target (str): Target string to replace matched pattern.
 
     """
 
-    patterns: list[str] = Field(
-        default_factory=list,
-        description="Patterns to replace in the text.",
+    pattern: str = Field(
+        default=r"\s{4,}",
+        description="Regex pattern to replace in the text.",
     )
     target: str = Field(
         default="\n\n",
-        description="Target string to replace matched patterns.",
+        description="Target string to replace matched pattern.",
     )
 
 

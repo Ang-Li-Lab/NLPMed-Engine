@@ -78,7 +78,7 @@ class BasePipeline:
 
     def _init_pattern_replacer(self, settings: dict) -> PatternReplacer:
         return PatternReplacer(
-            patterns=settings["patterns"],
+            pattern=settings["pattern"],
             target=settings.get("target", "\n\n"),
         )
 
