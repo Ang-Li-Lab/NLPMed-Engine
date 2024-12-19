@@ -1,0 +1,12 @@
+[Unit]
+Description=NLPMed-Engine Startup Script
+After=network.target
+
+[Service]
+WorkingDirectory=/home/ec2-user/NLPMed-Engine
+ExecStart=/usr/bin/python scripts/run_api.py
+Restart=on-failure
+User=ec2-user
+
+[Install]
+WantedBy=multi-user.target
