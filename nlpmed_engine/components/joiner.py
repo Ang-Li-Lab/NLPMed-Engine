@@ -78,13 +78,6 @@ class Joiner:
             if section.important_indices:
                 sentences_to_join = [section.sentences[idx].text for idx in section.important_indices]
 
-            elif section.duplicate_indices:
-                sentences_to_join = [
-                    sentence.text
-                    for idx, sentence in enumerate(section.sentences)
-                    if idx not in section.duplicate_indices
-                ]
-
             if sentences_to_join:
                 joined_sentences = effective_sentence_delimiter.join(sentences_to_join)
                 preprocessed_sections.append(joined_sentences)
