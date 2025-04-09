@@ -1,3 +1,19 @@
+# SPDX-FileCopyrightText: Copyright (C) 2025 Omid Jafari <omidjafari.com>
+# SPDX-License-Identifier: AGPL-3.0-or-later
+#
+# This program is free software: you can redistribute it and/or modify
+# it under the terms of the GNU Affero General Public License as published by
+# the Free Software Foundation, either version 3 of the License, or
+# (at your option) any later version.
+#
+# This program is distributed in the hope that it will be useful,
+# but WITHOUT ANY WARRANTY; without even the implied warranty of
+# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+# GNU Affero General Public License for more details.
+#
+# You should have received a copy of the GNU Affero General Public License
+# along with this program.  If not, see <http://www.gnu.org/licenses/>.
+
 from collections import OrderedDict
 from typing import Any
 from typing import TypedDict
@@ -73,68 +89,68 @@ class BasePipeline:
 
         return component_map[component_name](settings)
 
-    def _init_encoding_fixer(self, _: Any) -> EncodingFixer:  # noqa: ANN401
+    def _init_encoding_fixer(self, _: Any) -> EncodingFixer:  # noqa: PLR6301,ANN401
         return EncodingFixer()
 
-    def _init_pattern_replacer(self, settings: dict) -> PatternReplacer:
+    def _init_pattern_replacer(self, settings: dict) -> PatternReplacer:  # noqa: PLR6301
         return PatternReplacer(
             pattern=settings["pattern"],
             target=settings.get("target", "\n\n"),
         )
 
-    def _init_word_masker(self, settings: dict) -> WordMasker:
+    def _init_word_masker(self, settings: dict) -> WordMasker:  # noqa: PLR6301
         return WordMasker(
             words_to_mask=settings["words_to_mask"],
             mask_char=settings.get("mask_char", "*"),
         )
 
-    def _init_note_filter(self, settings: dict) -> NoteFilter:
+    def _init_note_filter(self, settings: dict) -> NoteFilter:  # noqa: PLR6301
         return NoteFilter(
             words_to_search=settings["words_to_search"],
         )
 
-    def _init_section_splitter(self, settings: dict) -> SectionSplitter:
+    def _init_section_splitter(self, settings: dict) -> SectionSplitter:  # noqa: PLR6301
         return SectionSplitter(
             delimiter=settings.get("delimiter", "\n\n"),
         )
 
-    def _init_section_filter(self, settings: dict) -> SectionFilter:
+    def _init_section_filter(self, settings: dict) -> SectionFilter:  # noqa: PLR6301
         return SectionFilter(
             section_inc_list=settings["section_inc_list"],
             section_exc_list=settings["section_exc_list"],
             fallback=settings["fallback"],
         )
 
-    def _init_sentence_segmenter(self, settings: dict) -> SentenceSegmenter:
+    def _init_sentence_segmenter(self, settings: dict) -> SentenceSegmenter:  # noqa: PLR6301
         return SentenceSegmenter(
             model_name=settings.get("model_name", "en_core_sci_lg"),
             batch_size=settings.get("batch_size", 10),
         )
 
-    def _init_duplicate_checker(self, settings: dict) -> DuplicateChecker:
+    def _init_duplicate_checker(self, settings: dict) -> DuplicateChecker:  # noqa: PLR6301
         return DuplicateChecker(
             num_perm=settings.get("num_perm", 256),
             sim_threshold=settings.get("sim_threshold", 0.9),
             length_threshold=settings["length_threshold"],
         )
 
-    def _init_sentence_filter(self, settings: dict) -> SentenceFilter:
+    def _init_sentence_filter(self, settings: dict) -> SentenceFilter:  # noqa: PLR6301
         return SentenceFilter(
             words_to_search=settings["words_to_search"],
         )
 
-    def _init_sentence_expander(self, settings: dict) -> SentenceExpander:
+    def _init_sentence_expander(self, settings: dict) -> SentenceExpander:  # noqa: PLR6301
         return SentenceExpander(
             length_threshold=settings["length_threshold"],
         )
 
-    def _init_joiner(self, settings: dict) -> Joiner:
+    def _init_joiner(self, settings: dict) -> Joiner:  # noqa: PLR6301
         return Joiner(
             sentence_delimiter=settings.get("sentence_delimiter", "\n"),
             section_delimiter=settings.get("section_delimiter", "\n\n"),
         )
 
-    def _init_ml_inference(self, settings: dict) -> MLInference:
+    def _init_ml_inference(self, settings: dict) -> MLInference:  # noqa: PLR6301
         return MLInference(
             device=settings["device"],
             ml_model_path=settings["ml_model_path"],

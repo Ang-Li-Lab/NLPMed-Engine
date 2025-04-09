@@ -1,3 +1,19 @@
+# SPDX-FileCopyrightText: Copyright (C) 2025 Omid Jafari <omidjafari.com>
+# SPDX-License-Identifier: AGPL-3.0-or-later
+#
+# This program is free software: you can redistribute it and/or modify
+# it under the terms of the GNU Affero General Public License as published by
+# the Free Software Foundation, either version 3 of the License, or
+# (at your option) any later version.
+#
+# This program is distributed in the hope that it will be useful,
+# but WITHOUT ANY WARRANTY; without even the implied warranty of
+# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+# GNU Affero General Public License for more details.
+#
+# You should have received a copy of the GNU Affero General Public License
+# along with this program.  If not, see <http://www.gnu.org/licenses/>.
+
 import pytest
 
 from nlpmed_engine.components.joiner import Joiner
@@ -91,7 +107,7 @@ def test_joiner_with_no_important_sentences(joiner: Joiner) -> None:
     processed_note = joiner.process(note)
 
     # Assert that the preprocessed text is empty since there are no important sentences
-    assert processed_note.preprocessed_text == ""
+    assert not processed_note.preprocessed_text
 
 
 def test_joiner_with_no_important_sections(joiner: Joiner) -> None:
@@ -118,4 +134,4 @@ def test_joiner_with_no_important_sections(joiner: Joiner) -> None:
     processed_note = joiner.process(note)
 
     # Assert that the preprocessed text is empty since no sections are important
-    assert processed_note.preprocessed_text == ""
+    assert not processed_note.preprocessed_text

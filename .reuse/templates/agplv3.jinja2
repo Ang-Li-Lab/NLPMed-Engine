@@ -1,7 +1,14 @@
-<!--
-SPDX-FileCopyrightText: Copyright (C) 2025 Omid Jafari <omidjafari.com>
-SPDX-License-Identifier: AGPL-3.0-or-later
+{% for copyright_line in copyright_lines %}
+{{ copyright_line }}
+{% endfor %}
+{% for contributor_line in contributor_lines %}
+SPDX-FileContributor: {{ contributor_line }}
+{% endfor %}
+{% for expression in spdx_expressions %}
+SPDX-License-Identifier: {{ expression }}
+{% endfor %}
 
+{% if "AGPL-3.0-or-later" in spdx_expressions %}
 This program is free software: you can redistribute it and/or modify
 it under the terms of the GNU Affero General Public License as published by
 the Free Software Foundation, either version 3 of the License, or
@@ -14,19 +21,4 @@ GNU Affero General Public License for more details.
 
 You should have received a copy of the GNU Affero General Public License
 along with this program.  If not, see <http://www.gnu.org/licenses/>.
--->
-
-# NLPMed-Engine
-
-The NLP backend for NLPMed-Portal.
-
-![Static Badge](https://img.shields.io/badge/license-AGPLv3-blue)
-
-
-## Basic Commands
-
-### Run API
-
-- To run the API, use this command:
-
-      $ python scripts/run_api.py
+{% endif %}
