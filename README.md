@@ -18,15 +18,75 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 # NLPMed-Engine
 
-The NLP backend for NLPMed-Portal.
+**The NLP backend for NLPMed-Portal.**
+
+NLPMed-Engine is a robust and extensible natural language processing engine tailored for medical text. It supports a range of NLP tasks commonly used in clinical and biomedical applications.
+
+> ⚠️ **Important:** This software is intended for research use only. It must not be used in real-world medical or clinical decision-making settings.
 
 ![Static Badge](https://img.shields.io/badge/license-AGPLv3-blue)
 
+---
 
-## Basic Commands
+## Installation
 
-### Run API
+Install dependencies based on your environment:
 
-- To run the API, use this command:
+- **CPU**:
+  ```bash
+  pip install -r requirements/cpu.txt
+  ```
 
-      $ python scripts/run_api.py
+- **Apple GPU (MPS)**:
+  ```bash
+  pip install -r requirements/gpu_apple.txt
+  ```
+
+- **Apple CUDA 11**:
+  ```bash
+  pip install -r requirements/gpu_guda11.txt
+  ```
+
+- **Apple CUDA 12**:
+  ```bash
+  pip install -r requirements/gpu_guda12.txt
+  ```
+
+## Usage
+
+### Run REST API
+
+1. Create a `.env` file with the following template:
+
+   ```ini
+   API_ML_DEVICE=cpu or mps or cuda
+   API_ML_MODEL_PATH=path/to/model
+   API_ML_TOKENIZER_PATH=path/to/tokenizer
+   API_HOST=127.0.0.1
+   API_PORT=10010
+   API_WORKERS=1
+   ```
+
+2. Run the API:
+
+   ```bash
+   python scripts/run_api.py
+   ```
+
+### Run Single or Batch Pipelines
+
+Instead of using the API, you can directly use the `SinglePipeline` or `BatchPipeline` classes in your Python code.
+
+- See `tests/test_single_pipeline.py` and `tests/test_batch_pipeline.py` for usage examples.
+
+## Documentation
+
+See [documentation](https://ang-li-lab.github.io/NLPMed-Engine/) for full API and module reference (generated with Sphinx).
+
+## Terms of Use
+
+This project includes software, models, or a federated learning framework that are governed by additional terms beyond the AGPLv3 license.
+
+By using this software or model, you agree to the [Terms & Conditions](./TERMS.md).
+
+---
