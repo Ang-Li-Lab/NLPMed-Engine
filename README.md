@@ -79,6 +79,11 @@ Instead of using the API, you can directly use the `SinglePipeline` or `BatchPip
 
 - See `tests/test_single_pipeline.py` and `tests/test_batch_pipeline.py` for usage examples.
 
+## Resources
+
+- **Demo**: [Visit our demo site](https://nlpmed.demo.angli-lab.com/nlp/demo)
+- **VTE-BERT Model**: Our fine-tuned model optimized for VTE classification is available under gated access on [Hugging Face](https://huggingface.co/ang-li-lab/VTE-BERT).
+
 ## Documentation
 
 See [documentation](https://ang-li-lab.github.io/NLPMed-Engine/) for full API and module reference (generated with Sphinx).
@@ -88,5 +93,21 @@ See [documentation](https://ang-li-lab.github.io/NLPMed-Engine/) for full API an
 This project includes software, models, or a federated learning framework that are governed by additional terms beyond the AGPLv3 license.
 
 By using this software or model, you agree to the [Terms & Conditions](./TERMS.md).
+
+## Citation
+
+If you use NLPMed-Engine in your research or applications, please cite our paper:
+
+```bibtex
+@article{your_article_citation,
+  author  = {Your Authors},
+  title   = {Title of Your Paper},
+  journal = {Journal Name},
+  year    = {Year},
+  volume  = {Volume},
+  pages   = {Pages},
+  doi     = {DOI}
+}
+```
 
 ---
