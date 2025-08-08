@@ -152,9 +152,8 @@ class BasePipeline:
 
     def _init_ml_inference(self, settings: dict) -> MLInference:  # noqa: PLR6301
         return MLInference(
-            device=settings["device"],
-            ml_model_path=settings["ml_model_path"],
-            ml_tokenizer_path=settings["ml_tokenizer_path"],
+            models=settings["models"],
+            use_preped_text=settings.get("use_preped_text", True),
         )
 
     def preprocess_params(self, config: dict | None = None) -> dict:

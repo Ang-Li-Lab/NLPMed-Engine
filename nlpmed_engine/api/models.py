@@ -478,3 +478,16 @@ class TextProcessingResponseModel(BaseModel):
         None,
         description="The note object returned in debug mode.",
     )
+
+
+class MlModelInfo(BaseModel):
+    name: str
+    device: str
+    max_length: int
+    loaded: bool
+    loaded_at: str | None = None
+
+
+class MlModelsResponse(BaseModel):
+    default_name: str
+    models: list[MlModelInfo]

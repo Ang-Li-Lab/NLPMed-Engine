@@ -63,9 +63,14 @@ sample_config = {
     },
     "ml_inference": {
         "status": "enabled",
-        "device": "cpu",
-        "ml_model_path": "prajjwal1/bert-mini",
-        "ml_tokenizer_path": "prajjwal1/bert-mini",
+        "models": {
+            "TEST": {
+                "device": "cpu",
+                "model_path": "prajjwal1/bert-mini",
+                "tokenizer_path": "prajjwal1/bert-mini",
+                "max_length": 128,
+            },
+        },
     },
 }
 

@@ -43,7 +43,6 @@ Routes:
         Processes a standalone text input with the specified configuration.
 """
 
-import os
 from typing import Annotated
 
 from fastapi import APIRouter
@@ -54,73 +53,19 @@ from nlpmed_engine.api.mappers import map_internal_to_pydantic_note_model
 from nlpmed_engine.api.mappers import map_internal_to_pydantic_patient_model
 from nlpmed_engine.api.mappers import map_pydantic_to_internal_patient
 from nlpmed_engine.api.models import ConfigModel
+from nlpmed_engine.api.models import MlModelInfo
+from nlpmed_engine.api.models import MlModelsResponse
 from nlpmed_engine.api.models import NoteModel
 from nlpmed_engine.api.models import PatientModel
 from nlpmed_engine.api.models import StringInputModel
 from nlpmed_engine.api.models import TextProcessingResponseModel
 from nlpmed_engine.pipelines.batch_pipeline import BatchPipeline
 from nlpmed_engine.pipelines.single_pipeline import SinglePipeline
+from nlpmed_engine.utils.utils import build_initial_config
 
 router = APIRouter()
 
-initial_config = {
-    "encoding_fixer": {"status": "enabled"},
-    "pattern_replacer": {
-        "status": "enabled",
-        "pattern": r"\s{4,}",
-        "target": "\n\n",
-    },
-    "word_masker": {
-        "status": "enabled",
-        "words_to_mask": ["PE CT", "DVT ppx"],
-        "mask_char": "*",
-    },
-    "note_filter": {
-        "status": "enabled",
-        "words_to_search": ["DVT", "PE"],
-    },
-    "section_splitter": {
-        "status": "enabled",
-        "delimiter": "\n\n",
-    },
-    "section_filter": {
-        "status": "enabled",
-        "section_inc_list": ["Chief Complaint", "Assessment"],
-        "section_exc_list": ["Review of System", "System Review"],
-        "fallback": True,
-    },
-    "sentence_segmenter": {
-        "status": "enabled",
-        "model_name": "en_core_sci_lg",
-        "batch_size": 10,
-    },
-    "duplicate_checker": {
-        "status": "enabled",
-        "num_perm": 256,
-        "sim_threshold": 0.9,
-        "length_threshold": 50,
-    },
-    "sentence_filter": {
-        "status": "enabled",
-        "words_to_search": ["DVT", "PE"],
-    },
-    "sentence_expander": {
-        "status": "enabled",
-        "length_threshold": 50,
-    },
-    "joiner": {
-        "status": "enabled",
-        "sentence_delimiter": "\n",
-        "section_delimiter": "\n\n",
-    },
-    "ml_inference": {
-        "status": "enabled",
-        "device": os.getenv("API_ML_DEVICE", "cpu"),
-        "ml_model_path": os.getenv("API_ML_MODEL_PATH", "prajjwal1/bert-mini"),
-        "ml_tokenizer_path": os.getenv("API_ML_TOKENIZER_PATH", "prajjwal1/bert-mini"),
-    },
-    "debug": False,
-}
+initial_config = build_initial_config()
 
 single_pipeline_instance = SinglePipeline(config=initial_config)
 batch_pipeline_instance = BatchPipeline(config=initial_config)
@@ -274,3 +219,32 @@ def process_text(
             response.note = map_internal_to_pydantic_note_model(processed_note)
 
         return response
+
+
+@router.get("/ml_models")
+def ml_models() -> MlModelsResponse:
+    """List configured models and which ones are loaded.
+
+    Returns:
+        MlModelsResponse: The response containing specifications of the configured models.
+    """
+    ml_comp = single_pipeline_instance.components["ml_inference"]["component"]
+    configured = ml_comp.models
+    default_name = getattr(ml_comp, "_default_name", next(iter(configured)))
+    loaded = {m["name"]: m for m in type(ml_comp).get_loaded_meta()}
+    out: list[MlModelInfo] = []
+
+    for name, spec in configured.items():
+        meta = loaded.get(name)
+        out.append(
+            MlModelInfo(
+                name=name,
+                device=spec["device"],
+                max_length=int(spec["max_length"]),
+                loaded=meta is not None,
+                loaded_at=(meta["loaded_at"] if meta else None),
+            ),
+        )
+
+    out.sort(key=lambda m: m.name)
+    return MlModelsResponse(default_name=default_name, models=out)

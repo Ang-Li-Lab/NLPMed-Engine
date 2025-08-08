@@ -58,14 +58,23 @@ Install dependencies based on your environment:
 
 1. Create a `.env` file with the following template:
 
-   ```ini
-   API_ML_DEVICE=cpu or mps or cuda
-   API_ML_MODEL_PATH=path/to/model
-   API_ML_TOKENIZER_PATH=path/to/tokenizer
-   API_HOST=127.0.0.1
-   API_PORT=10010
-   API_WORKERS=1
-   ```
+  ```ini
+  API_ML_MODEL_NAMES=VTE,BLEED
+
+  API_ML_VTE_MULTICLASS_DEVICE=cpu
+  API_ML_VTE_MULTICLASS_MODEL_PATH=/Users/model
+  API_ML_VTE_MULTICLASS_TOKENIZER_PATH=/Users/tokenizer
+  API_ML_VTE_MULTICLASS_MAX_LENGTH=512
+
+  API_ML_BLEED_BINARY_DEVICE=cuda:0
+  API_ML_BLEED_BINARY_MODEL_PATH=/Users/model
+  API_ML_BLEED_BINARY_TOKENIZER_PATH=/Users/tokenizer
+  API_ML_BLEED_BINARY_MAX_LENGTH=512
+
+  API_HOST=127.0.0.1
+  API_PORT=10010
+  API_WORKERS=1
+  ```
 
 2. Run the API:
 

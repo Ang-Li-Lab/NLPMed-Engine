@@ -24,13 +24,15 @@ from nlpmed_engine.data_structures.patient import Patient
 @pytest.fixture
 def ml_inference() -> MLInference:
     # Initialize the MLInference component with the prajjwal1/bert-mini model
-    ml_model_path = "prajjwal1/bert-mini"  # Small BERT model for testing
-    ml_tokenizer_path = "prajjwal1/bert-mini"
-    return MLInference(
-        device="cpu",
-        ml_model_path=ml_model_path,
-        ml_tokenizer_path=ml_tokenizer_path,
-    )
+    models = {
+        "TEST": {
+            "device": "cpu",
+            "model_path": "prajjwal1/bert-mini",
+            "tokenizer_path": "prajjwal1/bert-mini",
+            "max_length": 128,
+        },
+    }
+    return MLInference(models=models, use_preped_text=True)
 
 
 def test_ml_inference_process(ml_inference: MLInference) -> None:
@@ -39,7 +41,7 @@ def test_ml_inference_process(ml_inference: MLInference) -> None:
     note.preprocessed_text = "This is a sample preprocessed note text that is expected to be positive."
 
     # Run the inference process
-    processed_note = ml_inference.process(note, max_length=128)
+    processed_note = ml_inference.process(note)
 
     # Assertions to check if the predicted_label is set correctly
     assert processed_note.predicted_label is not None
@@ -55,7 +57,7 @@ def test_ml_inference_process_use_preped_text_false(ml_inference: MLInference) -
     note.preprocessed_text = ""
 
     # Run the inference process with use_preped_text=False
-    processed_note = ml_inference.process(note, use_preped_text=False, max_length=128)
+    processed_note = ml_inference.process(note, use_preped_text=False)
 
     # Assertions to check if the predicted_label is set correctly
     assert processed_note.predicted_label is not None
@@ -68,7 +70,7 @@ def test_ml_inference_no_prediction(ml_inference: MLInference) -> None:
     note.preprocessed_text = ""  # No content to predict on
 
     # Run the inference process
-    processed_note = ml_inference.process(note, max_length=128)
+    processed_note = ml_inference.process(note, use_preped_text=True)
 
     # Assertions to check that predicted_label is None when no prediction is made
     assert processed_note.predicted_label is None
