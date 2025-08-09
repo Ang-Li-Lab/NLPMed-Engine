@@ -105,7 +105,14 @@ class MLInference:
         Args:
             models (ModelsConfig): Models specifications such as model_path, tokenizer_path, etc.
             use_preped_text (bool): Whether to use preprocessed text for inference (default is True).
+
+        Raises:
+            ValueError: If no model is provided.
         """
+        if not models:
+            msg = "MLInference enabled but no models provided."
+            raise ValueError(msg)
+
         self.models: ModelsConfig = models
         self.use_preped_text: bool = use_preped_text
         self._default_name: str = next(iter(self.models))
