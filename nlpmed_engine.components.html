@@ -1,0 +1,702 @@
+<!DOCTYPE html>
+
+<html lang="en" data-content_root="./">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>nlpmed_engine.components package &#8212; nlpmed_engine 1.0.0 documentation</title>
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=5ecbeea2" />
+    <link rel="stylesheet" type="text/css" href="_static/basic.css?v=c058f7c8" />
+    <link rel="stylesheet" type="text/css" href="_static/alabaster.css?v=27fed22d" />
+    <script src="_static/documentation_options.js?v=8d563738"></script>
+    <script src="_static/doctools.js?v=9a2dae69"></script>
+    <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="nlpmed_engine.data_structures package" href="nlpmed_engine.data_structures.html" />
+    <link rel="prev" title="nlpmed_engine.api package" href="nlpmed_engine.api.html" />
+   
+  <link rel="stylesheet" href="_static/custom.css" type="text/css" />
+  
+
+  
+  
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <section id="nlpmed-engine-components-package">
+<h1>nlpmed_engine.components package<a class="headerlink" href="#nlpmed-engine-components-package" title="Link to this heading">¶</a></h1>
+<section id="submodules">
+<h2>Submodules<a class="headerlink" href="#submodules" title="Link to this heading">¶</a></h2>
+</section>
+<section id="module-nlpmed_engine.components.duplicate_checker">
+<span id="nlpmed-engine-components-duplicate-checker-module"></span><h2>nlpmed_engine.components.duplicate_checker module<a class="headerlink" href="#module-nlpmed_engine.components.duplicate_checker" title="Link to this heading">¶</a></h2>
+<p>Duplicate checking module for NLPMed-Engine.</p>
+<p>This module provides functionality to detect and handle duplicate sentences within
+medical notes using MinHash and Locality-Sensitive Hashing (LSH). The DuplicateChecker
+class offers methods to process notes, identify duplicate sentences, and manage LSH states.</p>
+<dl class="simple">
+<dt>Classes:</dt><dd><p>DuplicateChecker: Class for checking and handling duplicate sentences within notes.</p>
+</dd>
+</dl>
+<dl class="py class">
+<dt class="sig sig-object py" id="nlpmed_engine.components.duplicate_checker.DuplicateChecker">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">nlpmed_engine.components.duplicate_checker.</span></span><span class="sig-name descname"><span class="pre">DuplicateChecker</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">num_perm</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">256</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">sim_threshold</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">0.9</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">length_threshold</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">50</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#nlpmed_engine.components.duplicate_checker.DuplicateChecker" title="Link to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Class for checking and managing duplicate sentences in medical notes.</p>
+<p>This class uses MinHash and MinHashLSH to identify similar or duplicate sentences
+within notes based on a defined similarity threshold. It allows for adding sentences
+to the LSH structure, querying for duplicates, and clearing/resetting the LSH state.</p>
+<dl class="simple">
+<dt>Attributes:</dt><dd><p>num_perm (int): Number of permutations used in MinHash.
+sim_threshold (float): Similarity threshold for considering sentences as duplicates.
+length_threshold (int): Minimum length of sentences to be considered for duplication checking.
+lsh (MinHashLSH): The Locality-Sensitive Hashing structure used to store and query MinHash values.</p>
+</dd>
+</dl>
+<dl class="py method">
+<dt class="sig sig-object py" id="nlpmed_engine.components.duplicate_checker.DuplicateChecker.add_sentence">
+<span class="sig-name descname"><span class="pre">add_sentence</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">sentence</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="nlpmed_engine.data_structures.html#nlpmed_engine.data_structures.sentence.Sentence" title="nlpmed_engine.data_structures.sentence.Sentence"><span class="pre">Sentence</span></a></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="headerlink" href="#nlpmed_engine.components.duplicate_checker.DuplicateChecker.add_sentence" title="Link to this definition">¶</a></dt>
+<dd><p>Adds a sentence to the LSH structure for future duplicate detection.</p>
+<dl class="simple">
+<dt>Args:</dt><dd><p>sentence (Sentence): The sentence to be added to the LSH structure.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="nlpmed_engine.components.duplicate_checker.DuplicateChecker.clear_lsh">
+<span class="sig-name descname"><span class="pre">clear_lsh</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">num_perm</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">sim_threshold</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">_</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Any</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="headerlink" href="#nlpmed_engine.components.duplicate_checker.DuplicateChecker.clear_lsh" title="Link to this definition">¶</a></dt>
+<dd><p>Clears and reinitializes the LSH structure with optional new parameters.</p>
+<dl class="simple">
+<dt>Args:</dt><dd><p>num_perm (int | None): Optional new number of permutations for MinHash.
+sim_threshold (float | None): Optional new similarity threshold for LSH.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="nlpmed_engine.components.duplicate_checker.DuplicateChecker.get_minhash">
+<span class="sig-name descname"><span class="pre">get_minhash</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">sentence</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="nlpmed_engine.data_structures.html#nlpmed_engine.data_structures.sentence.Sentence" title="nlpmed_engine.data_structures.sentence.Sentence"><span class="pre">Sentence</span></a></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">MinHash</span></span></span><a class="headerlink" href="#nlpmed_engine.components.duplicate_checker.DuplicateChecker.get_minhash" title="Link to this definition">¶</a></dt>
+<dd><p>Generates a MinHash object from the words in a sentence.</p>
+<dl class="simple">
+<dt>Args:</dt><dd><p>sentence (Sentence): The sentence from which to generate the MinHash.</p>
+</dd>
+<dt>Returns:</dt><dd><p>MinHash: The MinHash object representing the sentence.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="nlpmed_engine.components.duplicate_checker.DuplicateChecker.is_duplicate">
+<span class="sig-name descname"><span class="pre">is_duplicate</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">sentence</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="nlpmed_engine.data_structures.html#nlpmed_engine.data_structures.sentence.Sentence" title="nlpmed_engine.data_structures.sentence.Sentence"><span class="pre">Sentence</span></a></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">bool</span></span></span><a class="headerlink" href="#nlpmed_engine.components.duplicate_checker.DuplicateChecker.is_duplicate" title="Link to this definition">¶</a></dt>
+<dd><p>Checks if a given sentence is a duplicate by querying the LSH structure.</p>
+<dl class="simple">
+<dt>Args:</dt><dd><p>sentence (Sentence): The sentence to check for duplication.</p>
+</dd>
+<dt>Returns:</dt><dd><p>bool: True if the sentence is considered a duplicate, False otherwise.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="nlpmed_engine.components.duplicate_checker.DuplicateChecker.process">
+<span class="sig-name descname"><span class="pre">process</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">note</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="nlpmed_engine.data_structures.html#nlpmed_engine.data_structures.note.Note" title="nlpmed_engine.data_structures.note.Note"><span class="pre">Note</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">length_threshold</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">_</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Any</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="nlpmed_engine.data_structures.html#nlpmed_engine.data_structures.note.Note" title="nlpmed_engine.data_structures.note.Note"><span class="pre">Note</span></a></span></span><a class="headerlink" href="#nlpmed_engine.components.duplicate_checker.DuplicateChecker.process" title="Link to this definition">¶</a></dt>
+<dd><p>Processes a note to check for duplicate sentences based on the defined thresholds.</p>
+<dl class="simple">
+<dt>Args:</dt><dd><p>note (Note): The note object containing sections and sentences to be processed.
+length_threshold (int | None): Optional length threshold to override the default.</p>
+</dd>
+<dt>Returns:</dt><dd><p>Note: The processed note with sentences marked as duplicates if applicable.</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="module-nlpmed_engine.components.encoding_fixer">
+<span id="nlpmed-engine-components-encoding-fixer-module"></span><h2>nlpmed_engine.components.encoding_fixer module<a class="headerlink" href="#module-nlpmed_engine.components.encoding_fixer" title="Link to this heading">¶</a></h2>
+<p>Encoding fixer module for NLPMed-Engine.</p>
+<p>This module provides functionality to fix encoding issues in medical notes using the <cite>ftfy</cite> library.
+The EncodingFixer class processes notes to correct common encoding problems, ensuring text is properly
+readable and standardized.</p>
+<dl class="simple">
+<dt>Classes:</dt><dd><p>EncodingFixer: Class for fixing encoding issues in notes.</p>
+</dd>
+</dl>
+<dl class="py class">
+<dt class="sig sig-object py" id="nlpmed_engine.components.encoding_fixer.EncodingFixer">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">nlpmed_engine.components.encoding_fixer.</span></span><span class="sig-name descname"><span class="pre">EncodingFixer</span></span><a class="headerlink" href="#nlpmed_engine.components.encoding_fixer.EncodingFixer" title="Link to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Class for fixing encoding issues in medical notes.</p>
+<p>This class uses the <cite>ftfy</cite> library to automatically correct encoding errors in the text
+of medical notes, making the text more readable and consistent.</p>
+<dl class="simple">
+<dt>Methods:</dt><dd><p>process: Fixes encoding issues in the text of a note.</p>
+</dd>
+</dl>
+<dl class="py method">
+<dt class="sig sig-object py" id="nlpmed_engine.components.encoding_fixer.EncodingFixer.process">
+<span class="sig-name descname"><span class="pre">process</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">note</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="nlpmed_engine.data_structures.html#nlpmed_engine.data_structures.note.Note" title="nlpmed_engine.data_structures.note.Note"><span class="pre">Note</span></a></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="nlpmed_engine.data_structures.html#nlpmed_engine.data_structures.note.Note" title="nlpmed_engine.data_structures.note.Note"><span class="pre">Note</span></a></span></span><a class="headerlink" href="#nlpmed_engine.components.encoding_fixer.EncodingFixer.process" title="Link to this definition">¶</a></dt>
+<dd><p>Fixes encoding issues in the text of the provided note.</p>
+<dl class="simple">
+<dt>Args:</dt><dd><p>note (Note): The note object whose text needs encoding fixes.</p>
+</dd>
+<dt>Returns:</dt><dd><p>Note: The processed note with encoding issues corrected.</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="module-nlpmed_engine.components.joiner">
+<span id="nlpmed-engine-components-joiner-module"></span><h2>nlpmed_engine.components.joiner module<a class="headerlink" href="#module-nlpmed_engine.components.joiner" title="Link to this heading">¶</a></h2>
+<p>Joiner module for NLPMed-Engine.</p>
+<p>This module provides functionality to join important sentences and sections of medical
+notes into a cohesive preprocessed text. The Joiner class allows customization of sentence
+and section delimiters to structure the joined text appropriately.</p>
+<dl class="simple">
+<dt>Classes:</dt><dd><p>Joiner: Class for joining sentences and sections within a note.</p>
+</dd>
+</dl>
+<dl class="py class">
+<dt class="sig sig-object py" id="nlpmed_engine.components.joiner.Joiner">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">nlpmed_engine.components.joiner.</span></span><span class="sig-name descname"><span class="pre">Joiner</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">sentence_delimiter</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'\n'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">section_delimiter</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'\n\n'</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#nlpmed_engine.components.joiner.Joiner" title="Link to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Class for joining important sentences and sections within medical notes.</p>
+<p>This class processes a note by joining important sentences within each section
+into a single string, then combines these joined sections into a final preprocessed
+text using specified delimiters.</p>
+<dl class="simple">
+<dt>Attributes:</dt><dd><p>sentence_delimiter (str): Delimiter used to join sentences within a section.
+section_delimiter (str): Delimiter used to join sections within the note.</p>
+</dd>
+</dl>
+<dl class="py method">
+<dt class="sig sig-object py" id="nlpmed_engine.components.joiner.Joiner.process">
+<span class="sig-name descname"><span class="pre">process</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">note</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="nlpmed_engine.data_structures.html#nlpmed_engine.data_structures.note.Note" title="nlpmed_engine.data_structures.note.Note"><span class="pre">Note</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">sentence_delimiter</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">section_delimiter</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="nlpmed_engine.data_structures.html#nlpmed_engine.data_structures.note.Note" title="nlpmed_engine.data_structures.note.Note"><span class="pre">Note</span></a></span></span><a class="headerlink" href="#nlpmed_engine.components.joiner.Joiner.process" title="Link to this definition">¶</a></dt>
+<dd><p>Processes a note to join important sentences and sections into preprocessed text.</p>
+<dl class="simple">
+<dt>Args:</dt><dd><p>note (Note): The note object containing sections and sentences to be joined.
+sentence_delimiter (str | None): Optional custom delimiter for joining sentences.
+section_delimiter (str | None): Optional custom delimiter for joining sections.</p>
+</dd>
+<dt>Returns:</dt><dd><p>Note: The processed note with the preprocessed text formed by joining sentences and sections.</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="module-nlpmed_engine.components.ml_inference">
+<span id="nlpmed-engine-components-ml-inference-module"></span><h2>nlpmed_engine.components.ml_inference module<a class="headerlink" href="#module-nlpmed_engine.components.ml_inference" title="Link to this heading">¶</a></h2>
+<p>Machine Learning Inference module for NLPMed-Engine.</p>
+<p>This module provides functionality for performing machine learning-based inference
+on medical notes using a pre-trained text classification model. The MLInference class
+uses the Hugging Face Transformers library to predict labels and scores for text data.</p>
+<dl class="simple">
+<dt>Classes:</dt><dd><p>MLInference: Class for performing ML inference on notes and patients.</p>
+</dd>
+</dl>
+<dl class="py class">
+<dt class="sig sig-object py" id="nlpmed_engine.components.ml_inference.LoadedMeta">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">nlpmed_engine.components.ml_inference.</span></span><span class="sig-name descname"><span class="pre">LoadedMeta</span></span><a class="headerlink" href="#nlpmed_engine.components.ml_inference.LoadedMeta" title="Link to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">TypedDict</span></code></p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="nlpmed_engine.components.ml_inference.LoadedMeta.device">
+<span class="sig-name descname"><span class="pre">device</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">str</span></em><a class="headerlink" href="#nlpmed_engine.components.ml_inference.LoadedMeta.device" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="nlpmed_engine.components.ml_inference.LoadedMeta.loaded_at">
+<span class="sig-name descname"><span class="pre">loaded_at</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">str</span></em><a class="headerlink" href="#nlpmed_engine.components.ml_inference.LoadedMeta.loaded_at" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="nlpmed_engine.components.ml_inference.LoadedMeta.max_length">
+<span class="sig-name descname"><span class="pre">max_length</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">int</span></em><a class="headerlink" href="#nlpmed_engine.components.ml_inference.LoadedMeta.max_length" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="nlpmed_engine.components.ml_inference.LoadedMeta.name">
+<span class="sig-name descname"><span class="pre">name</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">str</span></em><a class="headerlink" href="#nlpmed_engine.components.ml_inference.LoadedMeta.name" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="nlpmed_engine.components.ml_inference.MLInference">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">nlpmed_engine.components.ml_inference.</span></span><span class="sig-name descname"><span class="pre">MLInference</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">models</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><a class="reference internal" href="nlpmed_engine.utils.html#nlpmed_engine.utils.utils.ModelSpec" title="nlpmed_engine.utils.utils.ModelSpec"><span class="pre">ModelSpec</span></a><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">use_preped_text</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#nlpmed_engine.components.ml_inference.MLInference" title="Link to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Class for performing machine learning inference on medical notes.</p>
+<p>This class initializes a text classification pipeline using a specified model and tokenizer.
+It provides methods for predicting labels and scores for text data within notes and patients,
+allowing for batch processing and customization of input parameters.</p>
+<dl class="simple">
+<dt>Attributes:</dt><dd><p>use_preped_text (bool): Whether to use preprocessed text for inference.
+pipe (pipeline): The Hugging Face Transformers pipeline for text classification.</p>
+</dd>
+</dl>
+<dl class="py method">
+<dt class="sig sig-object py" id="nlpmed_engine.components.ml_inference.MLInference.get_loaded_meta">
+<em class="property"><span class="pre">classmethod</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">get_loaded_meta</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">list</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="#nlpmed_engine.components.ml_inference.LoadedMeta" title="nlpmed_engine.components.ml_inference.LoadedMeta"><span class="pre">LoadedMeta</span></a><span class="p"><span class="pre">]</span></span></span></span><a class="headerlink" href="#nlpmed_engine.components.ml_inference.MLInference.get_loaded_meta" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="nlpmed_engine.components.ml_inference.MLInference.process">
+<span class="sig-name descname"><span class="pre">process</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">note</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="nlpmed_engine.data_structures.html#nlpmed_engine.data_structures.note.Note" title="nlpmed_engine.data_structures.note.Note"><span class="pre">Note</span></a></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">use_preped_text</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">model_name</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">_</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Any</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="nlpmed_engine.data_structures.html#nlpmed_engine.data_structures.note.Note" title="nlpmed_engine.data_structures.note.Note"><span class="pre">Note</span></a></span></span><a class="headerlink" href="#nlpmed_engine.components.ml_inference.MLInference.process" title="Link to this definition">¶</a></dt>
+<dd><p>Performs inference on a single note, predicting a label and score.</p>
+<dl class="simple">
+<dt>Args:</dt><dd><p>note (Note): The note object containing text to be classified.
+use_preped_text (bool | None): Optional override for using preprocessed text.
+model_name (str | None): Optional model to use.</p>
+</dd>
+<dt>Returns:</dt><dd><p>Note: The note object with predicted label and score updated.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="nlpmed_engine.components.ml_inference.MLInference.process_batch_patients">
+<span class="sig-name descname"><span class="pre">process_batch_patients</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">patients</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">list</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="nlpmed_engine.data_structures.html#nlpmed_engine.data_structures.patient.Patient" title="nlpmed_engine.data_structures.patient.Patient"><span class="pre">Patient</span></a><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">use_preped_text</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">model_name</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">list</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="nlpmed_engine.data_structures.html#nlpmed_engine.data_structures.patient.Patient" title="nlpmed_engine.data_structures.patient.Patient"><span class="pre">Patient</span></a><span class="p"><span class="pre">]</span></span></span></span><a class="headerlink" href="#nlpmed_engine.components.ml_inference.MLInference.process_batch_patients" title="Link to this definition">¶</a></dt>
+<dd><p>Performs batch inference on a list of patients, predicting labels and scores for their notes.</p>
+<dl class="simple">
+<dt>Args:</dt><dd><p>patients (list[Patient]): A list of patient objects containing notes to be classified.
+use_preped_text (bool | None): Optional override for using preprocessed text.</p>
+</dd>
+<dt>Returns:</dt><dd><p>list[Patient]: The list of patients with their notes updated with predicted labels and scores.</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="module-nlpmed_engine.components.note_filter">
+<span id="nlpmed-engine-components-note-filter-module"></span><h2>nlpmed_engine.components.note_filter module<a class="headerlink" href="#module-nlpmed_engine.components.note_filter" title="Link to this heading">¶</a></h2>
+<p>Note filtering module for NLPMed-Engine.</p>
+<p>This module provides functionality to filter medical notes based on specified keywords.
+The NoteFilter class checks whether a note contains any of the specified words and
+returns the note if it matches the criteria.</p>
+<dl class="simple">
+<dt>Classes:</dt><dd><p>NoteFilter: Class for filtering notes based on keyword presence.</p>
+</dd>
+</dl>
+<dl class="py class">
+<dt class="sig sig-object py" id="nlpmed_engine.components.note_filter.NoteFilter">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">nlpmed_engine.components.note_filter.</span></span><span class="sig-name descname"><span class="pre">NoteFilter</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">words_to_search</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">list</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#nlpmed_engine.components.note_filter.NoteFilter" title="Link to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Class for filtering medical notes based on the presence of specified keywords.</p>
+<p>This class uses regular expressions to identify whether a note contains any of the
+specified words. If a match is found, the note is returned; otherwise, it is filtered out.</p>
+<dl class="simple">
+<dt>Attributes:</dt><dd><p>words_to_search (list[str] | None): List of keywords to search for in notes.</p>
+</dd>
+</dl>
+<dl class="py method">
+<dt class="sig sig-object py" id="nlpmed_engine.components.note_filter.NoteFilter.process">
+<span class="sig-name descname"><span class="pre">process</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">note</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="nlpmed_engine.data_structures.html#nlpmed_engine.data_structures.note.Note" title="nlpmed_engine.data_structures.note.Note"><span class="pre">Note</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">words_to_search</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">list</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="nlpmed_engine.data_structures.html#nlpmed_engine.data_structures.note.Note" title="nlpmed_engine.data_structures.note.Note"><span class="pre">Note</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span></span><a class="headerlink" href="#nlpmed_engine.components.note_filter.NoteFilter.process" title="Link to this definition">¶</a></dt>
+<dd><p>Processes a note to check if it contains specified keywords.</p>
+<dl class="simple">
+<dt>Args:</dt><dd><p>note (Note): The note object to be filtered.
+words_to_search (list[str] | None): Optional list of keywords to search for,
+overriding the default list set during initialization.</p>
+</dd>
+<dt>Returns:</dt><dd><p>Note | None: The note if it contains the keywords, otherwise None.</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="module-nlpmed_engine.components.pattern_replacer">
+<span id="nlpmed-engine-components-pattern-replacer-module"></span><h2>nlpmed_engine.components.pattern_replacer module<a class="headerlink" href="#module-nlpmed_engine.components.pattern_replacer" title="Link to this heading">¶</a></h2>
+<p>Pattern replacer module for NLPMed-Engine.</p>
+<p>This module provides functionality to replace specified patterns within the text of medical notes.
+The PatternReplacer class allows for defining patterns and target replacements to standardize
+or clean up the text data.</p>
+<dl class="simple">
+<dt>Classes:</dt><dd><p>PatternReplacer: Class for replacing patterns in notes with specified target strings.</p>
+</dd>
+</dl>
+<dl class="py class">
+<dt class="sig sig-object py" id="nlpmed_engine.components.pattern_replacer.PatternReplacer">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">nlpmed_engine.components.pattern_replacer.</span></span><span class="sig-name descname"><span class="pre">PatternReplacer</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">pattern</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">target</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#nlpmed_engine.components.pattern_replacer.PatternReplacer" title="Link to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Class for replacing patterns in the text of medical notes.</p>
+<p>This class uses regular expressions to find and replace specified patterns within the text
+of notes. It allows for customizable pattern lists and target replacements to manage the
+standardization of note content.</p>
+<dl class="simple">
+<dt>Attributes:</dt><dd><p>pattern (str | None): Regex pattern to search for in the text.
+target (str | None): The replacement string for matched pattern.</p>
+</dd>
+</dl>
+<dl class="py method">
+<dt class="sig sig-object py" id="nlpmed_engine.components.pattern_replacer.PatternReplacer.process">
+<span class="sig-name descname"><span class="pre">process</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">note</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="nlpmed_engine.data_structures.html#nlpmed_engine.data_structures.note.Note" title="nlpmed_engine.data_structures.note.Note"><span class="pre">Note</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">pattern</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">target</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="nlpmed_engine.data_structures.html#nlpmed_engine.data_structures.note.Note" title="nlpmed_engine.data_structures.note.Note"><span class="pre">Note</span></a></span></span><a class="headerlink" href="#nlpmed_engine.components.pattern_replacer.PatternReplacer.process" title="Link to this definition">¶</a></dt>
+<dd><p>Processes a note by replacing matched pattern with the specified target string.</p>
+<dl class="simple">
+<dt>Args:</dt><dd><p>note (Note): The note object containing text to be modified.
+pattern (str | None): Optional pattern to override the default pattern.
+target (str | None): Optional target string to override the default replacement.</p>
+</dd>
+<dt>Returns:</dt><dd><p>Note: The processed note with pattern replaced by the target string.</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="module-nlpmed_engine.components.section_filter">
+<span id="nlpmed-engine-components-section-filter-module"></span><h2>nlpmed_engine.components.section_filter module<a class="headerlink" href="#module-nlpmed_engine.components.section_filter" title="Link to this heading">¶</a></h2>
+<p>Section filtering module for NLPMed-Engine.</p>
+<p>This module provides functionality to filter sections of medical notes based on specified
+inclusion and exclusion keywords. The SectionFilter class uses regular expressions to
+identify and retain important sections while optionally allowing fallback behavior.</p>
+<dl class="simple">
+<dt>Classes:</dt><dd><p>SectionFilter: Class for filtering sections within notes based on inclusion and exclusion rules.</p>
+</dd>
+</dl>
+<dl class="py class">
+<dt class="sig sig-object py" id="nlpmed_engine.components.section_filter.SectionFilter">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">nlpmed_engine.components.section_filter.</span></span><span class="sig-name descname"><span class="pre">SectionFilter</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">section_inc_list</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">list</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">section_exc_list</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">list</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">fallback</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#nlpmed_engine.components.section_filter.SectionFilter" title="Link to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Class for filtering sections of medical notes based on inclusion and exclusion criteria.</p>
+<p>This class allows for defining inclusion and exclusion lists of keywords to filter sections
+of a note. Sections that match inclusion criteria are retained, while sections matching
+exclusion criteria are filtered out, unless fallback behavior is enabled.</p>
+<dl class="simple">
+<dt>Attributes:</dt><dd><p>section_inc_list (list[str] | None): List of keywords for including sections.
+section_exc_list (list[str] | None): List of keywords for excluding sections.
+fallback (bool): Whether to enable fallback behavior if no sections match the criteria.</p>
+</dd>
+</dl>
+<dl class="py method">
+<dt class="sig sig-object py" id="nlpmed_engine.components.section_filter.SectionFilter.process">
+<span class="sig-name descname"><span class="pre">process</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">note</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="nlpmed_engine.data_structures.html#nlpmed_engine.data_structures.note.Note" title="nlpmed_engine.data_structures.note.Note"><span class="pre">Note</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">section_inc_list</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">list</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">section_exc_list</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">list</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">fallback</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="nlpmed_engine.data_structures.html#nlpmed_engine.data_structures.note.Note" title="nlpmed_engine.data_structures.note.Note"><span class="pre">Note</span></a></span></span><a class="headerlink" href="#nlpmed_engine.components.section_filter.SectionFilter.process" title="Link to this definition">¶</a></dt>
+<dd><p>Processes a note by filtering its sections based on inclusion and exclusion keywords.</p>
+<dl class="simple">
+<dt>Args:</dt><dd><p>note (Note): The note object containing sections to be filtered.
+section_inc_list (list[str] | None): Optional list of inclusion keywords to override the default list.
+section_exc_list (list[str] | None): Optional list of exclusion keywords to override the default list.
+fallback (bool | None): Optional fallback behavior to override the default setting.</p>
+</dd>
+<dt>Returns:</dt><dd><p>Note: The processed note with filtered sections based on the defined rules.</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="module-nlpmed_engine.components.section_splitter">
+<span id="nlpmed-engine-components-section-splitter-module"></span><h2>nlpmed_engine.components.section_splitter module<a class="headerlink" href="#module-nlpmed_engine.components.section_splitter" title="Link to this heading">¶</a></h2>
+<p>Section splitter module for NLPMed-Engine.</p>
+<p>This module provides functionality to split the text of medical notes into sections based on a specified delimiter.
+The SectionSplitter class facilitates the division of note text into manageable sections for further processing.</p>
+<dl class="simple">
+<dt>Classes:</dt><dd><p>SectionSplitter: Class for splitting note text into sections using a specified delimiter.</p>
+</dd>
+</dl>
+<dl class="py class">
+<dt class="sig sig-object py" id="nlpmed_engine.components.section_splitter.SectionSplitter">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">nlpmed_engine.components.section_splitter.</span></span><span class="sig-name descname"><span class="pre">SectionSplitter</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">delimiter</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'\n\n'</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#nlpmed_engine.components.section_splitter.SectionSplitter" title="Link to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Class for splitting the text of medical notes into sections.</p>
+<p>This class uses a specified delimiter to divide the text of a note into sections,
+creating Section objects for each part. Sections are marked with their respective
+start and end indices relative to the original note text.</p>
+<dl class="simple">
+<dt>Attributes:</dt><dd><p>delimiter (str): The delimiter used to split the note text into sections.</p>
+</dd>
+</dl>
+<dl class="py method">
+<dt class="sig sig-object py" id="nlpmed_engine.components.section_splitter.SectionSplitter.process">
+<span class="sig-name descname"><span class="pre">process</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">note</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="nlpmed_engine.data_structures.html#nlpmed_engine.data_structures.note.Note" title="nlpmed_engine.data_structures.note.Note"><span class="pre">Note</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">delimiter</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="nlpmed_engine.data_structures.html#nlpmed_engine.data_structures.note.Note" title="nlpmed_engine.data_structures.note.Note"><span class="pre">Note</span></a></span></span><a class="headerlink" href="#nlpmed_engine.components.section_splitter.SectionSplitter.process" title="Link to this definition">¶</a></dt>
+<dd><p>Processes a note by splitting its text into sections based on the specified delimiter.</p>
+<dl class="simple">
+<dt>Args:</dt><dd><p>note (Note): The note object containing text to be split into sections.
+delimiter (str | None): Optional delimiter to override the default delimiter.</p>
+</dd>
+<dt>Returns:</dt><dd><p>Note: The processed note with its text split into Section objects.</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="module-nlpmed_engine.components.sentence_expander">
+<span id="nlpmed-engine-components-sentence-expander-module"></span><h2>nlpmed_engine.components.sentence_expander module<a class="headerlink" href="#module-nlpmed_engine.components.sentence_expander" title="Link to this heading">¶</a></h2>
+<p>Sentence expander module for NLPMed-Engine.</p>
+<p>This module provides functionality to expand short sentences within medical notes by combining
+them with neighboring sentences until a specified length threshold is met. The SentenceExpander
+class helps ensure that important short sentences are contextually enriched with adjacent content.</p>
+<dl class="simple">
+<dt>Classes:</dt><dd><p>SentenceExpander: Class for expanding short sentences in notes by merging them with surrounding sentences.</p>
+</dd>
+</dl>
+<dl class="py class">
+<dt class="sig sig-object py" id="nlpmed_engine.components.sentence_expander.SentenceExpander">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">nlpmed_engine.components.sentence_expander.</span></span><span class="sig-name descname"><span class="pre">SentenceExpander</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">length_threshold</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">50</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#nlpmed_engine.components.sentence_expander.SentenceExpander" title="Link to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Class for expanding short sentences within sections of medical notes.</p>
+<p>This class processes sentences within sections of a note, expanding short sentences
+by merging them with adjacent sentences until a specified length threshold is met.
+This approach enhances the contextual richness of important sentences.</p>
+<dl class="simple">
+<dt>Attributes:</dt><dd><p>length_threshold (int): The minimum length a sentence should have before it is considered for expansion.</p>
+</dd>
+</dl>
+<dl class="py method">
+<dt class="sig sig-object py" id="nlpmed_engine.components.sentence_expander.SentenceExpander.expand_section_sentences">
+<span class="sig-name descname"><span class="pre">expand_section_sentences</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">sentences</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">list</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="nlpmed_engine.data_structures.html#nlpmed_engine.data_structures.sentence.Sentence" title="nlpmed_engine.data_structures.sentence.Sentence"><span class="pre">Sentence</span></a><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">important_indices</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">list</span><span class="p"><span class="pre">[</span></span><span class="pre">int</span><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">length_threshold</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">list</span><span class="p"><span class="pre">[</span></span><span class="pre">int</span><span class="p"><span class="pre">]</span></span></span></span><a class="headerlink" href="#nlpmed_engine.components.sentence_expander.SentenceExpander.expand_section_sentences" title="Link to this definition">¶</a></dt>
+<dd><p>Expands short sentences in a list by merging them with adjacent sentences.</p>
+<dl class="simple">
+<dt>Args:</dt><dd><p>sentences (list[Sentence]): A list of sentences within a section to be expanded.
+length_threshold (int): The minimum length a sentence should have before it is considered sufficiently long.</p>
+</dd>
+<dt>Returns:</dt><dd><p>list[Sentence]: A list of expanded sentences that meet the length threshold.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="nlpmed_engine.components.sentence_expander.SentenceExpander.process">
+<span class="sig-name descname"><span class="pre">process</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">note</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="nlpmed_engine.data_structures.html#nlpmed_engine.data_structures.note.Note" title="nlpmed_engine.data_structures.note.Note"><span class="pre">Note</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">length_threshold</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="nlpmed_engine.data_structures.html#nlpmed_engine.data_structures.note.Note" title="nlpmed_engine.data_structures.note.Note"><span class="pre">Note</span></a></span></span><a class="headerlink" href="#nlpmed_engine.components.sentence_expander.SentenceExpander.process" title="Link to this definition">¶</a></dt>
+<dd><p>Processes a note by expanding short sentences within its sections.</p>
+<dl class="simple">
+<dt>Args:</dt><dd><p>note (Note): The note object containing sections and sentences to be expanded.
+length_threshold (int | None): Optional length threshold to override the default.</p>
+</dd>
+<dt>Returns:</dt><dd><p>Note: The processed note with expanded sentences in important sections.</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="module-nlpmed_engine.components.sentence_filter">
+<span id="nlpmed-engine-components-sentence-filter-module"></span><h2>nlpmed_engine.components.sentence_filter module<a class="headerlink" href="#module-nlpmed_engine.components.sentence_filter" title="Link to this heading">¶</a></h2>
+<p>Sentence filter module for NLPMed-Engine.</p>
+<p>This module provides functionality to filter and flag important sentences within medical notes
+based on specified keywords. The SentenceFilter class uses regular expressions to identify sentences
+that contain the target words, marking them as important.</p>
+<dl class="simple">
+<dt>Classes:</dt><dd><p>SentenceFilter: Class for filtering sentences in notes based on keyword presence.</p>
+</dd>
+</dl>
+<dl class="py class">
+<dt class="sig sig-object py" id="nlpmed_engine.components.sentence_filter.SentenceFilter">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">nlpmed_engine.components.sentence_filter.</span></span><span class="sig-name descname"><span class="pre">SentenceFilter</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">words_to_search</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">list</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#nlpmed_engine.components.sentence_filter.SentenceFilter" title="Link to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Class for filtering and marking important sentences within sections of medical notes.</p>
+<p>This class identifies sentences that contain specified keywords, flagging them as important
+for further processing. The filtering is achieved using compiled regular expressions
+to match target words in the sentences.</p>
+<dl class="simple">
+<dt>Attributes:</dt><dd><p>words_to_search (list[str] | None): List of keywords to search for in sentences.</p>
+</dd>
+</dl>
+<dl class="py method">
+<dt class="sig sig-object py" id="nlpmed_engine.components.sentence_filter.SentenceFilter.process">
+<span class="sig-name descname"><span class="pre">process</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">note</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="nlpmed_engine.data_structures.html#nlpmed_engine.data_structures.note.Note" title="nlpmed_engine.data_structures.note.Note"><span class="pre">Note</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">words_to_search</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">list</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="nlpmed_engine.data_structures.html#nlpmed_engine.data_structures.note.Note" title="nlpmed_engine.data_structures.note.Note"><span class="pre">Note</span></a></span></span><a class="headerlink" href="#nlpmed_engine.components.sentence_filter.SentenceFilter.process" title="Link to this definition">¶</a></dt>
+<dd><p>Processes a note by filtering its sentences based on the specified keywords.</p>
+<dl class="simple">
+<dt>Args:</dt><dd><p>note (Note): The note object containing sections and sentences to be filtered.
+words_to_search (list[str] | None): Optional list of keywords to override the default list.</p>
+</dd>
+<dt>Returns:</dt><dd><p>Note: The processed note with sentences marked as important if they contain the keywords.</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="module-nlpmed_engine.components.sentence_segmenter">
+<span id="nlpmed-engine-components-sentence-segmenter-module"></span><h2>nlpmed_engine.components.sentence_segmenter module<a class="headerlink" href="#module-nlpmed_engine.components.sentence_segmenter" title="Link to this heading">¶</a></h2>
+<p>Sentence segmenter module for NLPMed-Engine.</p>
+<p>This module provides functionality to segment text into sentences using spaCy. The
+SentenceSegmenter class processes text from medical notes, splitting sections into
+sentences with accurate start and end indices, ensuring precise sentence-level segmentation.</p>
+<dl class="simple">
+<dt>Classes:</dt><dd><p>SentenceSegmenter: Class for segmenting text into sentences using a spaCy NLP model.</p>
+</dd>
+</dl>
+<dl class="py class">
+<dt class="sig sig-object py" id="nlpmed_engine.components.sentence_segmenter.SentenceSegmenter">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">nlpmed_engine.components.sentence_segmenter.</span></span><span class="sig-name descname"><span class="pre">SentenceSegmenter</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">model_name</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'en_core_sci_lg'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">batch_size</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">10</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#nlpmed_engine.components.sentence_segmenter.SentenceSegmenter" title="Link to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Class for segmenting text from medical notes into sentences using a spaCy NLP model.</p>
+<p>This class utilizes a spaCy pipeline to split sections of notes into sentences, capturing
+their start and end positions within the text. It supports processing individual notes
+and batches of patients with configurable NLP models and batch sizes.</p>
+<dl class="simple">
+<dt>Attributes:</dt><dd><p>nlp (spacy.Language): The spaCy NLP pipeline used for sentence segmentation.
+batch_size (int): The batch size used when processing text in parallel.</p>
+</dd>
+</dl>
+<dl class="py method">
+<dt class="sig sig-object py" id="nlpmed_engine.components.sentence_segmenter.SentenceSegmenter.process">
+<span class="sig-name descname"><span class="pre">process</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">note</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="nlpmed_engine.data_structures.html#nlpmed_engine.data_structures.note.Note" title="nlpmed_engine.data_structures.note.Note"><span class="pre">Note</span></a></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">_</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Any</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="nlpmed_engine.data_structures.html#nlpmed_engine.data_structures.note.Note" title="nlpmed_engine.data_structures.note.Note"><span class="pre">Note</span></a></span></span><a class="headerlink" href="#nlpmed_engine.components.sentence_segmenter.SentenceSegmenter.process" title="Link to this definition">¶</a></dt>
+<dd><p>Processes a single note, segmenting its sections into sentences.</p>
+<dl class="simple">
+<dt>Args:</dt><dd><p>note (Note): The note object containing sections to be segmented into sentences.</p>
+</dd>
+<dt>Returns:</dt><dd><p>Note: The processed note with sections segmented into sentences.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="nlpmed_engine.components.sentence_segmenter.SentenceSegmenter.process_batch_patients">
+<span class="sig-name descname"><span class="pre">process_batch_patients</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">patients</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">list</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="nlpmed_engine.data_structures.html#nlpmed_engine.data_structures.patient.Patient" title="nlpmed_engine.data_structures.patient.Patient"><span class="pre">Patient</span></a><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">list</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="nlpmed_engine.data_structures.html#nlpmed_engine.data_structures.patient.Patient" title="nlpmed_engine.data_structures.patient.Patient"><span class="pre">Patient</span></a><span class="p"><span class="pre">]</span></span></span></span><a class="headerlink" href="#nlpmed_engine.components.sentence_segmenter.SentenceSegmenter.process_batch_patients" title="Link to this definition">¶</a></dt>
+<dd><p>Processes a batch of patients, segmenting the sections of their notes into sentences.</p>
+<dl class="simple">
+<dt>Args:</dt><dd><p>patients (list[Patient]): A list of patient objects containing notes and sections to be segmented.</p>
+</dd>
+<dt>Returns:</dt><dd><p>list[Patient]: The list of patients with their notes’ sections segmented into sentences.</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="module-nlpmed_engine.components.word_masker">
+<span id="nlpmed-engine-components-word-masker-module"></span><h2>nlpmed_engine.components.word_masker module<a class="headerlink" href="#module-nlpmed_engine.components.word_masker" title="Link to this heading">¶</a></h2>
+<p>Word masker module for NLPMed-Engine.</p>
+<p>This module provides functionality to mask specified words within the text of medical notes.
+The WordMasker class allows for defining words to be masked and the character used for masking,
+ensuring sensitive or unwanted terms are obscured in the text.</p>
+<dl class="simple">
+<dt>Classes:</dt><dd><p>WordMasker: Class for masking specified words in the text of medical notes.</p>
+</dd>
+</dl>
+<dl class="py class">
+<dt class="sig sig-object py" id="nlpmed_engine.components.word_masker.WordMasker">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">nlpmed_engine.components.word_masker.</span></span><span class="sig-name descname"><span class="pre">WordMasker</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">words_to_mask</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">list</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">mask_char</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'*'</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#nlpmed_engine.components.word_masker.WordMasker" title="Link to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Class for masking specified words within the text of medical notes.</p>
+<p>This class uses regular expressions to identify and replace specified words with a masking character,
+enhancing privacy or readability by obscuring sensitive or unwanted terms.</p>
+<dl class="simple">
+<dt>Attributes:</dt><dd><p>words_to_mask (list[str]): List of words to be masked in the text.
+mask_char (str): The character used to replace each character of the masked words.</p>
+</dd>
+</dl>
+<dl class="py method">
+<dt class="sig sig-object py" id="nlpmed_engine.components.word_masker.WordMasker.process">
+<span class="sig-name descname"><span class="pre">process</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">note</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="nlpmed_engine.data_structures.html#nlpmed_engine.data_structures.note.Note" title="nlpmed_engine.data_structures.note.Note"><span class="pre">Note</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">words_to_mask</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">list</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">mask_char</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="nlpmed_engine.data_structures.html#nlpmed_engine.data_structures.note.Note" title="nlpmed_engine.data_structures.note.Note"><span class="pre">Note</span></a></span></span><a class="headerlink" href="#nlpmed_engine.components.word_masker.WordMasker.process" title="Link to this definition">¶</a></dt>
+<dd><p>Processes a note by masking specified words in its text.</p>
+<dl class="simple">
+<dt>Args:</dt><dd><p>note (Note): The note object containing text to be masked.
+words_to_mask (list[str] | None): Optional list of words to override the default words to mask.
+mask_char (str | None): Optional masking character to override the default.</p>
+</dd>
+<dt>Returns:</dt><dd><p>Note: The processed note with specified words masked.</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="module-nlpmed_engine.components">
+<span id="module-contents"></span><h2>Module contents<a class="headerlink" href="#module-nlpmed_engine.components" title="Link to this heading">¶</a></h2>
+</section>
+</section>
+
+
+          </div>
+          
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="Main">
+        <div class="sphinxsidebarwrapper">
+<h1 class="logo"><a href="index.html">nlpmed_engine</a></h1>
+
+
+
+
+
+
+
+
+
+<search id="searchbox" style="display: none" role="search">
+    <div class="searchformwrapper">
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" placeholder="Search"/>
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</search>
+<script>document.getElementById('searchbox').style.display = "block"</script><h3>Navigation</h3>
+<p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="modules.html">nlpmed_engine</a><ul class="current">
+<li class="toctree-l2 current"><a class="reference internal" href="nlpmed_engine.html">nlpmed_engine package</a></li>
+</ul>
+</li>
+</ul>
+
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="index.html">Documentation overview</a><ul>
+  <li><a href="modules.html">nlpmed_engine</a><ul>
+  <li><a href="nlpmed_engine.html">nlpmed_engine package</a><ul>
+      <li>Previous: <a href="nlpmed_engine.api.html" title="previous chapter">nlpmed_engine.api package</a></li>
+      <li>Next: <a href="nlpmed_engine.data_structures.html" title="next chapter">nlpmed_engine.data_structures package</a></li>
+  </ul></li>
+  </ul></li>
+  </ul></li>
+</ul>
+</div>
+
+
+
+
+
+
+
+
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &#169;2025, Omid Jafari.
+      
+      |
+      Powered by <a href="https://www.sphinx-doc.org/">Sphinx 8.0.2</a>
+      &amp; <a href="https://alabaster.readthedocs.io">Alabaster 1.0.0</a>
+      
+      |
+      <a href="_sources/nlpmed_engine.components.rst.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>
