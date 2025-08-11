@@ -90,8 +90,9 @@ Instead of using the API, you can directly use the `SinglePipeline` or `BatchPip
 
 ## Resources
 
-- **Demo**: [Visit our demo site](https://nlpmed.demo.angli-lab.com/nlp/demo)
+- **Demo**: [Visit our demo site](https://nlpmed.demo.angli-lab.com/)
 - **VTE-BERT Model**: Our fine-tuned model optimized for VTE classification is available under gated access on [Hugging Face](https://huggingface.co/ang-li-lab/VTE-BERT).
+- **Publication**: Development and Validation of VTE-BERT Natural Language Processing Model for Venous Thromboembolism ([Open Access](https://www.jthjournal.org/article/S1538-7836(25)00484-2/fulltext))
 
 ## Documentation
 
@@ -108,14 +109,13 @@ By using this software or model, you agree to the [Terms & Conditions](./TERMS.m
 If you use NLPMed-Engine in your research or applications, please cite our paper:
 
 ```bibtex
-@article{your_article_citation,
-  author  = {Your Authors},
-  title   = {Title of Your Paper},
-  journal = {Journal Name},
-  year    = {Year},
-  volume  = {Volume},
-  pages   = {Pages},
-  doi     = {DOI}
+@article{jafaridevelopment,
+  title={Development and Validation of VTE-BERT Natural Language Processing Model for Venous Thromboembolism},
+  author={Jafari, Omid and Ma, Shengling and Lam, Barbara D and Jiang, Jun Y and Zhou, Emily and Ranjan, Mrinal and Ryu, Justine and Bandyo, Raka and Maghsoudi, Arash and Peng, Bo and others},
+  journal={Journal of Thrombosis and Haemostasis},
+  publisher={Elsevier},
+  year={2025},
+  doi={10.1016/j.jtha.2025.07.021}
 }
 ```
 
