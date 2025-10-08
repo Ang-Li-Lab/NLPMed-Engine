@@ -1,0 +1,1051 @@
+<!DOCTYPE html>
+
+<html lang="en" data-content_root="./">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>nlpmed_engine.api package &#8212; nlpmed_engine 1.0.0 documentation</title>
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=5ecbeea2" />
+    <link rel="stylesheet" type="text/css" href="_static/basic.css?v=c058f7c8" />
+    <link rel="stylesheet" type="text/css" href="_static/alabaster.css?v=27fed22d" />
+    <script src="_static/documentation_options.js?v=8d563738"></script>
+    <script src="_static/doctools.js?v=9a2dae69"></script>
+    <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="nlpmed_engine.components package" href="nlpmed_engine.components.html" />
+    <link rel="prev" title="nlpmed_engine package" href="nlpmed_engine.html" />
+   
+  <link rel="stylesheet" href="_static/custom.css" type="text/css" />
+  
+
+  
+  
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <section id="nlpmed-engine-api-package">
+<h1>nlpmed_engine.api package<a class="headerlink" href="#nlpmed-engine-api-package" title="Link to this heading">¶</a></h1>
+<section id="submodules">
+<h2>Submodules<a class="headerlink" href="#submodules" title="Link to this heading">¶</a></h2>
+</section>
+<section id="nlpmed-engine-api-main-module">
+<h2>nlpmed_engine.api.main module<a class="headerlink" href="#nlpmed-engine-api-main-module" title="Link to this heading">¶</a></h2>
+</section>
+<section id="module-nlpmed_engine.api.mappers">
+<span id="nlpmed-engine-api-mappers-module"></span><h2>nlpmed_engine.api.mappers module<a class="headerlink" href="#module-nlpmed_engine.api.mappers" title="Link to this heading">¶</a></h2>
+<p>Mapping functions between Pydantic models and internal data structures.</p>
+<p>This module provides a set of mapping functions to convert between Pydantic models
+used in the API layer and internal data structures used for processing within
+NLPMed-Engine. These mappers ensure data consistency and facilitate seamless
+transformation between API inputs/outputs and internal processing logic.</p>
+<dl class="simple">
+<dt>Functions:</dt><dd><dl class="simple">
+<dt>map_pydantic_to_internal_sentence:</dt><dd><p>Maps a Pydantic SentenceModel to an internal Sentence object.</p>
+</dd>
+<dt>map_internal_to_pydantic_sentence_model:</dt><dd><p>Maps an internal Sentence object to a Pydantic SentenceModel.</p>
+</dd>
+<dt>map_pydantic_to_internal_section:</dt><dd><p>Maps a Pydantic SectionModel to an internal Section object.</p>
+</dd>
+<dt>map_internal_to_pydantic_section_model:</dt><dd><p>Maps an internal Section object to a Pydantic SectionModel.</p>
+</dd>
+<dt>map_pydantic_to_internal_note:</dt><dd><p>Maps a Pydantic NoteModel to an internal Note object.</p>
+</dd>
+<dt>map_internal_to_pydantic_note_model:</dt><dd><p>Maps an internal Note object to a Pydantic NoteModel.</p>
+</dd>
+<dt>map_pydantic_to_internal_patient:</dt><dd><p>Maps a Pydantic PatientModel to an internal Patient object.</p>
+</dd>
+<dt>map_internal_to_pydantic_patient_model:</dt><dd><p>Maps an internal Patient object to a Pydantic PatientModel.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+<dl class="py function">
+<dt class="sig sig-object py" id="nlpmed_engine.api.mappers.map_internal_to_pydantic_note_model">
+<span class="sig-prename descclassname"><span class="pre">nlpmed_engine.api.mappers.</span></span><span class="sig-name descname"><span class="pre">map_internal_to_pydantic_note_model</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">note</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="nlpmed_engine.data_structures.html#nlpmed_engine.data_structures.note.Note" title="nlpmed_engine.data_structures.note.Note"><span class="pre">Note</span></a></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="#nlpmed_engine.api.models.NoteModel" title="nlpmed_engine.api.models.NoteModel"><span class="pre">NoteModel</span></a></span></span><a class="headerlink" href="#nlpmed_engine.api.mappers.map_internal_to_pydantic_note_model" title="Link to this definition">¶</a></dt>
+<dd><p>Map an internal Note object to a Pydantic NoteModel.</p>
+<dl class="simple">
+<dt>Args:</dt><dd><p>note (Note): The internal Note object to be converted.</p>
+</dd>
+<dt>Returns:</dt><dd><p>NoteModel: The corresponding Pydantic model with mapped sections and attributes.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="nlpmed_engine.api.mappers.map_internal_to_pydantic_patient_model">
+<span class="sig-prename descclassname"><span class="pre">nlpmed_engine.api.mappers.</span></span><span class="sig-name descname"><span class="pre">map_internal_to_pydantic_patient_model</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">patient</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="nlpmed_engine.data_structures.html#nlpmed_engine.data_structures.patient.Patient" title="nlpmed_engine.data_structures.patient.Patient"><span class="pre">Patient</span></a></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="#nlpmed_engine.api.models.PatientModel" title="nlpmed_engine.api.models.PatientModel"><span class="pre">PatientModel</span></a></span></span><a class="headerlink" href="#nlpmed_engine.api.mappers.map_internal_to_pydantic_patient_model" title="Link to this definition">¶</a></dt>
+<dd><p>Map an internal Patient object to a Pydantic PatientModel.</p>
+<dl class="simple">
+<dt>Args:</dt><dd><p>patient (Patient): The internal Patient object to be converted.</p>
+</dd>
+<dt>Returns:</dt><dd><p>PatientModel: The corresponding Pydantic model with mapped notes.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="nlpmed_engine.api.mappers.map_internal_to_pydantic_section_model">
+<span class="sig-prename descclassname"><span class="pre">nlpmed_engine.api.mappers.</span></span><span class="sig-name descname"><span class="pre">map_internal_to_pydantic_section_model</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">section</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="nlpmed_engine.data_structures.html#nlpmed_engine.data_structures.section.Section" title="nlpmed_engine.data_structures.section.Section"><span class="pre">Section</span></a></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="#nlpmed_engine.api.models.SectionModel" title="nlpmed_engine.api.models.SectionModel"><span class="pre">SectionModel</span></a></span></span><a class="headerlink" href="#nlpmed_engine.api.mappers.map_internal_to_pydantic_section_model" title="Link to this definition">¶</a></dt>
+<dd><p>Map an internal Section object to a Pydantic SectionModel.</p>
+<dl class="simple">
+<dt>Args:</dt><dd><p>section (Section): The internal Section object to be converted.</p>
+</dd>
+<dt>Returns:</dt><dd><p>SectionModel: The corresponding Pydantic model with mapped sentences and attributes.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="nlpmed_engine.api.mappers.map_internal_to_pydantic_sentence_model">
+<span class="sig-prename descclassname"><span class="pre">nlpmed_engine.api.mappers.</span></span><span class="sig-name descname"><span class="pre">map_internal_to_pydantic_sentence_model</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">sentence</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="nlpmed_engine.data_structures.html#nlpmed_engine.data_structures.sentence.Sentence" title="nlpmed_engine.data_structures.sentence.Sentence"><span class="pre">Sentence</span></a></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="#nlpmed_engine.api.models.SentenceModel" title="nlpmed_engine.api.models.SentenceModel"><span class="pre">SentenceModel</span></a></span></span><a class="headerlink" href="#nlpmed_engine.api.mappers.map_internal_to_pydantic_sentence_model" title="Link to this definition">¶</a></dt>
+<dd><p>Map an internal Sentence object to a Pydantic SentenceModel.</p>
+<dl class="simple">
+<dt>Args:</dt><dd><p>sentence (Sentence): The internal Sentence object to be converted.</p>
+</dd>
+<dt>Returns:</dt><dd><p>SentenceModel: The corresponding Pydantic model with mapped attributes.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="nlpmed_engine.api.mappers.map_pydantic_to_internal_note">
+<span class="sig-prename descclassname"><span class="pre">nlpmed_engine.api.mappers.</span></span><span class="sig-name descname"><span class="pre">map_pydantic_to_internal_note</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">note_model</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#nlpmed_engine.api.models.NoteModel" title="nlpmed_engine.api.models.NoteModel"><span class="pre">NoteModel</span></a></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="nlpmed_engine.data_structures.html#nlpmed_engine.data_structures.note.Note" title="nlpmed_engine.data_structures.note.Note"><span class="pre">Note</span></a></span></span><a class="headerlink" href="#nlpmed_engine.api.mappers.map_pydantic_to_internal_note" title="Link to this definition">¶</a></dt>
+<dd><p>Map a Pydantic NoteModel to an internal Note object.</p>
+<dl class="simple">
+<dt>Args:</dt><dd><p>note_model (NoteModel): The Pydantic model representing a note.</p>
+</dd>
+<dt>Returns:</dt><dd><p>Note: The internal Note object with mapped sections and attributes.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="nlpmed_engine.api.mappers.map_pydantic_to_internal_patient">
+<span class="sig-prename descclassname"><span class="pre">nlpmed_engine.api.mappers.</span></span><span class="sig-name descname"><span class="pre">map_pydantic_to_internal_patient</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">patient_model</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#nlpmed_engine.api.models.PatientModel" title="nlpmed_engine.api.models.PatientModel"><span class="pre">PatientModel</span></a></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="nlpmed_engine.data_structures.html#nlpmed_engine.data_structures.patient.Patient" title="nlpmed_engine.data_structures.patient.Patient"><span class="pre">Patient</span></a></span></span><a class="headerlink" href="#nlpmed_engine.api.mappers.map_pydantic_to_internal_patient" title="Link to this definition">¶</a></dt>
+<dd><p>Map a Pydantic PatientModel to an internal Patient object.</p>
+<dl class="simple">
+<dt>Args:</dt><dd><p>patient_model (PatientModel): The Pydantic model representing a patient.</p>
+</dd>
+<dt>Returns:</dt><dd><p>Patient: The internal Patient object with mapped notes.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="nlpmed_engine.api.mappers.map_pydantic_to_internal_section">
+<span class="sig-prename descclassname"><span class="pre">nlpmed_engine.api.mappers.</span></span><span class="sig-name descname"><span class="pre">map_pydantic_to_internal_section</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">section_model</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#nlpmed_engine.api.models.SectionModel" title="nlpmed_engine.api.models.SectionModel"><span class="pre">SectionModel</span></a></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="nlpmed_engine.data_structures.html#nlpmed_engine.data_structures.section.Section" title="nlpmed_engine.data_structures.section.Section"><span class="pre">Section</span></a></span></span><a class="headerlink" href="#nlpmed_engine.api.mappers.map_pydantic_to_internal_section" title="Link to this definition">¶</a></dt>
+<dd><p>Map a Pydantic SectionModel to an internal Section object.</p>
+<dl class="simple">
+<dt>Args:</dt><dd><p>section_model (SectionModel): The Pydantic model representing a section.</p>
+</dd>
+<dt>Returns:</dt><dd><p>Section: The internal Section object with mapped sentences and attributes.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="nlpmed_engine.api.mappers.map_pydantic_to_internal_sentence">
+<span class="sig-prename descclassname"><span class="pre">nlpmed_engine.api.mappers.</span></span><span class="sig-name descname"><span class="pre">map_pydantic_to_internal_sentence</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">sentence_model</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#nlpmed_engine.api.models.SentenceModel" title="nlpmed_engine.api.models.SentenceModel"><span class="pre">SentenceModel</span></a></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="nlpmed_engine.data_structures.html#nlpmed_engine.data_structures.sentence.Sentence" title="nlpmed_engine.data_structures.sentence.Sentence"><span class="pre">Sentence</span></a></span></span><a class="headerlink" href="#nlpmed_engine.api.mappers.map_pydantic_to_internal_sentence" title="Link to this definition">¶</a></dt>
+<dd><p>Map a Pydantic SentenceModel to an internal Sentence object.</p>
+<dl class="simple">
+<dt>Args:</dt><dd><p>sentence_model (SentenceModel): The Pydantic model representing a sentence.</p>
+</dd>
+<dt>Returns:</dt><dd><p>Sentence: The internal Sentence object with the corresponding attributes.</p>
+</dd>
+</dl>
+</dd></dl>
+
+</section>
+<section id="module-nlpmed_engine.api.models">
+<span id="nlpmed-engine-api-models-module"></span><h2>nlpmed_engine.api.models module<a class="headerlink" href="#module-nlpmed_engine.api.models" title="Link to this heading">¶</a></h2>
+<p>Pydantic models for NLPMed-Engine API.</p>
+<p>This module defines the Pydantic models used for validating and managing the input,
+output, and configuration data for the NLPMed-Engine. The models provide a structured
+representation of various components involved in text processing, including sentences,
+sections, notes, patients, and different text processing components.</p>
+<dl class="simple">
+<dt>Classes:</dt><dd><dl class="simple">
+<dt>StringInputModel:</dt><dd><p>Model for string inputs to be processed.</p>
+</dd>
+<dt>ComponentStatusModel:</dt><dd><p>Base model for component status.</p>
+</dd>
+<dt>EncodingFixerModel:</dt><dd><p>Model for encoding fixer component status.</p>
+</dd>
+<dt>PatternReplacerModel:</dt><dd><p>Model for pattern replacer component with pattern and target replacements.</p>
+</dd>
+<dt>WordMaskerModel:</dt><dd><p>Model for word masker component with mask settings.</p>
+</dd>
+<dt>NoteFilterModel:</dt><dd><p>Model for filtering notes based on keywords.</p>
+</dd>
+<dt>SectionSplitterModel:</dt><dd><p>Model for splitting sections using a delimiter.</p>
+</dd>
+<dt>SectionFilterModel:</dt><dd><p>Model for filtering sections based on include and exclude keywords.</p>
+</dd>
+<dt>SentenceSegmenterModel:</dt><dd><p>Model for sentence segmentation settings.</p>
+</dd>
+<dt>DuplicateCheckerModel:</dt><dd><p>Model for duplicate checking configuration.</p>
+</dd>
+<dt>SentenceFilterModel:</dt><dd><p>Model for filtering sentences based on keywords.</p>
+</dd>
+<dt>SentenceExpanderModel:</dt><dd><p>Model for expanding short sentences.</p>
+</dd>
+<dt>JoinerModel:</dt><dd><p>Model for joining sentences and sections.</p>
+</dd>
+<dt>MLInferenceModel:</dt><dd><p>Model for machine learning inference settings.</p>
+</dd>
+<dt>ConfigModel:</dt><dd><p>Configuration model for all text processing components.</p>
+</dd>
+<dt>SentenceModel:</dt><dd><p>Model for representing a sentence with various attributes.</p>
+</dd>
+<dt>SectionModel:</dt><dd><p>Model for representing a section with sentences.</p>
+</dd>
+<dt>NoteModel:</dt><dd><p>Model for representing a note with sections and preprocessed text.</p>
+</dd>
+<dt>PatientModel:</dt><dd><p>Model for representing a patient with associated notes.</p>
+</dd>
+<dt>TextProcessingResponseModel:</dt><dd><p>Model for responses related to text processing output.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+<dl class="py class">
+<dt class="sig sig-object py" id="nlpmed_engine.api.models.ComponentStatusModel">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">nlpmed_engine.api.models.</span></span><span class="sig-name descname"><span class="pre">ComponentStatusModel</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">status</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#nlpmed_engine.api.models.ComponentStatusModel" title="Link to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">BaseModel</span></code></p>
+<p>Base model for component status.</p>
+<dl class="simple">
+<dt>Attributes:</dt><dd><p>status (str): Status of the component (‘enabled’, ‘disabled’, ‘excluded’).</p>
+</dd>
+</dl>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="nlpmed_engine.api.models.ComponentStatusModel.model_config">
+<span class="sig-name descname"><span class="pre">model_config</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">ClassVar</span><span class="p"><span class="pre">[</span></span><span class="pre">ConfigDict</span><span class="p"><span class="pre">]</span></span></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">{}</span></em><a class="headerlink" href="#nlpmed_engine.api.models.ComponentStatusModel.model_config" title="Link to this definition">¶</a></dt>
+<dd><p>Configuration for the model, should be a dictionary conforming to [<cite>ConfigDict</cite>][pydantic.config.ConfigDict].</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="nlpmed_engine.api.models.ComponentStatusModel.status">
+<span class="sig-name descname"><span class="pre">status</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">str</span></em><a class="headerlink" href="#nlpmed_engine.api.models.ComponentStatusModel.status" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="nlpmed_engine.api.models.ConfigModel">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">nlpmed_engine.api.models.</span></span><span class="sig-name descname"><span class="pre">ConfigModel</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">encoding_fixer</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">dict</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">pattern_replacer</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">dict</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">word_masker</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">dict</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">note_filter</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">dict</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">section_splitter</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">dict</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">section_filter</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">dict</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">sentence_segmenter</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">dict</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">duplicate_checker</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">dict</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">sentence_filter</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">dict</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">sentence_expander</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">dict</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">joiner</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">dict</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ml_inference</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">dict</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">debug</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#nlpmed_engine.api.models.ConfigModel" title="Link to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">BaseModel</span></code></p>
+<p>Configuration model for all text processing components.</p>
+<dl class="simple">
+<dt>Attributes:</dt><dd><p>encoding_fixer (dict | None): Configuration for the encoding fixer component.
+pattern_replacer (dict | None): Configuration for the pattern replacer component.
+word_masker (dict | None): Configuration for the word masker component.
+note_filter (dict | None): Configuration for the note filter component.
+section_splitter (dict | None): Configuration for the section splitter component.
+section_filter (dict | None): Configuration for the section filter component.
+sentence_segmenter (dict | None): Configuration for the sentence segmenter component.
+duplicate_checker (dict | None): Configuration for the duplicate checker component.
+sentence_filter (dict | None): Configuration for the sentence filter component.
+sentence_expander (dict | None): Configuration for the sentence expander component.
+joiner (dict | None): Configuration for the joiner component.
+ml_inference (dict | None): Configuration for the machine learning inference component.</p>
+</dd>
+</dl>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="nlpmed_engine.api.models.ConfigModel.debug">
+<span class="sig-name descname"><span class="pre">debug</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">bool</span></em><a class="headerlink" href="#nlpmed_engine.api.models.ConfigModel.debug" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="nlpmed_engine.api.models.ConfigModel.duplicate_checker">
+<span class="sig-name descname"><span class="pre">duplicate_checker</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">dict</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></em><a class="headerlink" href="#nlpmed_engine.api.models.ConfigModel.duplicate_checker" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="nlpmed_engine.api.models.ConfigModel.encoding_fixer">
+<span class="sig-name descname"><span class="pre">encoding_fixer</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">dict</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></em><a class="headerlink" href="#nlpmed_engine.api.models.ConfigModel.encoding_fixer" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="nlpmed_engine.api.models.ConfigModel.joiner">
+<span class="sig-name descname"><span class="pre">joiner</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">dict</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></em><a class="headerlink" href="#nlpmed_engine.api.models.ConfigModel.joiner" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="nlpmed_engine.api.models.ConfigModel.ml_inference">
+<span class="sig-name descname"><span class="pre">ml_inference</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">dict</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></em><a class="headerlink" href="#nlpmed_engine.api.models.ConfigModel.ml_inference" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="nlpmed_engine.api.models.ConfigModel.model_config">
+<span class="sig-name descname"><span class="pre">model_config</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">ClassVar</span><span class="p"><span class="pre">[</span></span><span class="pre">ConfigDict</span><span class="p"><span class="pre">]</span></span></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">{}</span></em><a class="headerlink" href="#nlpmed_engine.api.models.ConfigModel.model_config" title="Link to this definition">¶</a></dt>
+<dd><p>Configuration for the model, should be a dictionary conforming to [<cite>ConfigDict</cite>][pydantic.config.ConfigDict].</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="nlpmed_engine.api.models.ConfigModel.note_filter">
+<span class="sig-name descname"><span class="pre">note_filter</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">dict</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></em><a class="headerlink" href="#nlpmed_engine.api.models.ConfigModel.note_filter" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="nlpmed_engine.api.models.ConfigModel.pattern_replacer">
+<span class="sig-name descname"><span class="pre">pattern_replacer</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">dict</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></em><a class="headerlink" href="#nlpmed_engine.api.models.ConfigModel.pattern_replacer" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="nlpmed_engine.api.models.ConfigModel.section_filter">
+<span class="sig-name descname"><span class="pre">section_filter</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">dict</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></em><a class="headerlink" href="#nlpmed_engine.api.models.ConfigModel.section_filter" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="nlpmed_engine.api.models.ConfigModel.section_splitter">
+<span class="sig-name descname"><span class="pre">section_splitter</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">dict</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></em><a class="headerlink" href="#nlpmed_engine.api.models.ConfigModel.section_splitter" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="nlpmed_engine.api.models.ConfigModel.sentence_expander">
+<span class="sig-name descname"><span class="pre">sentence_expander</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">dict</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></em><a class="headerlink" href="#nlpmed_engine.api.models.ConfigModel.sentence_expander" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="nlpmed_engine.api.models.ConfigModel.sentence_filter">
+<span class="sig-name descname"><span class="pre">sentence_filter</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">dict</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></em><a class="headerlink" href="#nlpmed_engine.api.models.ConfigModel.sentence_filter" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="nlpmed_engine.api.models.ConfigModel.sentence_segmenter">
+<span class="sig-name descname"><span class="pre">sentence_segmenter</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">dict</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></em><a class="headerlink" href="#nlpmed_engine.api.models.ConfigModel.sentence_segmenter" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="nlpmed_engine.api.models.ConfigModel.word_masker">
+<span class="sig-name descname"><span class="pre">word_masker</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">dict</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></em><a class="headerlink" href="#nlpmed_engine.api.models.ConfigModel.word_masker" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="nlpmed_engine.api.models.DuplicateCheckerModel">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">nlpmed_engine.api.models.</span></span><span class="sig-name descname"><span class="pre">DuplicateCheckerModel</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">status</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">num_perm</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">256</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">sim_threshold</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">0.9</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">length_threshold</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">50</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#nlpmed_engine.api.models.DuplicateCheckerModel" title="Link to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#nlpmed_engine.api.models.ComponentStatusModel" title="nlpmed_engine.api.models.ComponentStatusModel"><code class="xref py py-class docutils literal notranslate"><span class="pre">ComponentStatusModel</span></code></a></p>
+<p>Model for duplicate checking configuration.</p>
+<dl class="simple">
+<dt>Attributes:</dt><dd><p>num_perm (int): Number of permutations for MinHash.
+sim_threshold (float): Similarity threshold for duplicates.
+length_threshold (int): Length threshold for checking duplicates.</p>
+</dd>
+</dl>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="nlpmed_engine.api.models.DuplicateCheckerModel.length_threshold">
+<span class="sig-name descname"><span class="pre">length_threshold</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">int</span></em><a class="headerlink" href="#nlpmed_engine.api.models.DuplicateCheckerModel.length_threshold" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="nlpmed_engine.api.models.DuplicateCheckerModel.model_config">
+<span class="sig-name descname"><span class="pre">model_config</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">ClassVar</span><span class="p"><span class="pre">[</span></span><span class="pre">ConfigDict</span><span class="p"><span class="pre">]</span></span></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">{}</span></em><a class="headerlink" href="#nlpmed_engine.api.models.DuplicateCheckerModel.model_config" title="Link to this definition">¶</a></dt>
+<dd><p>Configuration for the model, should be a dictionary conforming to [<cite>ConfigDict</cite>][pydantic.config.ConfigDict].</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="nlpmed_engine.api.models.DuplicateCheckerModel.num_perm">
+<span class="sig-name descname"><span class="pre">num_perm</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">int</span></em><a class="headerlink" href="#nlpmed_engine.api.models.DuplicateCheckerModel.num_perm" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="nlpmed_engine.api.models.DuplicateCheckerModel.sim_threshold">
+<span class="sig-name descname"><span class="pre">sim_threshold</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">float</span></em><a class="headerlink" href="#nlpmed_engine.api.models.DuplicateCheckerModel.sim_threshold" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="nlpmed_engine.api.models.EncodingFixerModel">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">nlpmed_engine.api.models.</span></span><span class="sig-name descname"><span class="pre">EncodingFixerModel</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">status</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#nlpmed_engine.api.models.EncodingFixerModel" title="Link to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#nlpmed_engine.api.models.ComponentStatusModel" title="nlpmed_engine.api.models.ComponentStatusModel"><code class="xref py py-class docutils literal notranslate"><span class="pre">ComponentStatusModel</span></code></a></p>
+<p>Model for encoding fixer component status.</p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="nlpmed_engine.api.models.EncodingFixerModel.model_config">
+<span class="sig-name descname"><span class="pre">model_config</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">ClassVar</span><span class="p"><span class="pre">[</span></span><span class="pre">ConfigDict</span><span class="p"><span class="pre">]</span></span></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">{}</span></em><a class="headerlink" href="#nlpmed_engine.api.models.EncodingFixerModel.model_config" title="Link to this definition">¶</a></dt>
+<dd><p>Configuration for the model, should be a dictionary conforming to [<cite>ConfigDict</cite>][pydantic.config.ConfigDict].</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="nlpmed_engine.api.models.JoinerModel">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">nlpmed_engine.api.models.</span></span><span class="sig-name descname"><span class="pre">JoinerModel</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">status</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">sentence_delimiter</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'\n'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">section_delimiter</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'\n\n'</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#nlpmed_engine.api.models.JoinerModel" title="Link to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#nlpmed_engine.api.models.ComponentStatusModel" title="nlpmed_engine.api.models.ComponentStatusModel"><code class="xref py py-class docutils literal notranslate"><span class="pre">ComponentStatusModel</span></code></a></p>
+<p>Model for joining sentences and sections.</p>
+<dl class="simple">
+<dt>Attributes:</dt><dd><p>sentence_delimiter (str): Delimiter for joining sentences.
+section_delimiter (str): Delimiter for joining sections.</p>
+</dd>
+</dl>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="nlpmed_engine.api.models.JoinerModel.model_config">
+<span class="sig-name descname"><span class="pre">model_config</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">ClassVar</span><span class="p"><span class="pre">[</span></span><span class="pre">ConfigDict</span><span class="p"><span class="pre">]</span></span></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">{}</span></em><a class="headerlink" href="#nlpmed_engine.api.models.JoinerModel.model_config" title="Link to this definition">¶</a></dt>
+<dd><p>Configuration for the model, should be a dictionary conforming to [<cite>ConfigDict</cite>][pydantic.config.ConfigDict].</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="nlpmed_engine.api.models.JoinerModel.section_delimiter">
+<span class="sig-name descname"><span class="pre">section_delimiter</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">str</span></em><a class="headerlink" href="#nlpmed_engine.api.models.JoinerModel.section_delimiter" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="nlpmed_engine.api.models.JoinerModel.sentence_delimiter">
+<span class="sig-name descname"><span class="pre">sentence_delimiter</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">str</span></em><a class="headerlink" href="#nlpmed_engine.api.models.JoinerModel.sentence_delimiter" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="nlpmed_engine.api.models.MLInferenceModel">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">nlpmed_engine.api.models.</span></span><span class="sig-name descname"><span class="pre">MLInferenceModel</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">status</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">device</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'cpu'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ml_model_path</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ml_tokenizer_path</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#nlpmed_engine.api.models.MLInferenceModel" title="Link to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#nlpmed_engine.api.models.ComponentStatusModel" title="nlpmed_engine.api.models.ComponentStatusModel"><code class="xref py py-class docutils literal notranslate"><span class="pre">ComponentStatusModel</span></code></a></p>
+<p>Model for machine learning inference settings.</p>
+<dl class="simple">
+<dt>Attributes:</dt><dd><p>device (str): Device used for model inference (e.g., ‘cpu’, ‘cuda’).
+ml_model_path (str): Path to the model.
+ml_tokenizer_path (str): Path to the tokenizer.</p>
+</dd>
+</dl>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="nlpmed_engine.api.models.MLInferenceModel.device">
+<span class="sig-name descname"><span class="pre">device</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">str</span></em><a class="headerlink" href="#nlpmed_engine.api.models.MLInferenceModel.device" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="nlpmed_engine.api.models.MLInferenceModel.ml_model_path">
+<span class="sig-name descname"><span class="pre">ml_model_path</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">str</span></em><a class="headerlink" href="#nlpmed_engine.api.models.MLInferenceModel.ml_model_path" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="nlpmed_engine.api.models.MLInferenceModel.ml_tokenizer_path">
+<span class="sig-name descname"><span class="pre">ml_tokenizer_path</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">str</span></em><a class="headerlink" href="#nlpmed_engine.api.models.MLInferenceModel.ml_tokenizer_path" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="nlpmed_engine.api.models.MLInferenceModel.model_config">
+<span class="sig-name descname"><span class="pre">model_config</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">ClassVar</span><span class="p"><span class="pre">[</span></span><span class="pre">ConfigDict</span><span class="p"><span class="pre">]</span></span></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">{}</span></em><a class="headerlink" href="#nlpmed_engine.api.models.MLInferenceModel.model_config" title="Link to this definition">¶</a></dt>
+<dd><p>Configuration for the model, should be a dictionary conforming to [<cite>ConfigDict</cite>][pydantic.config.ConfigDict].</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="nlpmed_engine.api.models.MlModelInfo">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">nlpmed_engine.api.models.</span></span><span class="sig-name descname"><span class="pre">MlModelInfo</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">name</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">device</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">max_length</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">loaded</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">loaded_at</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#nlpmed_engine.api.models.MlModelInfo" title="Link to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">BaseModel</span></code></p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="nlpmed_engine.api.models.MlModelInfo.device">
+<span class="sig-name descname"><span class="pre">device</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">str</span></em><a class="headerlink" href="#nlpmed_engine.api.models.MlModelInfo.device" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="nlpmed_engine.api.models.MlModelInfo.loaded">
+<span class="sig-name descname"><span class="pre">loaded</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">bool</span></em><a class="headerlink" href="#nlpmed_engine.api.models.MlModelInfo.loaded" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="nlpmed_engine.api.models.MlModelInfo.loaded_at">
+<span class="sig-name descname"><span class="pre">loaded_at</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></em><a class="headerlink" href="#nlpmed_engine.api.models.MlModelInfo.loaded_at" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="nlpmed_engine.api.models.MlModelInfo.max_length">
+<span class="sig-name descname"><span class="pre">max_length</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">int</span></em><a class="headerlink" href="#nlpmed_engine.api.models.MlModelInfo.max_length" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="nlpmed_engine.api.models.MlModelInfo.model_config">
+<span class="sig-name descname"><span class="pre">model_config</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">ClassVar</span><span class="p"><span class="pre">[</span></span><span class="pre">ConfigDict</span><span class="p"><span class="pre">]</span></span></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">{}</span></em><a class="headerlink" href="#nlpmed_engine.api.models.MlModelInfo.model_config" title="Link to this definition">¶</a></dt>
+<dd><p>Configuration for the model, should be a dictionary conforming to [<cite>ConfigDict</cite>][pydantic.config.ConfigDict].</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="nlpmed_engine.api.models.MlModelInfo.name">
+<span class="sig-name descname"><span class="pre">name</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">str</span></em><a class="headerlink" href="#nlpmed_engine.api.models.MlModelInfo.name" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="nlpmed_engine.api.models.MlModelsResponse">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">nlpmed_engine.api.models.</span></span><span class="sig-name descname"><span class="pre">MlModelsResponse</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">default_name</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">models</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">list</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="#nlpmed_engine.api.models.MlModelInfo" title="nlpmed_engine.api.models.MlModelInfo"><span class="pre">MlModelInfo</span></a><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#nlpmed_engine.api.models.MlModelsResponse" title="Link to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">BaseModel</span></code></p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="nlpmed_engine.api.models.MlModelsResponse.default_name">
+<span class="sig-name descname"><span class="pre">default_name</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">str</span></em><a class="headerlink" href="#nlpmed_engine.api.models.MlModelsResponse.default_name" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="nlpmed_engine.api.models.MlModelsResponse.model_config">
+<span class="sig-name descname"><span class="pre">model_config</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">ClassVar</span><span class="p"><span class="pre">[</span></span><span class="pre">ConfigDict</span><span class="p"><span class="pre">]</span></span></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">{}</span></em><a class="headerlink" href="#nlpmed_engine.api.models.MlModelsResponse.model_config" title="Link to this definition">¶</a></dt>
+<dd><p>Configuration for the model, should be a dictionary conforming to [<cite>ConfigDict</cite>][pydantic.config.ConfigDict].</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="nlpmed_engine.api.models.MlModelsResponse.models">
+<span class="sig-name descname"><span class="pre">models</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">list</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="#nlpmed_engine.api.models.MlModelInfo" title="nlpmed_engine.api.models.MlModelInfo"><span class="pre">MlModelInfo</span></a><span class="p"><span class="pre">]</span></span></em><a class="headerlink" href="#nlpmed_engine.api.models.MlModelsResponse.models" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="nlpmed_engine.api.models.NoteFilterModel">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">nlpmed_engine.api.models.</span></span><span class="sig-name descname"><span class="pre">NoteFilterModel</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">*</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">status:</span> <span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">words_to_search:</span> <span class="pre">list[str]</span> <span class="pre">=</span> <span class="pre">&lt;factory&gt;</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#nlpmed_engine.api.models.NoteFilterModel" title="Link to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#nlpmed_engine.api.models.ComponentStatusModel" title="nlpmed_engine.api.models.ComponentStatusModel"><code class="xref py py-class docutils literal notranslate"><span class="pre">ComponentStatusModel</span></code></a></p>
+<p>Model for filtering notes based on keywords.</p>
+<dl class="simple">
+<dt>Attributes:</dt><dd><p>words_to_search (list[str]): Keywords to search in the notes.</p>
+</dd>
+</dl>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="nlpmed_engine.api.models.NoteFilterModel.model_config">
+<span class="sig-name descname"><span class="pre">model_config</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">ClassVar</span><span class="p"><span class="pre">[</span></span><span class="pre">ConfigDict</span><span class="p"><span class="pre">]</span></span></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">{}</span></em><a class="headerlink" href="#nlpmed_engine.api.models.NoteFilterModel.model_config" title="Link to this definition">¶</a></dt>
+<dd><p>Configuration for the model, should be a dictionary conforming to [<cite>ConfigDict</cite>][pydantic.config.ConfigDict].</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="nlpmed_engine.api.models.NoteFilterModel.words_to_search">
+<span class="sig-name descname"><span class="pre">words_to_search</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">list</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></em><a class="headerlink" href="#nlpmed_engine.api.models.NoteFilterModel.words_to_search" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="nlpmed_engine.api.models.NoteModel">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">nlpmed_engine.api.models.</span></span><span class="sig-name descname"><span class="pre">NoteModel</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">*</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">text:</span> <span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">sections:</span> <span class="pre">list[~nlpmed_engine.api.models.SectionModel]</span> <span class="pre">=</span> <span class="pre">&lt;factory&gt;</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">preprocessed_text:</span> <span class="pre">str</span> <span class="pre">|</span> <span class="pre">None</span> <span class="pre">=</span> <span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">predicted_label:</span> <span class="pre">str</span> <span class="pre">|</span> <span class="pre">None</span> <span class="pre">=</span> <span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">predicted_score:</span> <span class="pre">float</span> <span class="pre">|</span> <span class="pre">None</span> <span class="pre">=</span> <span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">note_id:</span> <span class="pre">str</span> <span class="pre">|</span> <span class="pre">None</span> <span class="pre">=</span> <span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#nlpmed_engine.api.models.NoteModel" title="Link to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">BaseModel</span></code></p>
+<p>Model for representing a note with sections and preprocessed text.</p>
+<dl class="simple">
+<dt>Attributes:</dt><dd><p>note_id (str): Unique identifier for the note.
+text (str): Text of the note.
+sections (list[SectionModel]): List of sections in the note.
+preprocessed_text (str | None): Preprocessed text of the note.
+predicted_label (str | None): Predicted label from the model inference.
+predicted_score (float | None): Predicted score from the model inference.</p>
+</dd>
+</dl>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="nlpmed_engine.api.models.NoteModel.model_config">
+<span class="sig-name descname"><span class="pre">model_config</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">ClassVar</span><span class="p"><span class="pre">[</span></span><span class="pre">ConfigDict</span><span class="p"><span class="pre">]</span></span></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">{}</span></em><a class="headerlink" href="#nlpmed_engine.api.models.NoteModel.model_config" title="Link to this definition">¶</a></dt>
+<dd><p>Configuration for the model, should be a dictionary conforming to [<cite>ConfigDict</cite>][pydantic.config.ConfigDict].</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="nlpmed_engine.api.models.NoteModel.note_id">
+<span class="sig-name descname"><span class="pre">note_id</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></em><a class="headerlink" href="#nlpmed_engine.api.models.NoteModel.note_id" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="nlpmed_engine.api.models.NoteModel.predicted_label">
+<span class="sig-name descname"><span class="pre">predicted_label</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></em><a class="headerlink" href="#nlpmed_engine.api.models.NoteModel.predicted_label" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="nlpmed_engine.api.models.NoteModel.predicted_score">
+<span class="sig-name descname"><span class="pre">predicted_score</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">float</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></em><a class="headerlink" href="#nlpmed_engine.api.models.NoteModel.predicted_score" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="nlpmed_engine.api.models.NoteModel.preprocessed_text">
+<span class="sig-name descname"><span class="pre">preprocessed_text</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></em><a class="headerlink" href="#nlpmed_engine.api.models.NoteModel.preprocessed_text" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="nlpmed_engine.api.models.NoteModel.sections">
+<span class="sig-name descname"><span class="pre">sections</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">list</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="#nlpmed_engine.api.models.SectionModel" title="nlpmed_engine.api.models.SectionModel"><span class="pre">SectionModel</span></a><span class="p"><span class="pre">]</span></span></em><a class="headerlink" href="#nlpmed_engine.api.models.NoteModel.sections" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="nlpmed_engine.api.models.NoteModel.text">
+<span class="sig-name descname"><span class="pre">text</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">str</span></em><a class="headerlink" href="#nlpmed_engine.api.models.NoteModel.text" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="nlpmed_engine.api.models.PatientModel">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">nlpmed_engine.api.models.</span></span><span class="sig-name descname"><span class="pre">PatientModel</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">patient_id</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">notes</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">list</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="#nlpmed_engine.api.models.NoteModel" title="nlpmed_engine.api.models.NoteModel"><span class="pre">NoteModel</span></a><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#nlpmed_engine.api.models.PatientModel" title="Link to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">BaseModel</span></code></p>
+<p>Model for representing a patient with associated notes.</p>
+<dl class="simple">
+<dt>Attributes:</dt><dd><p>patient_id (str): Unique identifier for the patient.
+notes (list[NoteModel]): List of notes associated with the patient.</p>
+</dd>
+</dl>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="nlpmed_engine.api.models.PatientModel.model_config">
+<span class="sig-name descname"><span class="pre">model_config</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">ClassVar</span><span class="p"><span class="pre">[</span></span><span class="pre">ConfigDict</span><span class="p"><span class="pre">]</span></span></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">{}</span></em><a class="headerlink" href="#nlpmed_engine.api.models.PatientModel.model_config" title="Link to this definition">¶</a></dt>
+<dd><p>Configuration for the model, should be a dictionary conforming to [<cite>ConfigDict</cite>][pydantic.config.ConfigDict].</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="nlpmed_engine.api.models.PatientModel.notes">
+<span class="sig-name descname"><span class="pre">notes</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">list</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="#nlpmed_engine.api.models.NoteModel" title="nlpmed_engine.api.models.NoteModel"><span class="pre">NoteModel</span></a><span class="p"><span class="pre">]</span></span></em><a class="headerlink" href="#nlpmed_engine.api.models.PatientModel.notes" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="nlpmed_engine.api.models.PatientModel.patient_id">
+<span class="sig-name descname"><span class="pre">patient_id</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">str</span></em><a class="headerlink" href="#nlpmed_engine.api.models.PatientModel.patient_id" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="nlpmed_engine.api.models.PatternReplacerModel">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">nlpmed_engine.api.models.</span></span><span class="sig-name descname"><span class="pre">PatternReplacerModel</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">status</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">pattern</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'\\s{4,}'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">target</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'\n\n'</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#nlpmed_engine.api.models.PatternReplacerModel" title="Link to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#nlpmed_engine.api.models.ComponentStatusModel" title="nlpmed_engine.api.models.ComponentStatusModel"><code class="xref py py-class docutils literal notranslate"><span class="pre">ComponentStatusModel</span></code></a></p>
+<p>Model for pattern replacer component with pattern and target replacements.</p>
+<dl class="simple">
+<dt>Attributes:</dt><dd><p>pattern (str): Regex pattern to replace in the text.
+target (str): Target string to replace matched pattern.</p>
+</dd>
+</dl>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="nlpmed_engine.api.models.PatternReplacerModel.model_config">
+<span class="sig-name descname"><span class="pre">model_config</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">ClassVar</span><span class="p"><span class="pre">[</span></span><span class="pre">ConfigDict</span><span class="p"><span class="pre">]</span></span></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">{}</span></em><a class="headerlink" href="#nlpmed_engine.api.models.PatternReplacerModel.model_config" title="Link to this definition">¶</a></dt>
+<dd><p>Configuration for the model, should be a dictionary conforming to [<cite>ConfigDict</cite>][pydantic.config.ConfigDict].</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="nlpmed_engine.api.models.PatternReplacerModel.pattern">
+<span class="sig-name descname"><span class="pre">pattern</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">str</span></em><a class="headerlink" href="#nlpmed_engine.api.models.PatternReplacerModel.pattern" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="nlpmed_engine.api.models.PatternReplacerModel.target">
+<span class="sig-name descname"><span class="pre">target</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">str</span></em><a class="headerlink" href="#nlpmed_engine.api.models.PatternReplacerModel.target" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="nlpmed_engine.api.models.SectionFilterModel">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">nlpmed_engine.api.models.</span></span><span class="sig-name descname"><span class="pre">SectionFilterModel</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">*</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">status:</span> <span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">section_inc_list:</span> <span class="pre">list[str]</span> <span class="pre">=</span> <span class="pre">&lt;factory&gt;</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">section_exc_list:</span> <span class="pre">list[str]</span> <span class="pre">=</span> <span class="pre">&lt;factory&gt;</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">fallback:</span> <span class="pre">bool</span> <span class="pre">=</span> <span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#nlpmed_engine.api.models.SectionFilterModel" title="Link to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#nlpmed_engine.api.models.ComponentStatusModel" title="nlpmed_engine.api.models.ComponentStatusModel"><code class="xref py py-class docutils literal notranslate"><span class="pre">ComponentStatusModel</span></code></a></p>
+<p>Model for filtering sections based on include and exclude keywords.</p>
+<dl class="simple">
+<dt>Attributes:</dt><dd><p>section_inc_list (list[str]): Keywords for including sections.
+section_exc_list (list[str]): Keywords for excluding sections.
+fallback (bool): Enable fallback behavior if no sections match.</p>
+</dd>
+</dl>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="nlpmed_engine.api.models.SectionFilterModel.fallback">
+<span class="sig-name descname"><span class="pre">fallback</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">bool</span></em><a class="headerlink" href="#nlpmed_engine.api.models.SectionFilterModel.fallback" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="nlpmed_engine.api.models.SectionFilterModel.model_config">
+<span class="sig-name descname"><span class="pre">model_config</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">ClassVar</span><span class="p"><span class="pre">[</span></span><span class="pre">ConfigDict</span><span class="p"><span class="pre">]</span></span></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">{}</span></em><a class="headerlink" href="#nlpmed_engine.api.models.SectionFilterModel.model_config" title="Link to this definition">¶</a></dt>
+<dd><p>Configuration for the model, should be a dictionary conforming to [<cite>ConfigDict</cite>][pydantic.config.ConfigDict].</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="nlpmed_engine.api.models.SectionFilterModel.section_exc_list">
+<span class="sig-name descname"><span class="pre">section_exc_list</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">list</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></em><a class="headerlink" href="#nlpmed_engine.api.models.SectionFilterModel.section_exc_list" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="nlpmed_engine.api.models.SectionFilterModel.section_inc_list">
+<span class="sig-name descname"><span class="pre">section_inc_list</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">list</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></em><a class="headerlink" href="#nlpmed_engine.api.models.SectionFilterModel.section_inc_list" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="nlpmed_engine.api.models.SectionModel">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">nlpmed_engine.api.models.</span></span><span class="sig-name descname"><span class="pre">SectionModel</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">*</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">text:</span> <span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">start_index:</span> <span class="pre">int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">end_index:</span> <span class="pre">int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">sentences:</span> <span class="pre">list[~nlpmed_engine.api.models.SentenceModel]</span> <span class="pre">=</span> <span class="pre">&lt;factory&gt;</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">important_indices:</span> <span class="pre">list[int]</span> <span class="pre">=</span> <span class="pre">&lt;factory&gt;</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">duplicate_indices:</span> <span class="pre">list[int]</span> <span class="pre">=</span> <span class="pre">&lt;factory&gt;</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">expanded_indices:</span> <span class="pre">list[int]</span> <span class="pre">=</span> <span class="pre">&lt;factory&gt;</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">is_important:</span> <span class="pre">bool</span> <span class="pre">=</span> <span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#nlpmed_engine.api.models.SectionModel" title="Link to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">BaseModel</span></code></p>
+<p>Model for representing a section with sentences.</p>
+<dl class="simple">
+<dt>Attributes:</dt><dd><p>text (str): Text of the section.
+start_index (int): Start index of the section in the original text.
+end_index (int): End index of the section in the original text.
+sentences (list[SentenceModel]): List of sentences in the section.
+important_indices (list[int]): Indices of important sentences in the section.
+duplicate_indices (list[int]): Indices of duplicate sentences in the section.
+is_important (bool): Indicates if the section is marked as important.</p>
+</dd>
+</dl>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="nlpmed_engine.api.models.SectionModel.duplicate_indices">
+<span class="sig-name descname"><span class="pre">duplicate_indices</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">list</span><span class="p"><span class="pre">[</span></span><span class="pre">int</span><span class="p"><span class="pre">]</span></span></em><a class="headerlink" href="#nlpmed_engine.api.models.SectionModel.duplicate_indices" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="nlpmed_engine.api.models.SectionModel.end_index">
+<span class="sig-name descname"><span class="pre">end_index</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">int</span></em><a class="headerlink" href="#nlpmed_engine.api.models.SectionModel.end_index" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="nlpmed_engine.api.models.SectionModel.expanded_indices">
+<span class="sig-name descname"><span class="pre">expanded_indices</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">list</span><span class="p"><span class="pre">[</span></span><span class="pre">int</span><span class="p"><span class="pre">]</span></span></em><a class="headerlink" href="#nlpmed_engine.api.models.SectionModel.expanded_indices" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="nlpmed_engine.api.models.SectionModel.important_indices">
+<span class="sig-name descname"><span class="pre">important_indices</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">list</span><span class="p"><span class="pre">[</span></span><span class="pre">int</span><span class="p"><span class="pre">]</span></span></em><a class="headerlink" href="#nlpmed_engine.api.models.SectionModel.important_indices" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="nlpmed_engine.api.models.SectionModel.is_important">
+<span class="sig-name descname"><span class="pre">is_important</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">bool</span></em><a class="headerlink" href="#nlpmed_engine.api.models.SectionModel.is_important" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="nlpmed_engine.api.models.SectionModel.model_config">
+<span class="sig-name descname"><span class="pre">model_config</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">ClassVar</span><span class="p"><span class="pre">[</span></span><span class="pre">ConfigDict</span><span class="p"><span class="pre">]</span></span></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">{}</span></em><a class="headerlink" href="#nlpmed_engine.api.models.SectionModel.model_config" title="Link to this definition">¶</a></dt>
+<dd><p>Configuration for the model, should be a dictionary conforming to [<cite>ConfigDict</cite>][pydantic.config.ConfigDict].</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="nlpmed_engine.api.models.SectionModel.sentences">
+<span class="sig-name descname"><span class="pre">sentences</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">list</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="#nlpmed_engine.api.models.SentenceModel" title="nlpmed_engine.api.models.SentenceModel"><span class="pre">SentenceModel</span></a><span class="p"><span class="pre">]</span></span></em><a class="headerlink" href="#nlpmed_engine.api.models.SectionModel.sentences" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="nlpmed_engine.api.models.SectionModel.start_index">
+<span class="sig-name descname"><span class="pre">start_index</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">int</span></em><a class="headerlink" href="#nlpmed_engine.api.models.SectionModel.start_index" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="nlpmed_engine.api.models.SectionModel.text">
+<span class="sig-name descname"><span class="pre">text</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">str</span></em><a class="headerlink" href="#nlpmed_engine.api.models.SectionModel.text" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="nlpmed_engine.api.models.SectionSplitterModel">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">nlpmed_engine.api.models.</span></span><span class="sig-name descname"><span class="pre">SectionSplitterModel</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">status</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">delimiter</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'\n\n'</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#nlpmed_engine.api.models.SectionSplitterModel" title="Link to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#nlpmed_engine.api.models.ComponentStatusModel" title="nlpmed_engine.api.models.ComponentStatusModel"><code class="xref py py-class docutils literal notranslate"><span class="pre">ComponentStatusModel</span></code></a></p>
+<p>Model for splitting sections using a delimiter.</p>
+<dl class="simple">
+<dt>Attributes:</dt><dd><p>delimiter (str): Delimiter used to split sections.</p>
+</dd>
+</dl>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="nlpmed_engine.api.models.SectionSplitterModel.delimiter">
+<span class="sig-name descname"><span class="pre">delimiter</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">str</span></em><a class="headerlink" href="#nlpmed_engine.api.models.SectionSplitterModel.delimiter" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="nlpmed_engine.api.models.SectionSplitterModel.model_config">
+<span class="sig-name descname"><span class="pre">model_config</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">ClassVar</span><span class="p"><span class="pre">[</span></span><span class="pre">ConfigDict</span><span class="p"><span class="pre">]</span></span></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">{}</span></em><a class="headerlink" href="#nlpmed_engine.api.models.SectionSplitterModel.model_config" title="Link to this definition">¶</a></dt>
+<dd><p>Configuration for the model, should be a dictionary conforming to [<cite>ConfigDict</cite>][pydantic.config.ConfigDict].</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="nlpmed_engine.api.models.SentenceExpanderModel">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">nlpmed_engine.api.models.</span></span><span class="sig-name descname"><span class="pre">SentenceExpanderModel</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">status</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">length_threshold</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">50</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#nlpmed_engine.api.models.SentenceExpanderModel" title="Link to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#nlpmed_engine.api.models.ComponentStatusModel" title="nlpmed_engine.api.models.ComponentStatusModel"><code class="xref py py-class docutils literal notranslate"><span class="pre">ComponentStatusModel</span></code></a></p>
+<p>Model for expanding short sentences.</p>
+<dl class="simple">
+<dt>Attributes:</dt><dd><p>length_threshold (int): Threshold length for expanding short sentences.</p>
+</dd>
+</dl>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="nlpmed_engine.api.models.SentenceExpanderModel.length_threshold">
+<span class="sig-name descname"><span class="pre">length_threshold</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">int</span></em><a class="headerlink" href="#nlpmed_engine.api.models.SentenceExpanderModel.length_threshold" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="nlpmed_engine.api.models.SentenceExpanderModel.model_config">
+<span class="sig-name descname"><span class="pre">model_config</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">ClassVar</span><span class="p"><span class="pre">[</span></span><span class="pre">ConfigDict</span><span class="p"><span class="pre">]</span></span></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">{}</span></em><a class="headerlink" href="#nlpmed_engine.api.models.SentenceExpanderModel.model_config" title="Link to this definition">¶</a></dt>
+<dd><p>Configuration for the model, should be a dictionary conforming to [<cite>ConfigDict</cite>][pydantic.config.ConfigDict].</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="nlpmed_engine.api.models.SentenceFilterModel">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">nlpmed_engine.api.models.</span></span><span class="sig-name descname"><span class="pre">SentenceFilterModel</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">*</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">status:</span> <span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">words_to_search:</span> <span class="pre">list[str]</span> <span class="pre">=</span> <span class="pre">&lt;factory&gt;</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#nlpmed_engine.api.models.SentenceFilterModel" title="Link to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#nlpmed_engine.api.models.ComponentStatusModel" title="nlpmed_engine.api.models.ComponentStatusModel"><code class="xref py py-class docutils literal notranslate"><span class="pre">ComponentStatusModel</span></code></a></p>
+<p>Model for filtering sentences based on keywords.</p>
+<dl class="simple">
+<dt>Attributes:</dt><dd><p>words_to_search (list[str]): Keywords to filter sentences.</p>
+</dd>
+</dl>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="nlpmed_engine.api.models.SentenceFilterModel.model_config">
+<span class="sig-name descname"><span class="pre">model_config</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">ClassVar</span><span class="p"><span class="pre">[</span></span><span class="pre">ConfigDict</span><span class="p"><span class="pre">]</span></span></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">{}</span></em><a class="headerlink" href="#nlpmed_engine.api.models.SentenceFilterModel.model_config" title="Link to this definition">¶</a></dt>
+<dd><p>Configuration for the model, should be a dictionary conforming to [<cite>ConfigDict</cite>][pydantic.config.ConfigDict].</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="nlpmed_engine.api.models.SentenceFilterModel.words_to_search">
+<span class="sig-name descname"><span class="pre">words_to_search</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">list</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></em><a class="headerlink" href="#nlpmed_engine.api.models.SentenceFilterModel.words_to_search" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="nlpmed_engine.api.models.SentenceModel">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">nlpmed_engine.api.models.</span></span><span class="sig-name descname"><span class="pre">SentenceModel</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">text</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">start_index</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">end_index</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">is_duplicate</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">is_important</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">is_expanded</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#nlpmed_engine.api.models.SentenceModel" title="Link to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">BaseModel</span></code></p>
+<p>Model for representing a sentence with various attributes.</p>
+<dl class="simple">
+<dt>Attributes:</dt><dd><p>text (str): Text of the sentence.
+start_index (int): Start index of the sentence in the original text.
+end_index (int): End index of the sentence in the original text.
+is_duplicate (bool): Indicates if the sentence is marked as duplicate.
+is_important (bool): Indicates if the sentence is marked as important.
+is_expanded (bool): Indicates if the sentence has been expanded.</p>
+</dd>
+</dl>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="nlpmed_engine.api.models.SentenceModel.end_index">
+<span class="sig-name descname"><span class="pre">end_index</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">int</span></em><a class="headerlink" href="#nlpmed_engine.api.models.SentenceModel.end_index" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="nlpmed_engine.api.models.SentenceModel.is_duplicate">
+<span class="sig-name descname"><span class="pre">is_duplicate</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">bool</span></em><a class="headerlink" href="#nlpmed_engine.api.models.SentenceModel.is_duplicate" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="nlpmed_engine.api.models.SentenceModel.is_expanded">
+<span class="sig-name descname"><span class="pre">is_expanded</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">bool</span></em><a class="headerlink" href="#nlpmed_engine.api.models.SentenceModel.is_expanded" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="nlpmed_engine.api.models.SentenceModel.is_important">
+<span class="sig-name descname"><span class="pre">is_important</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">bool</span></em><a class="headerlink" href="#nlpmed_engine.api.models.SentenceModel.is_important" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="nlpmed_engine.api.models.SentenceModel.model_config">
+<span class="sig-name descname"><span class="pre">model_config</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">ClassVar</span><span class="p"><span class="pre">[</span></span><span class="pre">ConfigDict</span><span class="p"><span class="pre">]</span></span></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">{}</span></em><a class="headerlink" href="#nlpmed_engine.api.models.SentenceModel.model_config" title="Link to this definition">¶</a></dt>
+<dd><p>Configuration for the model, should be a dictionary conforming to [<cite>ConfigDict</cite>][pydantic.config.ConfigDict].</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="nlpmed_engine.api.models.SentenceModel.start_index">
+<span class="sig-name descname"><span class="pre">start_index</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">int</span></em><a class="headerlink" href="#nlpmed_engine.api.models.SentenceModel.start_index" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="nlpmed_engine.api.models.SentenceModel.text">
+<span class="sig-name descname"><span class="pre">text</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">str</span></em><a class="headerlink" href="#nlpmed_engine.api.models.SentenceModel.text" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="nlpmed_engine.api.models.SentenceSegmenterModel">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">nlpmed_engine.api.models.</span></span><span class="sig-name descname"><span class="pre">SentenceSegmenterModel</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">status</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">nlp_model_name</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'en_core_sci_lg'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">batch_size</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">10</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#nlpmed_engine.api.models.SentenceSegmenterModel" title="Link to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#nlpmed_engine.api.models.ComponentStatusModel" title="nlpmed_engine.api.models.ComponentStatusModel"><code class="xref py py-class docutils literal notranslate"><span class="pre">ComponentStatusModel</span></code></a></p>
+<p>Model for sentence segmentation settings.</p>
+<dl class="simple">
+<dt>Attributes:</dt><dd><p>nlp_model_name (str): Name of the model used for sentence segmentation.
+batch_size (int): Batch size for processing.</p>
+</dd>
+</dl>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="nlpmed_engine.api.models.SentenceSegmenterModel.batch_size">
+<span class="sig-name descname"><span class="pre">batch_size</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">int</span></em><a class="headerlink" href="#nlpmed_engine.api.models.SentenceSegmenterModel.batch_size" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="nlpmed_engine.api.models.SentenceSegmenterModel.model_config">
+<span class="sig-name descname"><span class="pre">model_config</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">ClassVar</span><span class="p"><span class="pre">[</span></span><span class="pre">ConfigDict</span><span class="p"><span class="pre">]</span></span></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">{}</span></em><a class="headerlink" href="#nlpmed_engine.api.models.SentenceSegmenterModel.model_config" title="Link to this definition">¶</a></dt>
+<dd><p>Configuration for the model, should be a dictionary conforming to [<cite>ConfigDict</cite>][pydantic.config.ConfigDict].</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="nlpmed_engine.api.models.SentenceSegmenterModel.nlp_model_name">
+<span class="sig-name descname"><span class="pre">nlp_model_name</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">str</span></em><a class="headerlink" href="#nlpmed_engine.api.models.SentenceSegmenterModel.nlp_model_name" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="nlpmed_engine.api.models.StringInputModel">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">nlpmed_engine.api.models.</span></span><span class="sig-name descname"><span class="pre">StringInputModel</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">text</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#nlpmed_engine.api.models.StringInputModel" title="Link to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">BaseModel</span></code></p>
+<p>Model for string inputs to be processed.</p>
+<dl class="simple">
+<dt>Attributes:</dt><dd><p>text (str): Text input to be processed.</p>
+</dd>
+</dl>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="nlpmed_engine.api.models.StringInputModel.model_config">
+<span class="sig-name descname"><span class="pre">model_config</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">ClassVar</span><span class="p"><span class="pre">[</span></span><span class="pre">ConfigDict</span><span class="p"><span class="pre">]</span></span></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">{}</span></em><a class="headerlink" href="#nlpmed_engine.api.models.StringInputModel.model_config" title="Link to this definition">¶</a></dt>
+<dd><p>Configuration for the model, should be a dictionary conforming to [<cite>ConfigDict</cite>][pydantic.config.ConfigDict].</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="nlpmed_engine.api.models.StringInputModel.text">
+<span class="sig-name descname"><span class="pre">text</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">str</span></em><a class="headerlink" href="#nlpmed_engine.api.models.StringInputModel.text" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="nlpmed_engine.api.models.TextProcessingResponseModel">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">nlpmed_engine.api.models.</span></span><span class="sig-name descname"><span class="pre">TextProcessingResponseModel</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">preprocessed_text</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">predicted_label</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">predicted_score</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">note</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#nlpmed_engine.api.models.NoteModel" title="nlpmed_engine.api.models.NoteModel"><span class="pre">NoteModel</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#nlpmed_engine.api.models.TextProcessingResponseModel" title="Link to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">BaseModel</span></code></p>
+<p>Model for responses related to text processing output.</p>
+<dl class="simple">
+<dt>Attributes:</dt><dd><p>preprocessed_text (str | None): The preprocessed text output.
+predicted_label (str | None): The predicted label from the model inference.
+predicted_score (float | None): The prediction score associated with the predicted label.
+note (NoteModel | None): The note object returned in debug mode.</p>
+</dd>
+</dl>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="nlpmed_engine.api.models.TextProcessingResponseModel.model_config">
+<span class="sig-name descname"><span class="pre">model_config</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">ClassVar</span><span class="p"><span class="pre">[</span></span><span class="pre">ConfigDict</span><span class="p"><span class="pre">]</span></span></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">{}</span></em><a class="headerlink" href="#nlpmed_engine.api.models.TextProcessingResponseModel.model_config" title="Link to this definition">¶</a></dt>
+<dd><p>Configuration for the model, should be a dictionary conforming to [<cite>ConfigDict</cite>][pydantic.config.ConfigDict].</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="nlpmed_engine.api.models.TextProcessingResponseModel.note">
+<span class="sig-name descname"><span class="pre">note</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference internal" href="#nlpmed_engine.api.models.NoteModel" title="nlpmed_engine.api.models.NoteModel"><span class="pre">NoteModel</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></em><a class="headerlink" href="#nlpmed_engine.api.models.TextProcessingResponseModel.note" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="nlpmed_engine.api.models.TextProcessingResponseModel.predicted_label">
+<span class="sig-name descname"><span class="pre">predicted_label</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></em><a class="headerlink" href="#nlpmed_engine.api.models.TextProcessingResponseModel.predicted_label" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="nlpmed_engine.api.models.TextProcessingResponseModel.predicted_score">
+<span class="sig-name descname"><span class="pre">predicted_score</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">float</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></em><a class="headerlink" href="#nlpmed_engine.api.models.TextProcessingResponseModel.predicted_score" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="nlpmed_engine.api.models.TextProcessingResponseModel.preprocessed_text">
+<span class="sig-name descname"><span class="pre">preprocessed_text</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></em><a class="headerlink" href="#nlpmed_engine.api.models.TextProcessingResponseModel.preprocessed_text" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="nlpmed_engine.api.models.WordMaskerModel">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">nlpmed_engine.api.models.</span></span><span class="sig-name descname"><span class="pre">WordMaskerModel</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">*</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">status:</span> <span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">words_to_mask:</span> <span class="pre">list[str]</span> <span class="pre">=</span> <span class="pre">&lt;factory&gt;</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">mask_char:</span> <span class="pre">str</span> <span class="pre">=</span> <span class="pre">'*'</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#nlpmed_engine.api.models.WordMaskerModel" title="Link to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#nlpmed_engine.api.models.ComponentStatusModel" title="nlpmed_engine.api.models.ComponentStatusModel"><code class="xref py py-class docutils literal notranslate"><span class="pre">ComponentStatusModel</span></code></a></p>
+<p>Model for word masker component with mask settings.</p>
+<dl class="simple">
+<dt>Attributes:</dt><dd><p>words_to_mask (list[str]): List of words to mask in the text.
+mask_char (str): Character used for masking.</p>
+</dd>
+</dl>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="nlpmed_engine.api.models.WordMaskerModel.mask_char">
+<span class="sig-name descname"><span class="pre">mask_char</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">str</span></em><a class="headerlink" href="#nlpmed_engine.api.models.WordMaskerModel.mask_char" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="nlpmed_engine.api.models.WordMaskerModel.model_config">
+<span class="sig-name descname"><span class="pre">model_config</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">ClassVar</span><span class="p"><span class="pre">[</span></span><span class="pre">ConfigDict</span><span class="p"><span class="pre">]</span></span></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">{}</span></em><a class="headerlink" href="#nlpmed_engine.api.models.WordMaskerModel.model_config" title="Link to this definition">¶</a></dt>
+<dd><p>Configuration for the model, should be a dictionary conforming to [<cite>ConfigDict</cite>][pydantic.config.ConfigDict].</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="nlpmed_engine.api.models.WordMaskerModel.words_to_mask">
+<span class="sig-name descname"><span class="pre">words_to_mask</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">list</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></em><a class="headerlink" href="#nlpmed_engine.api.models.WordMaskerModel.words_to_mask" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="nlpmed-engine-api-routes-module">
+<h2>nlpmed_engine.api.routes module<a class="headerlink" href="#nlpmed-engine-api-routes-module" title="Link to this heading">¶</a></h2>
+</section>
+<section id="module-nlpmed_engine.api">
+<span id="module-contents"></span><h2>Module contents<a class="headerlink" href="#module-nlpmed_engine.api" title="Link to this heading">¶</a></h2>
+</section>
+</section>
+
+
+          </div>
+          
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="Main">
+        <div class="sphinxsidebarwrapper">
+<h1 class="logo"><a href="index.html">nlpmed_engine</a></h1>
+
+
+
+
+
+
+
+
+
+<search id="searchbox" style="display: none" role="search">
+    <div class="searchformwrapper">
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" placeholder="Search"/>
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</search>
+<script>document.getElementById('searchbox').style.display = "block"</script><h3>Navigation</h3>
+<p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="modules.html">nlpmed_engine</a><ul class="current">
+<li class="toctree-l2 current"><a class="reference internal" href="nlpmed_engine.html">nlpmed_engine package</a></li>
+</ul>
+</li>
+</ul>
+
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="index.html">Documentation overview</a><ul>
+  <li><a href="modules.html">nlpmed_engine</a><ul>
+  <li><a href="nlpmed_engine.html">nlpmed_engine package</a><ul>
+      <li>Previous: <a href="nlpmed_engine.html" title="previous chapter">nlpmed_engine package</a></li>
+      <li>Next: <a href="nlpmed_engine.components.html" title="next chapter">nlpmed_engine.components package</a></li>
+  </ul></li>
+  </ul></li>
+  </ul></li>
+</ul>
+</div>
+
+
+
+
+
+
+
+
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &#169;2025, Omid Jafari.
+      
+      |
+      Powered by <a href="https://www.sphinx-doc.org/">Sphinx 8.0.2</a>
+      &amp; <a href="https://alabaster.readthedocs.io">Alabaster 1.0.0</a>
+      
+      |
+      <a href="_sources/nlpmed_engine.api.rst.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>

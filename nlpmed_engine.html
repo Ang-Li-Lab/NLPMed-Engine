@@ -1,0 +1,532 @@
+<!DOCTYPE html>
+
+<html lang="en" data-content_root="./">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>nlpmed_engine package &#8212; nlpmed_engine 1.0.0 documentation</title>
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=5ecbeea2" />
+    <link rel="stylesheet" type="text/css" href="_static/basic.css?v=c058f7c8" />
+    <link rel="stylesheet" type="text/css" href="_static/alabaster.css?v=27fed22d" />
+    <script src="_static/documentation_options.js?v=8d563738"></script>
+    <script src="_static/doctools.js?v=9a2dae69"></script>
+    <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="nlpmed_engine.api package" href="nlpmed_engine.api.html" />
+    <link rel="prev" title="nlpmed_engine" href="modules.html" />
+   
+  <link rel="stylesheet" href="_static/custom.css" type="text/css" />
+  
+
+  
+  
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <section id="nlpmed-engine-package">
+<h1>nlpmed_engine package<a class="headerlink" href="#nlpmed-engine-package" title="Link to this heading">¶</a></h1>
+<section id="subpackages">
+<h2>Subpackages<a class="headerlink" href="#subpackages" title="Link to this heading">¶</a></h2>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="nlpmed_engine.api.html">nlpmed_engine.api package</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="nlpmed_engine.api.html#submodules">Submodules</a></li>
+<li class="toctree-l2"><a class="reference internal" href="nlpmed_engine.api.html#nlpmed-engine-api-main-module">nlpmed_engine.api.main module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="nlpmed_engine.api.html#module-nlpmed_engine.api.mappers">nlpmed_engine.api.mappers module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="nlpmed_engine.api.html#nlpmed_engine.api.mappers.map_internal_to_pydantic_note_model"><code class="docutils literal notranslate"><span class="pre">map_internal_to_pydantic_note_model()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="nlpmed_engine.api.html#nlpmed_engine.api.mappers.map_internal_to_pydantic_patient_model"><code class="docutils literal notranslate"><span class="pre">map_internal_to_pydantic_patient_model()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="nlpmed_engine.api.html#nlpmed_engine.api.mappers.map_internal_to_pydantic_section_model"><code class="docutils literal notranslate"><span class="pre">map_internal_to_pydantic_section_model()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="nlpmed_engine.api.html#nlpmed_engine.api.mappers.map_internal_to_pydantic_sentence_model"><code class="docutils literal notranslate"><span class="pre">map_internal_to_pydantic_sentence_model()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="nlpmed_engine.api.html#nlpmed_engine.api.mappers.map_pydantic_to_internal_note"><code class="docutils literal notranslate"><span class="pre">map_pydantic_to_internal_note()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="nlpmed_engine.api.html#nlpmed_engine.api.mappers.map_pydantic_to_internal_patient"><code class="docutils literal notranslate"><span class="pre">map_pydantic_to_internal_patient()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="nlpmed_engine.api.html#nlpmed_engine.api.mappers.map_pydantic_to_internal_section"><code class="docutils literal notranslate"><span class="pre">map_pydantic_to_internal_section()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="nlpmed_engine.api.html#nlpmed_engine.api.mappers.map_pydantic_to_internal_sentence"><code class="docutils literal notranslate"><span class="pre">map_pydantic_to_internal_sentence()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="nlpmed_engine.api.html#module-nlpmed_engine.api.models">nlpmed_engine.api.models module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="nlpmed_engine.api.html#nlpmed_engine.api.models.ComponentStatusModel"><code class="docutils literal notranslate"><span class="pre">ComponentStatusModel</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="nlpmed_engine.api.html#nlpmed_engine.api.models.ComponentStatusModel.model_config"><code class="docutils literal notranslate"><span class="pre">ComponentStatusModel.model_config</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="nlpmed_engine.api.html#nlpmed_engine.api.models.ComponentStatusModel.status"><code class="docutils literal notranslate"><span class="pre">ComponentStatusModel.status</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="nlpmed_engine.api.html#nlpmed_engine.api.models.ConfigModel"><code class="docutils literal notranslate"><span class="pre">ConfigModel</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="nlpmed_engine.api.html#nlpmed_engine.api.models.ConfigModel.debug"><code class="docutils literal notranslate"><span class="pre">ConfigModel.debug</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="nlpmed_engine.api.html#nlpmed_engine.api.models.ConfigModel.duplicate_checker"><code class="docutils literal notranslate"><span class="pre">ConfigModel.duplicate_checker</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="nlpmed_engine.api.html#nlpmed_engine.api.models.ConfigModel.encoding_fixer"><code class="docutils literal notranslate"><span class="pre">ConfigModel.encoding_fixer</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="nlpmed_engine.api.html#nlpmed_engine.api.models.ConfigModel.joiner"><code class="docutils literal notranslate"><span class="pre">ConfigModel.joiner</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="nlpmed_engine.api.html#nlpmed_engine.api.models.ConfigModel.ml_inference"><code class="docutils literal notranslate"><span class="pre">ConfigModel.ml_inference</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="nlpmed_engine.api.html#nlpmed_engine.api.models.ConfigModel.model_config"><code class="docutils literal notranslate"><span class="pre">ConfigModel.model_config</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="nlpmed_engine.api.html#nlpmed_engine.api.models.ConfigModel.note_filter"><code class="docutils literal notranslate"><span class="pre">ConfigModel.note_filter</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="nlpmed_engine.api.html#nlpmed_engine.api.models.ConfigModel.pattern_replacer"><code class="docutils literal notranslate"><span class="pre">ConfigModel.pattern_replacer</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="nlpmed_engine.api.html#nlpmed_engine.api.models.ConfigModel.section_filter"><code class="docutils literal notranslate"><span class="pre">ConfigModel.section_filter</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="nlpmed_engine.api.html#nlpmed_engine.api.models.ConfigModel.section_splitter"><code class="docutils literal notranslate"><span class="pre">ConfigModel.section_splitter</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="nlpmed_engine.api.html#nlpmed_engine.api.models.ConfigModel.sentence_expander"><code class="docutils literal notranslate"><span class="pre">ConfigModel.sentence_expander</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="nlpmed_engine.api.html#nlpmed_engine.api.models.ConfigModel.sentence_filter"><code class="docutils literal notranslate"><span class="pre">ConfigModel.sentence_filter</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="nlpmed_engine.api.html#nlpmed_engine.api.models.ConfigModel.sentence_segmenter"><code class="docutils literal notranslate"><span class="pre">ConfigModel.sentence_segmenter</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="nlpmed_engine.api.html#nlpmed_engine.api.models.ConfigModel.word_masker"><code class="docutils literal notranslate"><span class="pre">ConfigModel.word_masker</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="nlpmed_engine.api.html#nlpmed_engine.api.models.DuplicateCheckerModel"><code class="docutils literal notranslate"><span class="pre">DuplicateCheckerModel</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="nlpmed_engine.api.html#nlpmed_engine.api.models.DuplicateCheckerModel.length_threshold"><code class="docutils literal notranslate"><span class="pre">DuplicateCheckerModel.length_threshold</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="nlpmed_engine.api.html#nlpmed_engine.api.models.DuplicateCheckerModel.model_config"><code class="docutils literal notranslate"><span class="pre">DuplicateCheckerModel.model_config</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="nlpmed_engine.api.html#nlpmed_engine.api.models.DuplicateCheckerModel.num_perm"><code class="docutils literal notranslate"><span class="pre">DuplicateCheckerModel.num_perm</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="nlpmed_engine.api.html#nlpmed_engine.api.models.DuplicateCheckerModel.sim_threshold"><code class="docutils literal notranslate"><span class="pre">DuplicateCheckerModel.sim_threshold</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="nlpmed_engine.api.html#nlpmed_engine.api.models.EncodingFixerModel"><code class="docutils literal notranslate"><span class="pre">EncodingFixerModel</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="nlpmed_engine.api.html#nlpmed_engine.api.models.EncodingFixerModel.model_config"><code class="docutils literal notranslate"><span class="pre">EncodingFixerModel.model_config</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="nlpmed_engine.api.html#nlpmed_engine.api.models.JoinerModel"><code class="docutils literal notranslate"><span class="pre">JoinerModel</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="nlpmed_engine.api.html#nlpmed_engine.api.models.JoinerModel.model_config"><code class="docutils literal notranslate"><span class="pre">JoinerModel.model_config</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="nlpmed_engine.api.html#nlpmed_engine.api.models.JoinerModel.section_delimiter"><code class="docutils literal notranslate"><span class="pre">JoinerModel.section_delimiter</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="nlpmed_engine.api.html#nlpmed_engine.api.models.JoinerModel.sentence_delimiter"><code class="docutils literal notranslate"><span class="pre">JoinerModel.sentence_delimiter</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="nlpmed_engine.api.html#nlpmed_engine.api.models.MLInferenceModel"><code class="docutils literal notranslate"><span class="pre">MLInferenceModel</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="nlpmed_engine.api.html#nlpmed_engine.api.models.MLInferenceModel.device"><code class="docutils literal notranslate"><span class="pre">MLInferenceModel.device</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="nlpmed_engine.api.html#nlpmed_engine.api.models.MLInferenceModel.ml_model_path"><code class="docutils literal notranslate"><span class="pre">MLInferenceModel.ml_model_path</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="nlpmed_engine.api.html#nlpmed_engine.api.models.MLInferenceModel.ml_tokenizer_path"><code class="docutils literal notranslate"><span class="pre">MLInferenceModel.ml_tokenizer_path</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="nlpmed_engine.api.html#nlpmed_engine.api.models.MLInferenceModel.model_config"><code class="docutils literal notranslate"><span class="pre">MLInferenceModel.model_config</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="nlpmed_engine.api.html#nlpmed_engine.api.models.MlModelInfo"><code class="docutils literal notranslate"><span class="pre">MlModelInfo</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="nlpmed_engine.api.html#nlpmed_engine.api.models.MlModelInfo.device"><code class="docutils literal notranslate"><span class="pre">MlModelInfo.device</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="nlpmed_engine.api.html#nlpmed_engine.api.models.MlModelInfo.loaded"><code class="docutils literal notranslate"><span class="pre">MlModelInfo.loaded</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="nlpmed_engine.api.html#nlpmed_engine.api.models.MlModelInfo.loaded_at"><code class="docutils literal notranslate"><span class="pre">MlModelInfo.loaded_at</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="nlpmed_engine.api.html#nlpmed_engine.api.models.MlModelInfo.max_length"><code class="docutils literal notranslate"><span class="pre">MlModelInfo.max_length</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="nlpmed_engine.api.html#nlpmed_engine.api.models.MlModelInfo.model_config"><code class="docutils literal notranslate"><span class="pre">MlModelInfo.model_config</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="nlpmed_engine.api.html#nlpmed_engine.api.models.MlModelInfo.name"><code class="docutils literal notranslate"><span class="pre">MlModelInfo.name</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="nlpmed_engine.api.html#nlpmed_engine.api.models.MlModelsResponse"><code class="docutils literal notranslate"><span class="pre">MlModelsResponse</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="nlpmed_engine.api.html#nlpmed_engine.api.models.MlModelsResponse.default_name"><code class="docutils literal notranslate"><span class="pre">MlModelsResponse.default_name</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="nlpmed_engine.api.html#nlpmed_engine.api.models.MlModelsResponse.model_config"><code class="docutils literal notranslate"><span class="pre">MlModelsResponse.model_config</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="nlpmed_engine.api.html#nlpmed_engine.api.models.MlModelsResponse.models"><code class="docutils literal notranslate"><span class="pre">MlModelsResponse.models</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="nlpmed_engine.api.html#nlpmed_engine.api.models.NoteFilterModel"><code class="docutils literal notranslate"><span class="pre">NoteFilterModel</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="nlpmed_engine.api.html#nlpmed_engine.api.models.NoteFilterModel.model_config"><code class="docutils literal notranslate"><span class="pre">NoteFilterModel.model_config</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="nlpmed_engine.api.html#nlpmed_engine.api.models.NoteFilterModel.words_to_search"><code class="docutils literal notranslate"><span class="pre">NoteFilterModel.words_to_search</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="nlpmed_engine.api.html#nlpmed_engine.api.models.NoteModel"><code class="docutils literal notranslate"><span class="pre">NoteModel</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="nlpmed_engine.api.html#nlpmed_engine.api.models.NoteModel.model_config"><code class="docutils literal notranslate"><span class="pre">NoteModel.model_config</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="nlpmed_engine.api.html#nlpmed_engine.api.models.NoteModel.note_id"><code class="docutils literal notranslate"><span class="pre">NoteModel.note_id</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="nlpmed_engine.api.html#nlpmed_engine.api.models.NoteModel.predicted_label"><code class="docutils literal notranslate"><span class="pre">NoteModel.predicted_label</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="nlpmed_engine.api.html#nlpmed_engine.api.models.NoteModel.predicted_score"><code class="docutils literal notranslate"><span class="pre">NoteModel.predicted_score</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="nlpmed_engine.api.html#nlpmed_engine.api.models.NoteModel.preprocessed_text"><code class="docutils literal notranslate"><span class="pre">NoteModel.preprocessed_text</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="nlpmed_engine.api.html#nlpmed_engine.api.models.NoteModel.sections"><code class="docutils literal notranslate"><span class="pre">NoteModel.sections</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="nlpmed_engine.api.html#nlpmed_engine.api.models.NoteModel.text"><code class="docutils literal notranslate"><span class="pre">NoteModel.text</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="nlpmed_engine.api.html#nlpmed_engine.api.models.PatientModel"><code class="docutils literal notranslate"><span class="pre">PatientModel</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="nlpmed_engine.api.html#nlpmed_engine.api.models.PatientModel.model_config"><code class="docutils literal notranslate"><span class="pre">PatientModel.model_config</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="nlpmed_engine.api.html#nlpmed_engine.api.models.PatientModel.notes"><code class="docutils literal notranslate"><span class="pre">PatientModel.notes</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="nlpmed_engine.api.html#nlpmed_engine.api.models.PatientModel.patient_id"><code class="docutils literal notranslate"><span class="pre">PatientModel.patient_id</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="nlpmed_engine.api.html#nlpmed_engine.api.models.PatternReplacerModel"><code class="docutils literal notranslate"><span class="pre">PatternReplacerModel</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="nlpmed_engine.api.html#nlpmed_engine.api.models.PatternReplacerModel.model_config"><code class="docutils literal notranslate"><span class="pre">PatternReplacerModel.model_config</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="nlpmed_engine.api.html#nlpmed_engine.api.models.PatternReplacerModel.pattern"><code class="docutils literal notranslate"><span class="pre">PatternReplacerModel.pattern</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="nlpmed_engine.api.html#nlpmed_engine.api.models.PatternReplacerModel.target"><code class="docutils literal notranslate"><span class="pre">PatternReplacerModel.target</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="nlpmed_engine.api.html#nlpmed_engine.api.models.SectionFilterModel"><code class="docutils literal notranslate"><span class="pre">SectionFilterModel</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="nlpmed_engine.api.html#nlpmed_engine.api.models.SectionFilterModel.fallback"><code class="docutils literal notranslate"><span class="pre">SectionFilterModel.fallback</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="nlpmed_engine.api.html#nlpmed_engine.api.models.SectionFilterModel.model_config"><code class="docutils literal notranslate"><span class="pre">SectionFilterModel.model_config</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="nlpmed_engine.api.html#nlpmed_engine.api.models.SectionFilterModel.section_exc_list"><code class="docutils literal notranslate"><span class="pre">SectionFilterModel.section_exc_list</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="nlpmed_engine.api.html#nlpmed_engine.api.models.SectionFilterModel.section_inc_list"><code class="docutils literal notranslate"><span class="pre">SectionFilterModel.section_inc_list</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="nlpmed_engine.api.html#nlpmed_engine.api.models.SectionModel"><code class="docutils literal notranslate"><span class="pre">SectionModel</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="nlpmed_engine.api.html#nlpmed_engine.api.models.SectionModel.duplicate_indices"><code class="docutils literal notranslate"><span class="pre">SectionModel.duplicate_indices</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="nlpmed_engine.api.html#nlpmed_engine.api.models.SectionModel.end_index"><code class="docutils literal notranslate"><span class="pre">SectionModel.end_index</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="nlpmed_engine.api.html#nlpmed_engine.api.models.SectionModel.expanded_indices"><code class="docutils literal notranslate"><span class="pre">SectionModel.expanded_indices</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="nlpmed_engine.api.html#nlpmed_engine.api.models.SectionModel.important_indices"><code class="docutils literal notranslate"><span class="pre">SectionModel.important_indices</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="nlpmed_engine.api.html#nlpmed_engine.api.models.SectionModel.is_important"><code class="docutils literal notranslate"><span class="pre">SectionModel.is_important</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="nlpmed_engine.api.html#nlpmed_engine.api.models.SectionModel.model_config"><code class="docutils literal notranslate"><span class="pre">SectionModel.model_config</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="nlpmed_engine.api.html#nlpmed_engine.api.models.SectionModel.sentences"><code class="docutils literal notranslate"><span class="pre">SectionModel.sentences</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="nlpmed_engine.api.html#nlpmed_engine.api.models.SectionModel.start_index"><code class="docutils literal notranslate"><span class="pre">SectionModel.start_index</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="nlpmed_engine.api.html#nlpmed_engine.api.models.SectionModel.text"><code class="docutils literal notranslate"><span class="pre">SectionModel.text</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="nlpmed_engine.api.html#nlpmed_engine.api.models.SectionSplitterModel"><code class="docutils literal notranslate"><span class="pre">SectionSplitterModel</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="nlpmed_engine.api.html#nlpmed_engine.api.models.SectionSplitterModel.delimiter"><code class="docutils literal notranslate"><span class="pre">SectionSplitterModel.delimiter</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="nlpmed_engine.api.html#nlpmed_engine.api.models.SectionSplitterModel.model_config"><code class="docutils literal notranslate"><span class="pre">SectionSplitterModel.model_config</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="nlpmed_engine.api.html#nlpmed_engine.api.models.SentenceExpanderModel"><code class="docutils literal notranslate"><span class="pre">SentenceExpanderModel</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="nlpmed_engine.api.html#nlpmed_engine.api.models.SentenceExpanderModel.length_threshold"><code class="docutils literal notranslate"><span class="pre">SentenceExpanderModel.length_threshold</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="nlpmed_engine.api.html#nlpmed_engine.api.models.SentenceExpanderModel.model_config"><code class="docutils literal notranslate"><span class="pre">SentenceExpanderModel.model_config</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="nlpmed_engine.api.html#nlpmed_engine.api.models.SentenceFilterModel"><code class="docutils literal notranslate"><span class="pre">SentenceFilterModel</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="nlpmed_engine.api.html#nlpmed_engine.api.models.SentenceFilterModel.model_config"><code class="docutils literal notranslate"><span class="pre">SentenceFilterModel.model_config</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="nlpmed_engine.api.html#nlpmed_engine.api.models.SentenceFilterModel.words_to_search"><code class="docutils literal notranslate"><span class="pre">SentenceFilterModel.words_to_search</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="nlpmed_engine.api.html#nlpmed_engine.api.models.SentenceModel"><code class="docutils literal notranslate"><span class="pre">SentenceModel</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="nlpmed_engine.api.html#nlpmed_engine.api.models.SentenceModel.end_index"><code class="docutils literal notranslate"><span class="pre">SentenceModel.end_index</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="nlpmed_engine.api.html#nlpmed_engine.api.models.SentenceModel.is_duplicate"><code class="docutils literal notranslate"><span class="pre">SentenceModel.is_duplicate</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="nlpmed_engine.api.html#nlpmed_engine.api.models.SentenceModel.is_expanded"><code class="docutils literal notranslate"><span class="pre">SentenceModel.is_expanded</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="nlpmed_engine.api.html#nlpmed_engine.api.models.SentenceModel.is_important"><code class="docutils literal notranslate"><span class="pre">SentenceModel.is_important</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="nlpmed_engine.api.html#nlpmed_engine.api.models.SentenceModel.model_config"><code class="docutils literal notranslate"><span class="pre">SentenceModel.model_config</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="nlpmed_engine.api.html#nlpmed_engine.api.models.SentenceModel.start_index"><code class="docutils literal notranslate"><span class="pre">SentenceModel.start_index</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="nlpmed_engine.api.html#nlpmed_engine.api.models.SentenceModel.text"><code class="docutils literal notranslate"><span class="pre">SentenceModel.text</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="nlpmed_engine.api.html#nlpmed_engine.api.models.SentenceSegmenterModel"><code class="docutils literal notranslate"><span class="pre">SentenceSegmenterModel</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="nlpmed_engine.api.html#nlpmed_engine.api.models.SentenceSegmenterModel.batch_size"><code class="docutils literal notranslate"><span class="pre">SentenceSegmenterModel.batch_size</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="nlpmed_engine.api.html#nlpmed_engine.api.models.SentenceSegmenterModel.model_config"><code class="docutils literal notranslate"><span class="pre">SentenceSegmenterModel.model_config</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="nlpmed_engine.api.html#nlpmed_engine.api.models.SentenceSegmenterModel.nlp_model_name"><code class="docutils literal notranslate"><span class="pre">SentenceSegmenterModel.nlp_model_name</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="nlpmed_engine.api.html#nlpmed_engine.api.models.StringInputModel"><code class="docutils literal notranslate"><span class="pre">StringInputModel</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="nlpmed_engine.api.html#nlpmed_engine.api.models.StringInputModel.model_config"><code class="docutils literal notranslate"><span class="pre">StringInputModel.model_config</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="nlpmed_engine.api.html#nlpmed_engine.api.models.StringInputModel.text"><code class="docutils literal notranslate"><span class="pre">StringInputModel.text</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="nlpmed_engine.api.html#nlpmed_engine.api.models.TextProcessingResponseModel"><code class="docutils literal notranslate"><span class="pre">TextProcessingResponseModel</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="nlpmed_engine.api.html#nlpmed_engine.api.models.TextProcessingResponseModel.model_config"><code class="docutils literal notranslate"><span class="pre">TextProcessingResponseModel.model_config</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="nlpmed_engine.api.html#nlpmed_engine.api.models.TextProcessingResponseModel.note"><code class="docutils literal notranslate"><span class="pre">TextProcessingResponseModel.note</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="nlpmed_engine.api.html#nlpmed_engine.api.models.TextProcessingResponseModel.predicted_label"><code class="docutils literal notranslate"><span class="pre">TextProcessingResponseModel.predicted_label</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="nlpmed_engine.api.html#nlpmed_engine.api.models.TextProcessingResponseModel.predicted_score"><code class="docutils literal notranslate"><span class="pre">TextProcessingResponseModel.predicted_score</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="nlpmed_engine.api.html#nlpmed_engine.api.models.TextProcessingResponseModel.preprocessed_text"><code class="docutils literal notranslate"><span class="pre">TextProcessingResponseModel.preprocessed_text</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="nlpmed_engine.api.html#nlpmed_engine.api.models.WordMaskerModel"><code class="docutils literal notranslate"><span class="pre">WordMaskerModel</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="nlpmed_engine.api.html#nlpmed_engine.api.models.WordMaskerModel.mask_char"><code class="docutils literal notranslate"><span class="pre">WordMaskerModel.mask_char</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="nlpmed_engine.api.html#nlpmed_engine.api.models.WordMaskerModel.model_config"><code class="docutils literal notranslate"><span class="pre">WordMaskerModel.model_config</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="nlpmed_engine.api.html#nlpmed_engine.api.models.WordMaskerModel.words_to_mask"><code class="docutils literal notranslate"><span class="pre">WordMaskerModel.words_to_mask</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="nlpmed_engine.api.html#nlpmed-engine-api-routes-module">nlpmed_engine.api.routes module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="nlpmed_engine.api.html#module-nlpmed_engine.api">Module contents</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="nlpmed_engine.components.html">nlpmed_engine.components package</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="nlpmed_engine.components.html#submodules">Submodules</a></li>
+<li class="toctree-l2"><a class="reference internal" href="nlpmed_engine.components.html#module-nlpmed_engine.components.duplicate_checker">nlpmed_engine.components.duplicate_checker module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="nlpmed_engine.components.html#nlpmed_engine.components.duplicate_checker.DuplicateChecker"><code class="docutils literal notranslate"><span class="pre">DuplicateChecker</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="nlpmed_engine.components.html#nlpmed_engine.components.duplicate_checker.DuplicateChecker.add_sentence"><code class="docutils literal notranslate"><span class="pre">DuplicateChecker.add_sentence()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="nlpmed_engine.components.html#nlpmed_engine.components.duplicate_checker.DuplicateChecker.clear_lsh"><code class="docutils literal notranslate"><span class="pre">DuplicateChecker.clear_lsh()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="nlpmed_engine.components.html#nlpmed_engine.components.duplicate_checker.DuplicateChecker.get_minhash"><code class="docutils literal notranslate"><span class="pre">DuplicateChecker.get_minhash()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="nlpmed_engine.components.html#nlpmed_engine.components.duplicate_checker.DuplicateChecker.is_duplicate"><code class="docutils literal notranslate"><span class="pre">DuplicateChecker.is_duplicate()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="nlpmed_engine.components.html#nlpmed_engine.components.duplicate_checker.DuplicateChecker.process"><code class="docutils literal notranslate"><span class="pre">DuplicateChecker.process()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="nlpmed_engine.components.html#module-nlpmed_engine.components.encoding_fixer">nlpmed_engine.components.encoding_fixer module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="nlpmed_engine.components.html#nlpmed_engine.components.encoding_fixer.EncodingFixer"><code class="docutils literal notranslate"><span class="pre">EncodingFixer</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="nlpmed_engine.components.html#nlpmed_engine.components.encoding_fixer.EncodingFixer.process"><code class="docutils literal notranslate"><span class="pre">EncodingFixer.process()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="nlpmed_engine.components.html#module-nlpmed_engine.components.joiner">nlpmed_engine.components.joiner module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="nlpmed_engine.components.html#nlpmed_engine.components.joiner.Joiner"><code class="docutils literal notranslate"><span class="pre">Joiner</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="nlpmed_engine.components.html#nlpmed_engine.components.joiner.Joiner.process"><code class="docutils literal notranslate"><span class="pre">Joiner.process()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="nlpmed_engine.components.html#module-nlpmed_engine.components.ml_inference">nlpmed_engine.components.ml_inference module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="nlpmed_engine.components.html#nlpmed_engine.components.ml_inference.LoadedMeta"><code class="docutils literal notranslate"><span class="pre">LoadedMeta</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="nlpmed_engine.components.html#nlpmed_engine.components.ml_inference.LoadedMeta.device"><code class="docutils literal notranslate"><span class="pre">LoadedMeta.device</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="nlpmed_engine.components.html#nlpmed_engine.components.ml_inference.LoadedMeta.loaded_at"><code class="docutils literal notranslate"><span class="pre">LoadedMeta.loaded_at</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="nlpmed_engine.components.html#nlpmed_engine.components.ml_inference.LoadedMeta.max_length"><code class="docutils literal notranslate"><span class="pre">LoadedMeta.max_length</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="nlpmed_engine.components.html#nlpmed_engine.components.ml_inference.LoadedMeta.name"><code class="docutils literal notranslate"><span class="pre">LoadedMeta.name</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="nlpmed_engine.components.html#nlpmed_engine.components.ml_inference.MLInference"><code class="docutils literal notranslate"><span class="pre">MLInference</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="nlpmed_engine.components.html#nlpmed_engine.components.ml_inference.MLInference.get_loaded_meta"><code class="docutils literal notranslate"><span class="pre">MLInference.get_loaded_meta()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="nlpmed_engine.components.html#nlpmed_engine.components.ml_inference.MLInference.process"><code class="docutils literal notranslate"><span class="pre">MLInference.process()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="nlpmed_engine.components.html#nlpmed_engine.components.ml_inference.MLInference.process_batch_patients"><code class="docutils literal notranslate"><span class="pre">MLInference.process_batch_patients()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="nlpmed_engine.components.html#module-nlpmed_engine.components.note_filter">nlpmed_engine.components.note_filter module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="nlpmed_engine.components.html#nlpmed_engine.components.note_filter.NoteFilter"><code class="docutils literal notranslate"><span class="pre">NoteFilter</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="nlpmed_engine.components.html#nlpmed_engine.components.note_filter.NoteFilter.process"><code class="docutils literal notranslate"><span class="pre">NoteFilter.process()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="nlpmed_engine.components.html#module-nlpmed_engine.components.pattern_replacer">nlpmed_engine.components.pattern_replacer module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="nlpmed_engine.components.html#nlpmed_engine.components.pattern_replacer.PatternReplacer"><code class="docutils literal notranslate"><span class="pre">PatternReplacer</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="nlpmed_engine.components.html#nlpmed_engine.components.pattern_replacer.PatternReplacer.process"><code class="docutils literal notranslate"><span class="pre">PatternReplacer.process()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="nlpmed_engine.components.html#module-nlpmed_engine.components.section_filter">nlpmed_engine.components.section_filter module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="nlpmed_engine.components.html#nlpmed_engine.components.section_filter.SectionFilter"><code class="docutils literal notranslate"><span class="pre">SectionFilter</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="nlpmed_engine.components.html#nlpmed_engine.components.section_filter.SectionFilter.process"><code class="docutils literal notranslate"><span class="pre">SectionFilter.process()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="nlpmed_engine.components.html#module-nlpmed_engine.components.section_splitter">nlpmed_engine.components.section_splitter module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="nlpmed_engine.components.html#nlpmed_engine.components.section_splitter.SectionSplitter"><code class="docutils literal notranslate"><span class="pre">SectionSplitter</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="nlpmed_engine.components.html#nlpmed_engine.components.section_splitter.SectionSplitter.process"><code class="docutils literal notranslate"><span class="pre">SectionSplitter.process()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="nlpmed_engine.components.html#module-nlpmed_engine.components.sentence_expander">nlpmed_engine.components.sentence_expander module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="nlpmed_engine.components.html#nlpmed_engine.components.sentence_expander.SentenceExpander"><code class="docutils literal notranslate"><span class="pre">SentenceExpander</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="nlpmed_engine.components.html#nlpmed_engine.components.sentence_expander.SentenceExpander.expand_section_sentences"><code class="docutils literal notranslate"><span class="pre">SentenceExpander.expand_section_sentences()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="nlpmed_engine.components.html#nlpmed_engine.components.sentence_expander.SentenceExpander.process"><code class="docutils literal notranslate"><span class="pre">SentenceExpander.process()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="nlpmed_engine.components.html#module-nlpmed_engine.components.sentence_filter">nlpmed_engine.components.sentence_filter module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="nlpmed_engine.components.html#nlpmed_engine.components.sentence_filter.SentenceFilter"><code class="docutils literal notranslate"><span class="pre">SentenceFilter</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="nlpmed_engine.components.html#nlpmed_engine.components.sentence_filter.SentenceFilter.process"><code class="docutils literal notranslate"><span class="pre">SentenceFilter.process()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="nlpmed_engine.components.html#module-nlpmed_engine.components.sentence_segmenter">nlpmed_engine.components.sentence_segmenter module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="nlpmed_engine.components.html#nlpmed_engine.components.sentence_segmenter.SentenceSegmenter"><code class="docutils literal notranslate"><span class="pre">SentenceSegmenter</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="nlpmed_engine.components.html#nlpmed_engine.components.sentence_segmenter.SentenceSegmenter.process"><code class="docutils literal notranslate"><span class="pre">SentenceSegmenter.process()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="nlpmed_engine.components.html#nlpmed_engine.components.sentence_segmenter.SentenceSegmenter.process_batch_patients"><code class="docutils literal notranslate"><span class="pre">SentenceSegmenter.process_batch_patients()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="nlpmed_engine.components.html#module-nlpmed_engine.components.word_masker">nlpmed_engine.components.word_masker module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="nlpmed_engine.components.html#nlpmed_engine.components.word_masker.WordMasker"><code class="docutils literal notranslate"><span class="pre">WordMasker</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="nlpmed_engine.components.html#nlpmed_engine.components.word_masker.WordMasker.process"><code class="docutils literal notranslate"><span class="pre">WordMasker.process()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="nlpmed_engine.components.html#module-nlpmed_engine.components">Module contents</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="nlpmed_engine.data_structures.html">nlpmed_engine.data_structures package</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="nlpmed_engine.data_structures.html#submodules">Submodules</a></li>
+<li class="toctree-l2"><a class="reference internal" href="nlpmed_engine.data_structures.html#module-nlpmed_engine.data_structures.note">nlpmed_engine.data_structures.note module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="nlpmed_engine.data_structures.html#nlpmed_engine.data_structures.note.Note"><code class="docutils literal notranslate"><span class="pre">Note</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="nlpmed_engine.data_structures.html#nlpmed_engine.data_structures.note.Note.note_id"><code class="docutils literal notranslate"><span class="pre">Note.note_id</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="nlpmed_engine.data_structures.html#nlpmed_engine.data_structures.note.Note.predicted_label"><code class="docutils literal notranslate"><span class="pre">Note.predicted_label</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="nlpmed_engine.data_structures.html#nlpmed_engine.data_structures.note.Note.predicted_score"><code class="docutils literal notranslate"><span class="pre">Note.predicted_score</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="nlpmed_engine.data_structures.html#nlpmed_engine.data_structures.note.Note.preprocessed_text"><code class="docutils literal notranslate"><span class="pre">Note.preprocessed_text</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="nlpmed_engine.data_structures.html#nlpmed_engine.data_structures.note.Note.sections"><code class="docutils literal notranslate"><span class="pre">Note.sections</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="nlpmed_engine.data_structures.html#nlpmed_engine.data_structures.note.Note.text"><code class="docutils literal notranslate"><span class="pre">Note.text</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="nlpmed_engine.data_structures.html#module-nlpmed_engine.data_structures.patient">nlpmed_engine.data_structures.patient module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="nlpmed_engine.data_structures.html#nlpmed_engine.data_structures.patient.Patient"><code class="docutils literal notranslate"><span class="pre">Patient</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="nlpmed_engine.data_structures.html#nlpmed_engine.data_structures.patient.Patient.add_note"><code class="docutils literal notranslate"><span class="pre">Patient.add_note()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="nlpmed_engine.data_structures.html#nlpmed_engine.data_structures.patient.Patient.from_json"><code class="docutils literal notranslate"><span class="pre">Patient.from_json()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="nlpmed_engine.data_structures.html#nlpmed_engine.data_structures.patient.Patient.notes"><code class="docutils literal notranslate"><span class="pre">Patient.notes</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="nlpmed_engine.data_structures.html#nlpmed_engine.data_structures.patient.Patient.patient_id"><code class="docutils literal notranslate"><span class="pre">Patient.patient_id</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="nlpmed_engine.data_structures.html#module-nlpmed_engine.data_structures.section">nlpmed_engine.data_structures.section module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="nlpmed_engine.data_structures.html#nlpmed_engine.data_structures.section.Section"><code class="docutils literal notranslate"><span class="pre">Section</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="nlpmed_engine.data_structures.html#nlpmed_engine.data_structures.section.Section.duplicate_indices"><code class="docutils literal notranslate"><span class="pre">Section.duplicate_indices</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="nlpmed_engine.data_structures.html#nlpmed_engine.data_structures.section.Section.end_index"><code class="docutils literal notranslate"><span class="pre">Section.end_index</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="nlpmed_engine.data_structures.html#nlpmed_engine.data_structures.section.Section.expanded_indices"><code class="docutils literal notranslate"><span class="pre">Section.expanded_indices</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="nlpmed_engine.data_structures.html#nlpmed_engine.data_structures.section.Section.important_indices"><code class="docutils literal notranslate"><span class="pre">Section.important_indices</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="nlpmed_engine.data_structures.html#nlpmed_engine.data_structures.section.Section.is_important"><code class="docutils literal notranslate"><span class="pre">Section.is_important</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="nlpmed_engine.data_structures.html#nlpmed_engine.data_structures.section.Section.sentences"><code class="docutils literal notranslate"><span class="pre">Section.sentences</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="nlpmed_engine.data_structures.html#nlpmed_engine.data_structures.section.Section.start_index"><code class="docutils literal notranslate"><span class="pre">Section.start_index</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="nlpmed_engine.data_structures.html#nlpmed_engine.data_structures.section.Section.text"><code class="docutils literal notranslate"><span class="pre">Section.text</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="nlpmed_engine.data_structures.html#module-nlpmed_engine.data_structures.sentence">nlpmed_engine.data_structures.sentence module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="nlpmed_engine.data_structures.html#nlpmed_engine.data_structures.sentence.Sentence"><code class="docutils literal notranslate"><span class="pre">Sentence</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="nlpmed_engine.data_structures.html#nlpmed_engine.data_structures.sentence.Sentence.end_index"><code class="docutils literal notranslate"><span class="pre">Sentence.end_index</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="nlpmed_engine.data_structures.html#nlpmed_engine.data_structures.sentence.Sentence.is_duplicate"><code class="docutils literal notranslate"><span class="pre">Sentence.is_duplicate</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="nlpmed_engine.data_structures.html#nlpmed_engine.data_structures.sentence.Sentence.is_expanded"><code class="docutils literal notranslate"><span class="pre">Sentence.is_expanded</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="nlpmed_engine.data_structures.html#nlpmed_engine.data_structures.sentence.Sentence.is_important"><code class="docutils literal notranslate"><span class="pre">Sentence.is_important</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="nlpmed_engine.data_structures.html#nlpmed_engine.data_structures.sentence.Sentence.start_index"><code class="docutils literal notranslate"><span class="pre">Sentence.start_index</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="nlpmed_engine.data_structures.html#nlpmed_engine.data_structures.sentence.Sentence.text"><code class="docutils literal notranslate"><span class="pre">Sentence.text</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="nlpmed_engine.data_structures.html#module-nlpmed_engine.data_structures">Module contents</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="nlpmed_engine.pipelines.html">nlpmed_engine.pipelines package</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="nlpmed_engine.pipelines.html#submodules">Submodules</a></li>
+<li class="toctree-l2"><a class="reference internal" href="nlpmed_engine.pipelines.html#module-nlpmed_engine.pipelines.base_pipeline">nlpmed_engine.pipelines.base_pipeline module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="nlpmed_engine.pipelines.html#nlpmed_engine.pipelines.base_pipeline.BasePipeline"><code class="docutils literal notranslate"><span class="pre">BasePipeline</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="nlpmed_engine.pipelines.html#nlpmed_engine.pipelines.base_pipeline.BasePipeline.initializer"><code class="docutils literal notranslate"><span class="pre">BasePipeline.initializer()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="nlpmed_engine.pipelines.html#nlpmed_engine.pipelines.base_pipeline.BasePipeline.preprocess_params"><code class="docutils literal notranslate"><span class="pre">BasePipeline.preprocess_params()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="nlpmed_engine.pipelines.html#nlpmed_engine.pipelines.base_pipeline.ComponentDict"><code class="docutils literal notranslate"><span class="pre">ComponentDict</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="nlpmed_engine.pipelines.html#nlpmed_engine.pipelines.base_pipeline.ComponentDict.component"><code class="docutils literal notranslate"><span class="pre">ComponentDict.component</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="nlpmed_engine.pipelines.html#nlpmed_engine.pipelines.base_pipeline.ComponentDict.status"><code class="docutils literal notranslate"><span class="pre">ComponentDict.status</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="nlpmed_engine.pipelines.html#module-nlpmed_engine.pipelines.batch_pipeline">nlpmed_engine.pipelines.batch_pipeline module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="nlpmed_engine.pipelines.html#nlpmed_engine.pipelines.batch_pipeline.BatchPipeline"><code class="docutils literal notranslate"><span class="pre">BatchPipeline</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="nlpmed_engine.pipelines.html#nlpmed_engine.pipelines.batch_pipeline.BatchPipeline.process"><code class="docutils literal notranslate"><span class="pre">BatchPipeline.process()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="nlpmed_engine.pipelines.html#module-nlpmed_engine.pipelines.single_pipeline">nlpmed_engine.pipelines.single_pipeline module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="nlpmed_engine.pipelines.html#nlpmed_engine.pipelines.single_pipeline.SinglePipeline"><code class="docutils literal notranslate"><span class="pre">SinglePipeline</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="nlpmed_engine.pipelines.html#nlpmed_engine.pipelines.single_pipeline.SinglePipeline.process"><code class="docutils literal notranslate"><span class="pre">SinglePipeline.process()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="nlpmed_engine.pipelines.html#module-nlpmed_engine.pipelines">Module contents</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="nlpmed_engine.utils.html">nlpmed_engine.utils package</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="nlpmed_engine.utils.html#submodules">Submodules</a></li>
+<li class="toctree-l2"><a class="reference internal" href="nlpmed_engine.utils.html#module-nlpmed_engine.utils.utils">nlpmed_engine.utils.utils module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="nlpmed_engine.utils.html#nlpmed_engine.utils.utils.ModelSpec"><code class="docutils literal notranslate"><span class="pre">ModelSpec</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="nlpmed_engine.utils.html#nlpmed_engine.utils.utils.ModelSpec.device"><code class="docutils literal notranslate"><span class="pre">ModelSpec.device</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="nlpmed_engine.utils.html#nlpmed_engine.utils.utils.ModelSpec.max_length"><code class="docutils literal notranslate"><span class="pre">ModelSpec.max_length</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="nlpmed_engine.utils.html#nlpmed_engine.utils.utils.ModelSpec.model_path"><code class="docutils literal notranslate"><span class="pre">ModelSpec.model_path</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="nlpmed_engine.utils.html#nlpmed_engine.utils.utils.ModelSpec.tokenizer_path"><code class="docutils literal notranslate"><span class="pre">ModelSpec.tokenizer_path</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="nlpmed_engine.utils.html#nlpmed_engine.utils.utils.build_initial_config"><code class="docutils literal notranslate"><span class="pre">build_initial_config()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="nlpmed_engine.utils.html#nlpmed_engine.utils.utils.get_effective_param"><code class="docutils literal notranslate"><span class="pre">get_effective_param()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="nlpmed_engine.utils.html#nlpmed_engine.utils.utils.read_models_from_env"><code class="docutils literal notranslate"><span class="pre">read_models_from_env()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="nlpmed_engine.utils.html#module-nlpmed_engine.utils">Module contents</a></li>
+</ul>
+</li>
+</ul>
+</div>
+</section>
+<section id="submodules">
+<h2>Submodules<a class="headerlink" href="#submodules" title="Link to this heading">¶</a></h2>
+</section>
+<section id="module-nlpmed_engine.about">
+<span id="nlpmed-engine-about-module"></span><h2>nlpmed_engine.about module<a class="headerlink" href="#module-nlpmed_engine.about" title="Link to this heading">¶</a></h2>
+<p>Module Information for NLPMed-Engine.</p>
+<p>This module contains metadata about the NLPMed-Engine, a powerful NLP engine designed
+for medical text processing. It provides essential information such as the title,
+description, version, author details, licensing, and source code URL.</p>
+<dl class="simple">
+<dt>Attributes:</dt><dd><p>__title__ (str): The name of the engine.
+__description__ (str): A brief description of the engine’s purpose.
+__version__ (str): The current version of the engine.
+__author__ (str): The author of the engine.
+__author_website__ (str): The author’s website for more information.
+__license__ (str): The license under which the engine is distributed.
+__url__ (str): The URL to the project’s GitHub repository.</p>
+</dd>
+<dt>Author:</dt><dd><p>Omid Jafari (<a class="reference external" href="https://omidjafari.com">https://omidjafari.com</a>)</p>
+</dd>
+<dt>License:</dt><dd><p>AGPLv3 (<a class="reference external" href="https://www.gnu.org/licenses/agpl-3.0.en.html">https://www.gnu.org/licenses/agpl-3.0.en.html</a>)</p>
+</dd>
+</dl>
+</section>
+<section id="module-nlpmed_engine">
+<span id="module-contents"></span><h2>Module contents<a class="headerlink" href="#module-nlpmed_engine" title="Link to this heading">¶</a></h2>
+</section>
+</section>
+
+
+          </div>
+          
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="Main">
+        <div class="sphinxsidebarwrapper">
+<h1 class="logo"><a href="index.html">nlpmed_engine</a></h1>
+
+
+
+
+
+
+
+
+
+<search id="searchbox" style="display: none" role="search">
+    <div class="searchformwrapper">
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" placeholder="Search"/>
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</search>
+<script>document.getElementById('searchbox').style.display = "block"</script><h3>Navigation</h3>
+<p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="modules.html">nlpmed_engine</a><ul class="current">
+<li class="toctree-l2 current"><a class="current reference internal" href="#">nlpmed_engine package</a></li>
+</ul>
+</li>
+</ul>
+
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="index.html">Documentation overview</a><ul>
+  <li><a href="modules.html">nlpmed_engine</a><ul>
+      <li>Previous: <a href="modules.html" title="previous chapter">nlpmed_engine</a></li>
+      <li>Next: <a href="nlpmed_engine.api.html" title="next chapter">nlpmed_engine.api package</a></li>
+  </ul></li>
+  </ul></li>
+</ul>
+</div>
+
+
+
+
+
+
+
+
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &#169;2025, Omid Jafari.
+      
+      |
+      Powered by <a href="https://www.sphinx-doc.org/">Sphinx 8.0.2</a>
+      &amp; <a href="https://alabaster.readthedocs.io">Alabaster 1.0.0</a>
+      
+      |
+      <a href="_sources/nlpmed_engine.rst.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>

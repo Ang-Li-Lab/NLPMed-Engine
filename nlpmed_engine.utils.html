@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+
+<html lang="en" data-content_root="./">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>nlpmed_engine.utils package &#8212; nlpmed_engine 1.0.0 documentation</title>
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=5ecbeea2" />
+    <link rel="stylesheet" type="text/css" href="_static/basic.css?v=c058f7c8" />
+    <link rel="stylesheet" type="text/css" href="_static/alabaster.css?v=27fed22d" />
+    <script src="_static/documentation_options.js?v=8d563738"></script>
+    <script src="_static/doctools.js?v=9a2dae69"></script>
+    <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="prev" title="nlpmed_engine.pipelines package" href="nlpmed_engine.pipelines.html" />
+   
+  <link rel="stylesheet" href="_static/custom.css" type="text/css" />
+  
+
+  
+  
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <section id="nlpmed-engine-utils-package">
+<h1>nlpmed_engine.utils package<a class="headerlink" href="#nlpmed-engine-utils-package" title="Link to this heading">¶</a></h1>
+<section id="submodules">
+<h2>Submodules<a class="headerlink" href="#submodules" title="Link to this heading">¶</a></h2>
+</section>
+<section id="module-nlpmed_engine.utils.utils">
+<span id="nlpmed-engine-utils-utils-module"></span><h2>nlpmed_engine.utils.utils module<a class="headerlink" href="#module-nlpmed_engine.utils.utils" title="Link to this heading">¶</a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="nlpmed_engine.utils.utils.ModelSpec">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">nlpmed_engine.utils.utils.</span></span><span class="sig-name descname"><span class="pre">ModelSpec</span></span><a class="headerlink" href="#nlpmed_engine.utils.utils.ModelSpec" title="Link to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">TypedDict</span></code></p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="nlpmed_engine.utils.utils.ModelSpec.device">
+<span class="sig-name descname"><span class="pre">device</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">str</span></em><a class="headerlink" href="#nlpmed_engine.utils.utils.ModelSpec.device" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="nlpmed_engine.utils.utils.ModelSpec.max_length">
+<span class="sig-name descname"><span class="pre">max_length</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">int</span></em><a class="headerlink" href="#nlpmed_engine.utils.utils.ModelSpec.max_length" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="nlpmed_engine.utils.utils.ModelSpec.model_path">
+<span class="sig-name descname"><span class="pre">model_path</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">str</span></em><a class="headerlink" href="#nlpmed_engine.utils.utils.ModelSpec.model_path" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="nlpmed_engine.utils.utils.ModelSpec.tokenizer_path">
+<span class="sig-name descname"><span class="pre">tokenizer_path</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">str</span></em><a class="headerlink" href="#nlpmed_engine.utils.utils.ModelSpec.tokenizer_path" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="nlpmed_engine.utils.utils.build_initial_config">
+<span class="sig-prename descclassname"><span class="pre">nlpmed_engine.utils.utils.</span></span><span class="sig-name descname"><span class="pre">build_initial_config</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">Any</span><span class="p"><span class="pre">]</span></span></span></span><a class="headerlink" href="#nlpmed_engine.utils.utils.build_initial_config" title="Link to this definition">¶</a></dt>
+<dd><p>Build the full pipeline config dict, including ml_inference models block.
+The first model name in API_ML_MODEL_NAMES will be treated as the default at runtime.</p>
+<dl class="simple">
+<dt>Returns:</dt><dd><p>dict[str, Any]: The configuration dictionary for the engine.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="nlpmed_engine.utils.utils.get_effective_param">
+<span class="sig-prename descclassname"><span class="pre">nlpmed_engine.utils.utils.</span></span><span class="sig-name descname"><span class="pre">get_effective_param</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">instance_value</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Any</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">provided_value</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Any</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">required</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Any</span></span></span><a class="headerlink" href="#nlpmed_engine.utils.utils.get_effective_param" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="nlpmed_engine.utils.utils.read_models_from_env">
+<span class="sig-prename descclassname"><span class="pre">nlpmed_engine.utils.utils.</span></span><span class="sig-name descname"><span class="pre">read_models_from_env</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><a class="reference internal" href="#nlpmed_engine.utils.utils.ModelSpec" title="nlpmed_engine.utils.utils.ModelSpec"><span class="pre">ModelSpec</span></a><span class="p"><span class="pre">]</span></span></span></span><a class="headerlink" href="#nlpmed_engine.utils.utils.read_models_from_env" title="Link to this definition">¶</a></dt>
+<dd><p>Read API_ML_MODEL_NAMES and per-model env vars into a dictionary.</p>
+<dl>
+<dt>Raises:</dt><dd><p>RuntimeError: No model/tokenizer provided.</p>
+</dd>
+<dt>Returns:</dt><dd><dl class="simple">
+<dt>dict[str, ModelSpec]: {</dt><dd><p>“modelA”: {“device”: …, “model_path”: …, “tokenizer_path”: …, “max_length”: …},
+“modelB”: {“device”: …, “model_path”: …, “tokenizer_path”: …, “max_length”: …},</p>
+</dd>
+</dl>
+<p>}</p>
+</dd>
+</dl>
+</dd></dl>
+
+</section>
+<section id="module-nlpmed_engine.utils">
+<span id="module-contents"></span><h2>Module contents<a class="headerlink" href="#module-nlpmed_engine.utils" title="Link to this heading">¶</a></h2>
+</section>
+</section>
+
+
+          </div>
+          
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="Main">
+        <div class="sphinxsidebarwrapper">
+<h1 class="logo"><a href="index.html">nlpmed_engine</a></h1>
+
+
+
+
+
+
+
+
+
+<search id="searchbox" style="display: none" role="search">
+    <div class="searchformwrapper">
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" placeholder="Search"/>
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</search>
+<script>document.getElementById('searchbox').style.display = "block"</script><h3>Navigation</h3>
+<p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="modules.html">nlpmed_engine</a><ul class="current">
+<li class="toctree-l2 current"><a class="reference internal" href="nlpmed_engine.html">nlpmed_engine package</a></li>
+</ul>
+</li>
+</ul>
+
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="index.html">Documentation overview</a><ul>
+  <li><a href="modules.html">nlpmed_engine</a><ul>
+  <li><a href="nlpmed_engine.html">nlpmed_engine package</a><ul>
+      <li>Previous: <a href="nlpmed_engine.pipelines.html" title="previous chapter">nlpmed_engine.pipelines package</a></li>
+  </ul></li>
+  </ul></li>
+  </ul></li>
+</ul>
+</div>
+
+
+
+
+
+
+
+
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &#169;2025, Omid Jafari.
+      
+      |
+      Powered by <a href="https://www.sphinx-doc.org/">Sphinx 8.0.2</a>
+      &amp; <a href="https://alabaster.readthedocs.io">Alabaster 1.0.0</a>
+      
+      |
+      <a href="_sources/nlpmed_engine.utils.rst.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>
