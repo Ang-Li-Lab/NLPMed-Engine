@@ -408,6 +408,7 @@ class NoteModel(BaseModel):
     """Model for representing a note with sections and preprocessed text.
 
     Attributes:
+        note_id (str): Unique identifier for the note.
         text (str): Text of the note.
         sections (list[SectionModel]): List of sections in the note.
         preprocessed_text (str | None): Preprocessed text of the note.
@@ -432,6 +433,10 @@ class NoteModel(BaseModel):
     predicted_score: float | None = Field(
         default=None,
         description="Predicted score from the model inference",
+    )
+    note_id: str | None = Field(
+        default=None,
+        description="Unique identifier for the note",
     )
 
 

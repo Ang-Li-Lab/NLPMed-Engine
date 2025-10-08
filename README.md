@@ -87,6 +87,7 @@ Install dependencies based on your environment:
 Instead of using the API, you can directly use the `SinglePipeline` or `BatchPipeline` classes in your Python code.
 
 - See `tests/test_single_pipeline.py` and `tests/test_batch_pipeline.py` for usage examples.
+- Note: Since `BatchPipeline` uses parallel processing, the output order may differ from the input. Always use `patient_id` when merging results back with the input data.
 
 ## Resources
 

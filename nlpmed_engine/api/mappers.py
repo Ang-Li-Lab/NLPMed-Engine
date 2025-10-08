@@ -143,6 +143,7 @@ def map_pydantic_to_internal_note(note_model: NoteModel) -> Note:
 
     """
     return Note(
+        note_id=getattr(note_model, "note_id", None),
         text=note_model.text,
         preprocessed_text=note_model.preprocessed_text,
         predicted_label=note_model.predicted_label,
@@ -162,6 +163,7 @@ def map_internal_to_pydantic_note_model(note: Note) -> NoteModel:
 
     """
     return NoteModel(
+        note_id=note.note_id,
         text=note.text,
         preprocessed_text=note.preprocessed_text,
         predicted_label=note.predicted_label,

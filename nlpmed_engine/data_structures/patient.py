@@ -33,5 +33,11 @@ class Patient:
     def from_json(json_data: str) -> "Patient":
         data = json.loads(json_data)
         patient = Patient(patient_id=data["patient_id"])
-        patient.notes = [Note(note_data["text"]) for note_data in data["notes"]]
+        patient.notes = [
+            Note(
+                text=note_data["text"],
+                note_id=note_data.get("note_id"),
+            )
+            for note_data in data["notes"]
+        ]
         return patient

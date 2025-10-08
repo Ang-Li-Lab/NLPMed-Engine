@@ -27,3 +27,4 @@ class Note:
     preprocessed_text: str | None = None
     predicted_label: str | None = None
     predicted_score: float | None = None
+    note_id: str | None = None
