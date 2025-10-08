@@ -48,5 +48,5 @@ if __name__ == "__main__":
         log_config=log_config,
         workers=workers,
         reload=False,
-        worker_healthcheck_timeout=10,
+        timeout_worker_healthcheck=10,
     )

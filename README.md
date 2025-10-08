@@ -30,6 +30,41 @@ NLPMed-Engine is a robust and extensible natural language processing engine tail
 
 ## Installation
 
+## Option 1 - Install nlpmed_engine Python package:
+
+```bash
+git clone https://github.com/ang-li-lab/NLPMed-Engine.git
+cd NLPMed-Engine
+```
+
+Install based on your environment:
+
+- **CPU**:
+  ```bash
+  pip install -e .
+  ```
+
+- **Apple GPU (MPS)**:
+  ```bash
+  pip install -e ".[gpu_apple]"
+  ```
+
+- **Apple CUDA 11**:
+  ```bash
+  pip install -e ".[gpu_cuda11]"
+  ```
+
+- **Apple CUDA 12**:
+  ```bash
+  pip install -e ".[gpu_cuda12]"
+
+## Option 2 - Install dependencies only:
+
+```bash
+git clone https://github.com/ang-li-lab/NLPMed-Engine.git
+cd NLPMed-Engine
+```
+
 Install dependencies based on your environment:
 
 - **CPU**:
@@ -58,23 +93,23 @@ Install dependencies based on your environment:
 
 1. Create a `.env` file with the following template:
 
-  ```ini
-  API_ML_MODEL_NAMES=VTE,BLEED
+    ```ini
+    API_ML_MODEL_NAMES=VTE,BLEED
 
-  API_ML_VTE_MULTICLASS_DEVICE=cpu
-  API_ML_VTE_MULTICLASS_MODEL_PATH=/Users/model
-  API_ML_VTE_MULTICLASS_TOKENIZER_PATH=/Users/tokenizer
-  API_ML_VTE_MULTICLASS_MAX_LENGTH=512
+    API_ML_VTE_MULTICLASS_DEVICE=cpu
+    API_ML_VTE_MULTICLASS_MODEL_PATH=/Users/model
+    API_ML_VTE_MULTICLASS_TOKENIZER_PATH=/Users/tokenizer
+    API_ML_VTE_MULTICLASS_MAX_LENGTH=512
 
-  API_ML_BLEED_BINARY_DEVICE=cuda:0
-  API_ML_BLEED_BINARY_MODEL_PATH=/Users/model
-  API_ML_BLEED_BINARY_TOKENIZER_PATH=/Users/tokenizer
-  API_ML_BLEED_BINARY_MAX_LENGTH=512
+    API_ML_BLEED_BINARY_DEVICE=cuda:0
+    API_ML_BLEED_BINARY_MODEL_PATH=/Users/model
+    API_ML_BLEED_BINARY_TOKENIZER_PATH=/Users/tokenizer
+    API_ML_BLEED_BINARY_MAX_LENGTH=512
 
-  API_HOST=127.0.0.1
-  API_PORT=10010
-  API_WORKERS=1
-  ```
+    API_HOST=127.0.0.1
+    API_PORT=10010
+    API_WORKERS=1
+    ```
 
 2. Run the API:
 
@@ -86,8 +121,8 @@ Install dependencies based on your environment:
 
 Instead of using the API, you can directly use the `SinglePipeline` or `BatchPipeline` classes in your Python code.
 
-- See `tests/test_single_pipeline.py` and `tests/test_batch_pipeline.py` for usage examples.
-- Note: Since `BatchPipeline` uses parallel processing, the output order may differ from the input. Always use `patient_id` when merging results back with the input data.
+- Sample Jupyter notebooks are provided under the `notebooks/` directory.
+- **Note:** Since `BatchPipeline` uses parallel processing, the output order may differ from the input. Always use `patient_id, note_id` when merging results back with the input data.
 
 ## Resources
 

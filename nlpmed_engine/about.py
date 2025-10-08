@@ -39,7 +39,7 @@ License:
 
 __title__ = "NLPMed-Engine"
 __description__ = "A powerful NLP engine for medical text processing."
-__version__ = "2.1.0"
+__version__ = "2.2.0"
 __author__ = "Omid Jafari"
 __author_website__ = "https://omidjafari.com"
 __license__ = "AGPLv3"

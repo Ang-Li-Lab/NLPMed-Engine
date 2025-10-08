@@ -48,18 +48,34 @@ def read_requirements(file_name: str) -> list:
     Returns:
         List of resolved requirement strings.
     """
-    requirements = []
-    with Path(file_name).open(encoding="utf-8") as req_file:
-        for line in req_file:
-            line_stripped = line.strip()
-            if line_stripped.startswith("-r"):
-                req_path = line_stripped.split(" ")[1]
-                if not Path(req_path).is_absolute():
-                    req_path = str(Path(file_name).parent / req_path)
-                requirements.extend(read_requirements(req_path))
-            elif line_stripped and not line_stripped.startswith("#"):
-                requirements.append(line_stripped)
-    return requirements
+    f_path = Path(file_name)
+    if not f_path.exists():
+        return []
+
+    reqs: list[str] = []
+
+    for raw in f_path.read_text(encoding="utf-8").splitlines():
+        line = raw.strip()
+
+        if not line or line.startswith("#"):
+            continue
+
+        if line.startswith("-r"):
+            parts = line.split(maxsplit=1)
+
+            if len(parts) == 2:  # noqa: PLR2004
+                nested = (f_path.parent / parts[1]).resolve()
+                reqs.extend(read_requirements(str(nested)))
+
+            continue
+
+        if line.startswith(("-e ", "--", "-f ", "-c ")):
+            continue
+
+        if line:
+            reqs.append(line)
+
+    return reqs
 
 
 setup(
@@ -71,7 +87,7 @@ setup(
     long_description=long_desc,
     long_description_content_type="text/markdown",
     license=getattr(about_module, "__license__", ""),
-    packages=find_packages(),
+    packages=find_packages(include=["nlpmed_engine", "nlpmed_engine.*"]),
     include_package_data=True,
     classifiers=[
         "Programming Language :: Python :: 3",
@@ -79,9 +95,10 @@ setup(
         "Operating System :: OS Independent",
     ],
     python_requires=">=3.11",
-    install_requires=read_requirements("cpu.txt"),
+    install_requires=read_requirements("requirements/cpu.txt"),
     extras_require={
-        "gpu_apple": read_requirements("gpu_apple.txt"),
-        "gpu_cuda": read_requirements("gpu_cuda.txt"),
+        "gpu_apple": read_requirements("requirements/gpu_apple.txt"),
+        "gpu_cuda11": read_requirements("requirements/gpu_cuda11.txt"),
+        "gpu_cuda12": read_requirements("requirements/gpu_cuda12.txt"),
     },
 )
